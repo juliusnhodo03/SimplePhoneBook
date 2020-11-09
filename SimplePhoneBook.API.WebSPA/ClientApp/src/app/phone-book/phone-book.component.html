@@ -1,0 +1,61 @@
+
+
+<div class="row">
+  <div class="col-md-12">
+
+    <fieldset>
+      <legend>
+        <h5><i class="fa fa-address-book"></i> {{phoneBook.name}}</h5>
+      </legend>
+
+      <div class="row">
+        <p class="col-md-12">
+          <a class="btn btn-outline-secondary"
+             routerLink="/phonebook/add-contact">
+            <i class="fa fa-plus"></i> Add Contact
+          </a>
+        </p>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <app-search-entries (loading)="loading = $event"
+                              (contacts)="searchResults($event)">
+          </app-search-entries>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <table class='table table-striped bordered' aria-labelledby="tableLabel">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Phone Number</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let contact of phoneBook.entries">
+                <td>{{ contact.name }}</td>
+                <td>{{ contact.phoneNumber }}</td>
+              </tr>
+              <tr>
+                <td colspan="2" *ngIf="phoneBook.entries.length === 0">
+                  <div style="font-style:italic">
+                    NO ENTRIES TO DISPLAY
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </fieldset>
+
+  </div>
+</div>
+
+
+
+

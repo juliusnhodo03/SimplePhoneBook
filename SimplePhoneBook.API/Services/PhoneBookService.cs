@@ -62,7 +62,9 @@ namespace PhoneBook.API.Services
         public async Task<PhoneBookModel> GetPhoneBookAsync()
         {
             var phoneBook = await _entryRepository.GetPhoneBookAsync();
+
             var mapped = _mapper.Map<SimplePhoneBook.API.Data.Entities.PhoneBook, PhoneBookModel>(phoneBook);
+
             return mapped;
         }
     }

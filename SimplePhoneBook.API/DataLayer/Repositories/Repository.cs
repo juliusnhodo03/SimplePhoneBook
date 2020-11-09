@@ -28,12 +28,15 @@ namespace SimplePhoneBook.API.DataLayer.Repositories
         /// <summary>
         /// Search entries with the search text provided. This can either be phoneNumber or name.
         /// </summary>
-        /// <param name="text"></param>
-        public async Task<IEnumerable<Entry>> SearchAsync(string text)
+        /// <param name="searchText"></param>
+        public async Task<IEnumerable<Entry>> SearchAsync(string searchText)
         {
-            return 
-                await _phoneBookContext.Entries
-                      .Where(x => x.PhoneNumber.Contains(text) || x.Name.Contains(text))
+            if (searchText == "_none__valid_")         
+                return await _phoneBookContext.Entries.ToListAsync();
+            
+            return await _phoneBookContext.Entries
+                      .Where(x => x.PhoneNumber.Contains(searchText) || 
+                                  x.Name.Contains(searchText))
                       .ToListAsync();
         }
 

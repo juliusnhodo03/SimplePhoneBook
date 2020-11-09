@@ -1,0 +1,46 @@
+
+<div class="row">
+  <div class="col-md-12">
+
+    <fieldset>
+      <legend>
+        <h5><i class="fa fa-user"></i> New Contact</h5>
+      </legend>
+
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text width50">Full Name</span>
+        </div>
+        <input class="form-control" [(ngModel)]="contact.name" />
+      </div>
+
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text width50">Phone Number</span>
+        </div>
+        <input class="form-control" [(ngModel)]="contact.phoneNumber" />
+      </div>
+
+      <br />
+      <div>
+        <div class="pull-left">
+          <button class="btn btn-outline-danger" (click)="createContact(contact)">
+            <i class="fa fa-plus"></i> Create Contact
+          </button>
+
+          &nbsp;&nbsp;
+
+          <a class="btn btn-secondary" routerLink="/phonebook">
+            Phone Book <i class="fa fa-arrow-circle-right"></i>
+          </a>
+        </div>
+      </div>
+
+    </fieldset>
+
+  </div>
+</div>
+
+
+
+
