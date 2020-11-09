@@ -22,7 +22,9 @@ namespace SimplePhoneBook.API.DataLayer.Repositories
         /// </summary>
         public async Task<IEnumerable<Entry>> ListAsync()
         {
-            return await _phoneBookContext.Entries.ToListAsync();
+            return await _phoneBookContext.Entries
+                    .OrderBy(e => e.Name).ThenBy(e => e.PhoneNumber)
+                    .ToListAsync();
         }
 
         /// <summary>
@@ -32,12 +34,15 @@ namespace SimplePhoneBook.API.DataLayer.Repositories
         public async Task<IEnumerable<Entry>> SearchAsync(string searchText)
         {
             if (searchText == "_none__valid_")         
-                return await _phoneBookContext.Entries.ToListAsync();
+                return await _phoneBookContext.Entries
+                    .OrderBy(e => e.Name).ThenBy(e => e.PhoneNumber)
+                    .ToListAsync();
             
             return await _phoneBookContext.Entries
-                      .Where(x => x.PhoneNumber.Contains(searchText) || 
-                                  x.Name.Contains(searchText))
-                      .ToListAsync();
+                        .OrderBy(e => e.Name).ThenBy(e => e.PhoneNumber)
+                        .Where(x => x.PhoneNumber.Contains(searchText) || 
+                                    x.Name.Contains(searchText))
+                        .ToListAsync();
         }
 
         /// <summary>
@@ -61,9 +66,11 @@ namespace SimplePhoneBook.API.DataLayer.Repositories
         /// </summary>
         public async Task<Data.Entities.PhoneBook> GetPhoneBookAsync()
         {
-            return await _phoneBookContext.PhoneBooks
-                            .Include(e => e.Entries)
-                            .FirstOrDefaultAsync();
+            var phoneBook =  await _phoneBookContext.PhoneBooks.Include(e => e.Entries).FirstOrDefaultAsync();
+
+            phoneBook.Entries = phoneBook.Entries.OrderBy(e => e.Name).ThenBy(e => e.PhoneNumber).ToList();
+
+            return phoneBook;
         }
     }
 }
