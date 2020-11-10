@@ -27,8 +27,8 @@ export class SearchEntriesComponent implements OnInit {
   public ngOnInit(): void {
     Observable.fromEvent(this.el.nativeElement, 'keyup')
       .map((e: any) => e.target.value)
-      // only once every 350ms
-      .debounceTime(350)
+      // only once every 250ms
+      .debounceTime(250)
       .do(() => this.loading.emit(true))
       .map((query: string) => this.searchPhoneService.search(query))
       .switch()

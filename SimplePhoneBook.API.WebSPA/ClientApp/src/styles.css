@@ -20,7 +20,7 @@ code {
 }
 
 .red {
-  color: #bd2130;
+  color: #bd2130 !important;
 }
 
 .input-group {
