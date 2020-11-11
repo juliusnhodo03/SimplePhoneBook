@@ -28,7 +28,8 @@ namespace SimplePhoneBook.API
             services.AddControllers();
             services.AddAutoMapper(e => e.AddProfile<AutoMapperConfig>(), typeof(Startup));
 
-            // Services
+            // Services            
+            services.AddTransient<IContactsService, ContactsService>();
             services.AddTransient<IPhoneBookService, PhoneBookService>();
 
             // Repositories

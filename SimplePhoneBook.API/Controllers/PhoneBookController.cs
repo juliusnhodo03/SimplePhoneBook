@@ -21,7 +21,7 @@ namespace SimplePhoneBook.API.Controllers
         /// <summary>
         /// Get phone book
         /// </summary>
-        [HttpGet("Contacts")]
+        [HttpGet]
         public async Task<PhoneBookModel> Get()
         {
             return await _phoneBookService.GetPhoneBookAsync();
@@ -33,21 +33,10 @@ namespace SimplePhoneBook.API.Controllers
         /// This can either be phoneNumber or name. 
         /// </summary>
         /// <param name="text"></param>
-        [HttpGet("Search/Contacts/{text}")]
+        [HttpGet("Search/{text}")]
         public async Task<IEnumerable<EntryModel>> SearchAsync(string text)
         {
             return await _phoneBookService.SearchAsync(text);
-        }
-
-
-        /// <summary>
-        /// Add entries to phone book.
-        /// </summary>
-        /// <param name="contact"></param>
-        [HttpPost("Add/Contact")]
-        public async Task<bool> Post([FromBody] EntryModel contact)
-        {
-            return await _phoneBookService.AddToPhoneBookAsync(contact);
         }
     }
 }

@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { IPhoneBook, IEntry } from '../models/phone-books.models';
 
 import { tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import * as $ from 'jquery';
 
-const phoneBookApiUrl: string = 'http://localhost:4100/api/PhoneBook';
+const apiUrl: string = 'http://localhost:4100/api';
 
 @Injectable()
 export class PhoneBookService {
@@ -13,30 +14,21 @@ export class PhoneBookService {
   constructor(private http: HttpClient) {}
 
   getPhoneBook(): Observable<IPhoneBook> {
-    return this.http.get(`${phoneBookApiUrl}/Contacts`).pipe(
+    return this.http.get(`${apiUrl}/PhoneBook`).pipe(
       tap((phoneBook: IPhoneBook) => {
         return phoneBook;
     }));
   }
 
-
-  addContact(contact: IEntry): Observable<boolean> {
-    let options = this.getHeaders();
-
-    return this.http.post(`${phoneBookApiUrl}/Add/Contact`, contact, options).pipe(
-      tap((added: boolean) => {
-        return added;
-    }));
+  search(searchText: string): Observable<IEntry[]> {
+    if ($.trim(searchText) === '') {
+      searchText = '_none__valid_'
+    }
+    let url = `${apiUrl}/PhoneBook/Search/${searchText}`;
+    return this.http.get(url).pipe(
+      tap((contacts: IEntry[]) => {
+        return contacts;
+      }));
   }
 
-
-  private getHeaders() {
-    const httpOptions =
-    {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    };
-    return httpOptions;
-  }
 }

@@ -18,16 +18,6 @@ namespace SimplePhoneBook.API.DataLayer.Repositories
         }
 
         /// <summary>
-        /// List all entries
-        /// </summary>
-        public async Task<IEnumerable<Entry>> ListAsync()
-        {
-            return await _phoneBookContext.Entries
-                    .OrderBy(e => e.Name).ThenBy(e => e.PhoneNumber)
-                    .ToListAsync();
-        }
-
-        /// <summary>
         /// Search entries with the search text provided. This can either be phoneNumber or name.
         /// </summary>
         /// <param name="searchText"></param>
@@ -71,6 +61,37 @@ namespace SimplePhoneBook.API.DataLayer.Repositories
             phoneBook.Entries = phoneBook.Entries.OrderBy(e => e.Name).ThenBy(e => e.PhoneNumber).ToList();
 
             return phoneBook;
+        }
+
+        /// <summary>
+        /// Get phone entry
+        /// </summary>
+        /// <param name="id"></param>
+        public async Task<Entry> GetContactAsync(int id)
+        {
+            var entry = await _phoneBookContext.Entries.FirstOrDefaultAsync(e => e.EntryId == id);
+            return entry;
+        }
+
+        /// <summary>
+        /// Update entry
+        /// </summary>
+        /// <param name="entry"></param>
+        public async Task<bool> UpdateContactAsync(Entry entry)
+        {
+            _phoneBookContext.Entry(entry).State = EntityState.Modified;
+            return await _phoneBookContext.SaveChangesAsync() > 0;
+        }
+
+        /// <summary>
+        /// Delete entry
+        /// </summary>
+        /// <param name="contact"></param>
+        public async Task<bool> DeleteContactAsync(int id)
+        {
+            var contact = await _phoneBookContext.Entries.FirstOrDefaultAsync(e => e.EntryId == id);
+            _phoneBookContext.Entry(contact).State = EntityState.Deleted;
+            return await _phoneBookContext.SaveChangesAsync() > 0;
         }
     }
 }

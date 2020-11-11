@@ -19,7 +19,7 @@ namespace SimplePhoneBook.API.DataLayer
                 // Seed PhoneBook
                 var phoneBook = new Data.Entities.PhoneBook
                 {
-                    Name = "ABSA PhoneBook"
+                    Name = "Phone Book"
                 };
 
                 await context.PhoneBooks.AddAsync(phoneBook);

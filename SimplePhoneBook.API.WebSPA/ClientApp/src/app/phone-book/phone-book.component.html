@@ -4,14 +4,14 @@
   <div class="col-md-12">
 
     <fieldset>
-      <legend>
+      <legend class="width200">
         <h5><i class="fa fa-address-book"></i> {{phoneBook.name}}</h5>
       </legend>
 
       <div class="row">
         <p class="col-md-12">
           <a class="btn btn-outline-secondary"
-             routerLink="/phonebook/add-contact">
+             routerLink="/phonebook/contact/create">
             <i class="fa fa-plus"></i> Add Contact
           </a>
         </p>
@@ -19,9 +19,10 @@
 
       <div class="row">
         <div class="col-md-12">
-          <app-search-entries (loading)="loading = $event"
-                              (contacts)="searchResults($event)">
-          </app-search-entries>
+          <app-search-contact
+               (loading)="loading = $event"
+               (contacts)="searchResults($event)">
+          </app-search-contact>
         </div>
       </div>
 
@@ -29,20 +30,32 @@
         <div class="col-md-12">
           <table class='bordered table table-striped' aria-labelledby="tableLabel">
             <thead>
-              <tr>
+              <tr *ngIf="phoneBook.entries.length > 0">
                 <th>Name</th>
                 <th>Phone Number</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let contact of phoneBook.entries">
-                <td>{{ contact.name }}</td>
-                <td>{{ contact.phoneNumber }}</td>
+              <tr *ngFor="let entry of phoneBook.entries">
+                <td>{{ entry.name }}</td>
+                <td>{{ entry.phoneNumber }}</td>
+                <td>
+                  <a class="btn btn-outline-success"
+                     routerLink="/phonebook/contact/edit/{{entry.entryId}}">
+                    <i class="fa fa-pencil"></i>
+                  </a>
+
+                  <a class="btn btn-outline-danger"
+                     routerLink="/phonebook/contact/delete/{{entry.entryId}}">
+                    <i class="fa fa-trash"></i>
+                  </a>
+                </td>
               </tr>
               <tr>
-                <td colspan="2" *ngIf="phoneBook.entries.length === 0">
+                <td colspan="3" *ngIf="phoneBook.entries.length === 0">
                   <div style="font-style:italic">
-                    NO ENTRIES TO DISPLAY
+                    No data to display
                   </div>
                 </td>
               </tr>

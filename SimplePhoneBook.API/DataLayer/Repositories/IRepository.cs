@@ -7,11 +7,6 @@ namespace SimplePhoneBook.API.DataLayer.Repositories
     public interface IRepository
     {
         /// <summary>
-        /// List all entries
-        /// </summary>
-        Task<IEnumerable<Entry>> ListAsync();
-
-        /// <summary>
         /// Search entries with the search text provided. This can either be phoneNumber or name.
         /// </summary>
         /// <param name="text"></param>
@@ -27,5 +22,23 @@ namespace SimplePhoneBook.API.DataLayer.Repositories
         /// Get Phone Book
         /// </summary>
         Task<Data.Entities.PhoneBook> GetPhoneBookAsync();
+
+        /// <summary>
+        /// Get phone entry
+        /// </summary>
+        /// <param name="id"></param>
+        Task<Entry> GetContactAsync(int id);
+
+        /// <summary>
+        /// Update entry
+        /// </summary>
+        /// <param name="entry"></param>
+        Task<bool> UpdateContactAsync(Entry entry);
+
+        /// <summary>
+        /// Delete entry
+        /// </summary>
+        /// <param name="contact"></param>
+        Task<bool> DeleteContactAsync(int id);
     }
 }

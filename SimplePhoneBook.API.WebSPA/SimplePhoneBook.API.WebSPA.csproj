@@ -25,14 +25,14 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\shared\models\phone-books.models.ts" />
+    <None Remove="ClientApp\src\app\shared\services\contacts.service.ts" />
     <None Remove="ClientApp\src\app\shared\services\phone-book.service.ts" />
-    <None Remove="ClientApp\src\app\shared\services\search.phone-book.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\shared\models\phone-books.models.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\shared\services\phone-book.service.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\shared\services\search.phone-book.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\shared\services\contacts.service.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

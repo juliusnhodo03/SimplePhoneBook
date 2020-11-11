@@ -25,38 +25,6 @@ namespace PhoneBook.API.Services
         }
 
         /// <summary>
-        /// List all entries
-        /// </summary>
-        public async Task<IEnumerable<EntryModel>> ListAsync()
-        {
-            var entries = await _entryRepository.ListAsync();
-            var contacts = entries.Select(contact => _mapper.Map<Entry, EntryModel>(contact));
-            return contacts;
-        }
-
-        /// <summary>
-        /// Search entries with the search text provided. This can either be phoneNumber or name.
-        /// </summary>
-        /// <param name="text"></param>
-        public async Task<IEnumerable<EntryModel>> SearchAsync(string text)
-        {
-            var entries = await _entryRepository.SearchAsync(text);
-            var contacts = entries.Select(contact => _mapper.Map<Entry, EntryModel>(contact));
-            return contacts;
-        }
-
-        /// <summary>
-        /// Add entries to phone book.
-        /// </summary>
-        /// <param name="contact"></param>
-        public async Task<bool> AddToPhoneBookAsync(EntryModel entry)
-        {
-            var contact = _mapper.Map<EntryModel, Entry>(entry);
-            var result = await _entryRepository.AddToPhoneBookAsync(contact);
-            return result;
-        }
-
-        /// <summary>
         /// Get Phone Book
         /// </summary>
         public async Task<PhoneBookModel> GetPhoneBookAsync()
@@ -66,6 +34,18 @@ namespace PhoneBook.API.Services
             var mapped = _mapper.Map<SimplePhoneBook.API.Data.Entities.PhoneBook, PhoneBookModel>(phoneBook);
 
             return mapped;
+        }
+
+        /// <summary>
+        /// Search entries with the search text provided. 
+        /// This can either be phoneNumber or name.
+        /// </summary>
+        /// <param name="text"></param>
+        public async Task<IEnumerable<EntryModel>> SearchAsync(string text)
+        {
+            var entries = await _entryRepository.SearchAsync(text);
+            var contacts = entries.Select(contact => _mapper.Map<Entry, EntryModel>(contact));
+            return contacts;
         }
     }
 }

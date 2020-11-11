@@ -1,7 +1,7 @@
 import { Component, OnInit, ElementRef, Output, EventEmitter } from '@angular/core';
 
+import { PhoneBookService } from '../shared/services/phone-book.service';
 import { IEntry } from '../shared/models/phone-books.models';
-import { SearchPhoneService } from '../shared/services/search.phone-book.service';
 
 import { Observable } from 'rxjs';
 import 'rxjs/add/observable/fromEvent';
@@ -12,7 +12,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switch';
 
 @Component({
-  selector: 'app-search-entries',
+  selector: 'app-search-contact',
   templateUrl: './search-entries.component.html'
 })
 export class SearchEntriesComponent implements OnInit {
@@ -20,7 +20,7 @@ export class SearchEntriesComponent implements OnInit {
   @Output() contacts: EventEmitter<IEntry[]> = new EventEmitter<IEntry[]>();
 
   constructor(
-    private searchPhoneService: SearchPhoneService,
+    private phoneBookService: PhoneBookService,
     private el: ElementRef) { }
 
 
@@ -30,21 +30,21 @@ export class SearchEntriesComponent implements OnInit {
       // only once every 250ms
       .debounceTime(250)
       .do(() => this.loading.emit(true))
-      .map((query: string) => this.searchPhoneService.search(query))
+      .map((query: string) => this.phoneBookService.search(query))
       .switch()
       .subscribe((contacts: IEntry[]) => {
-        // on success
-        this.loading.emit(false);
-        this.contacts.emit(contacts);
+          // on success
+          this.loading.emit(false);
+          this.contacts.emit(contacts);
       },
-        (err: any) => {
+      (err: any) => {
           // on error
           this.loading.emit(false);
-        },
-        () => {
+      },
+      () => {
           // on completion
           this.loading.emit(false);
-        });
+      });
   }
 
 
