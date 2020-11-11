@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "SimplePhoneBook.API.WebSPA": {
+    "SimplePhoneBook.WebSPA": {
       "commandName": "Project",
       "launchBrowser": true,
       "applicationUrl": "https://localhost:4401;http://localhost:4400",

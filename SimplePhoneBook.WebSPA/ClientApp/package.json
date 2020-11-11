@@ -1,11 +1,11 @@
 {
-  "name": "simplephonebook.api.webspa",
+  "name": "SimplePhoneBook.WebSPA",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:ssr": "ng run SimplePhoneBook.API.WebSPA:server:dev",
+    "build:ssr": "ng run SimplePhoneBook.WebSPA:server:dev",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

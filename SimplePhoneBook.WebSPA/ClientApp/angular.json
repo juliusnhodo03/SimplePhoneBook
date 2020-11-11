@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "SimplePhoneBook.API.WebSPA": {
+    "SimplePhoneBook.WebSPA": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -51,18 +51,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "SimplePhoneBook.API.WebSPA:build"
+            "browserTarget": "SimplePhoneBook.WebSPA:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "SimplePhoneBook.API.WebSPA:build:production"
+              "browserTarget": "SimplePhoneBook.WebSPA:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "SimplePhoneBook.API.WebSPA:build"
+            "browserTarget": "SimplePhoneBook.WebSPA:build"
           }
         },
         "test": {
@@ -112,7 +112,7 @@
         }
       }
     },
-    "SimplePhoneBook.API.WebSPA-e2e": {
+    "SimplePhoneBook.WebSPA-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -120,7 +120,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "SimplePhoneBook.API.WebSPA:serve"
+            "devServerTarget": "SimplePhoneBook.WebSPA:serve"
           }
         },
         "lint": {
@@ -133,5 +133,5 @@
       }
     }
   },
-  "defaultProject": "SimplePhoneBook.API.WebSPA"
+  "defaultProject": "SimplePhoneBook.WebSPA"
 }
