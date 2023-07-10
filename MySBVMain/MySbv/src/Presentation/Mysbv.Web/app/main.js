@@ -1,2 +1,0 @@
-﻿
-//angular.bootstrap(document, ["mysbvApp"]);
