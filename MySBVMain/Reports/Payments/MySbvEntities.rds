@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="MySbvEntities">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=so-labsql-mysbv;Initial Catalog=MySBVUat</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>a27b8c8f-0001-488e-a3bf-1c3262b2d4bd</DataSourceID>
+</RptDataSource>

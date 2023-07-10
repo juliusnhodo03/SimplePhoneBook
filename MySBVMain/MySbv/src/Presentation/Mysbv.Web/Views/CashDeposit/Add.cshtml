@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Add";
+}
+
+<div class="well" ng-app="mysbvApp" ng-controller="newCashDepositController">
+    <div class="ui-widget-header">
+        <h4>New Cash Deposit</h4>
+    </div>
+
+    <div ng-include="'/app/cashdeposit/templates/deposit-header-tmpl.html'"></div>
+    <input type="text" ng-model="me" /> {{me}}
+    <br />
+
+    <div class="ui-widget-content">
+        <div class="ui-widget-header">
+            <h4>Containers</h4>
+        </div>
+        <br />
+
+        @*<div class="row">
+                <div class="span12">
+                    <div>
+                        <div ng-include="'/app/common/denomination-tpml.html'"></div>
+                    </div>
+                </div>
+            </div>*@
+
+        <div ng-repeat="container in Containers">
+            <div class="row" style="border: 2px orangered!important">
+                <div class="span12">
+
+                    <input type="text" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

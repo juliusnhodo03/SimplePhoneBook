@@ -1,0 +1,926 @@
+﻿@using System.Web.Optimization
+@using Application.Dto.CashOrder
+@model Application.Dto.CashOrder.CashOrderDto
+
+@{
+    ViewBag.Title = "View Cash Order";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<link href="http://cdn.kendostatic.com/2014.2.903/styles/kendo.common.min.css" rel="stylesheet" />
+<link href="http://cdn.kendostatic.com/2014.2.903/styles/kendo.default.min.css" rel="stylesheet" />
+<link href="http://cdn.kendostatic.com/2014.2.903/styles/kendo.dataviz.min.css" rel="stylesheet" />
+<link href="http://cdn.kendostatic.com/2014.2.903/styles/kendo.dataviz.default.min.css" rel="stylesheet" />
+
+<script src="~/Scripts/CashOrdering.Screen.Layout.js"> </script>
+<script src="~/Scripts/CashOrdering.Model.js"></script>
+<script src="~/Scripts/App/Controllers/CashOrderController.js"></script>
+
+<script>
+    var model = '@Html.Raw(Json.Encode(Model))';
+</script>
+
+<form ng-app="MySbvApp" ng-controller="CashOrderController">
+
+    <div class="well" id="CashOrderContainer">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            var index = 0;
+
+            var notesRequiredTotal = 0M;
+            var coinsRequiredTotal = 0M;
+
+            var notesForwardedTotal = 0M;
+            var coinsForwardedTotal = 0M;
+
+            var cashRequiredDrop = Model.CashOrderContainer.CashOrderContainerDrops.FirstOrDefault(d => d.IsCashRequiredInExchange);
+            var cashForwardedDrop = Model.CashOrderContainer.CashOrderContainerDrops.FirstOrDefault(d => d.IsCashForwardedForExchange);
+
+
+            @Html.HiddenFor(model => model.CashOrderId, new { id = "hdCashOrderId" })
+            @Html.HiddenFor(model => model.ReferenceNumber, new { id = "hdTransactionReferenceNumber" })
+
+
+            @Html.HiddenFor(model => model.CreatedById, new { id = "hdCreatedById" })
+            @Html.HiddenFor(model => model.CreateDate, new { id = "hdCreatedDate" })
+
+
+
+            @Html.HiddenFor(model => model.InitialCitSerialNumber, new { id = "hdInitialCitSerialNumber" })
+
+            <div class="ui-widget-header">
+                <h4 style="margin-left: 5px">View Cash Order</h4>
+            </div>
+
+
+            <div class="ui-widget-content" style="padding: 5px;">
+                <div class="row">
+                    <div class="span3">
+                        @Html.LabelFor(model => model.MerchantId, new { @class = "label", style = "width: 205px" })
+                    </div>
+
+                    <div class="span2">
+                        @Html.TextBoxFor(model => model.MerchantName, new { @disabled = "disabled", @style = "width:210px; margin-bottom: 8px; margin-left: -15px" })
+
+                        @Html.HiddenFor(model => model.MerchantId, new { id = "ddlMerchants" })
+                    </div>
+
+                    <div class="span3 offset1">
+                        @Html.LabelFor(model => model.SiteId, new { @class = "label", style = "width: 205px; margin-left:-20px;" })
+                    </div>
+
+                    <div class="span2">
+                        @Html.TextBoxFor(model => model.SiteName, new { @disabled = "disabled", @style = "width: 195px; margin-left:-35px; position:relative;" })
+                        @Html.HiddenFor(model => model.SiteId, new { id = "ddlSites" })
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="span3">
+                        @Html.LabelFor(model => model.CapturedDateTime, new { @class = "label", style = "width: 205px" })
+                    </div>
+
+                    <div class="span2">
+                        @Html.TextBoxFor(model => model.CreateDate, new { disabled = "disabled", id = "CapturedDateTime", @style = "width:210px; margin-bottom: 8px; margin-left: -15px" })
+                    </div>
+
+                    <div class="span3 offset1">
+                        @Html.LabelFor(model => model.CitCode, new { @class = "label", style = "width: 205px; margin-left:-20px;" })
+                    </div>
+
+                    <div class="span2">
+                        @Html.TextBoxFor(model => model.CitCode, new { id = "CitCode", @disabled = "disabled", @style = "width:195px; margin-bottom: 8px; margin-left: -35px" })
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="span3">
+                        @Html.LabelFor(model => model.DeliveryDate, new { @class = "label", style = "width: 205px" })
+                    </div>
+
+                    <div class="span2">
+                        @Html.TextBoxFor(model => model.DeliveryDate, new { id = "DeliveryDate", disabled = "disabled", @style = "width:210px; margin-bottom: 8px; margin-left: -15px" })
+                    </div>
+
+                    <div class="span3 offset1">
+                        @Html.LabelFor(model => model.CashOrderAmount, new { @class = "label", style = "width: 205px; margin-left:-20px;" })
+                    </div>
+
+                    <div class="span2">
+                        @Html.TextBoxFor(model => model.CashOrderAmount, new { id = "CashOrderAmount", disabled = "disabled", placeholder = "0.00", @style = "width:195px; margin-bottom: 8px; margin-left: -35px" })
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="span5">
+                        @Html.LabelFor(model => model.ContainerNumberWithCashForExchange, new { @class = "label", style = "width: 435px" })
+                    </div>
+
+                    <div class="span3 offset1">
+                        @Html.TextBoxFor(model => model.ContainerNumberWithCashForExchange, new { @disabled = "disabled", id = "ContainerNumberWithCashForExchange", @maxlength = 14, @style = "width:420px; margin-bottom: 8px; margin-left:-20px;" })
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="span5">
+                        @Html.LabelFor(model => model.EmptyContainerOrBagNumber, new { @class = "label", style = "width: 435px" })
+                    </div>
+
+                    <div class="span3 offset1">
+                        @Html.TextBoxFor(model => model.EmptyContainerOrBagNumber, new { @disabled = "disabled", id = "EmptyContainerOrBagNumber", @maxlength = 14, @style = "width:420px; margin-bottom: 8px; margin-left:-20px" })
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="span3">
+                        @Html.LabelFor(model => model.CashOrderTypeId, new { @class = "label", style = "width: 205px" })
+                    </div>
+
+                    <div class="span2">
+                        @Html.DropDownList("ddlOrderType", ViewData["OrderTypes"] as SelectList, new { @disabled = "disabled", id = "ddlOrderType", @style = "width: 210px; margin-left:-35px; position:relative;" })
+                    </div>
+                </div>
+                
+                @if (Model.CashOrderType.Name == "EFT")
+                {
+                    <div class="row" id="EftUploads">
+                        <div class="span3">
+                            <label class="label" style="width: 205px; margin-top:10px!important;">Attachments</label>
+                        </div>
+
+                        <div class="span8">
+                            <input type="file" name="files" id="uploadedAttachments" />
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <br />
+
+
+            <table class="CombinedContainerDrops" style="width:100% !important">
+                <tr>
+                    <td style="width: 445px;">
+                        @if (Model.CashOrderType.Name != "EFT" && Model.CashOrderType.Name != null)
+                        {
+                            <div class=" ui-widget-header" style="width: 445px;">
+                                <h5 class="header-forwarded" style="text-align: center"><strong>Cash Forwarded</strong> for Exchange</h5>
+                            </div>
+                        }
+                    </td>
+                    <td style="width: 5px;"></td>
+
+                    <td style="width: 445px;">
+                        <div class="ui-widget-header" style="width: 445px;">
+                            <h5 style="text-align: center"><strong>Cash Required</strong> in Exchange</h5>
+                        </div>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="separator"></td>
+                </tr>
+
+                @Html.HiddenFor(model => model.CashOrderContainer.CashOrderContainerId, new { id = "hdCashOrderContainerId" })
+                @Html.Hidden("hdBagReferenceNumber", 0, new { id = "hdBagReferenceNumber" })
+
+                <tr>
+                    <td class="CashForwarded">
+                        @if (Model.CashOrderType.Name != "EFT" && Model.CashOrderType.Name != null)
+                        {
+                            <div class="CashForwardedContainerDrop">
+                                <table style="width: 445px;">
+                                    <tr>
+                                        <td class="columnInsertEft">
+                                            <div class="EFTDelete" style="border: 1px solid; padding: 10px;">
+
+                                                @Html.Hidden("hdContainerDropId", cashForwardedDrop.CashOrderContainerDropId, new { name = "hdContainerDropId" })
+                                                @Html.Hidden("hdDropStatusName", "Active", new { name = "hdDropStatusName" })
+
+                                                <!-- Note Details -->
+                                                @{
+                                                    <fieldset id="NotesFieldset">
+                                                        <strong>Notes</strong>
+                                                        <div class="devideHor" style="margin-top: 2px"></div>
+
+                                                        <table style="width:100%">
+                                                            <tr>
+                                                                <td>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <td>Denomination</td>
+                                                                            <td style="width: 70px"></td>
+                                                                            <td class="right">Count</td>
+                                                                            <td style="width: 40px"></td>
+                                                                            <td class="right">Value (R)</td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td class="clsNotessubtotal">
+                                                                    <div class="clsnotes">
+                                                                        <table>
+                                                                            @{
+                                                                                var notes = cashForwardedDrop.CashOrderContainerDropItems.Where(a => a.ValueInCents / 100 >= 10);
+
+                                                                                if (notes.Any())
+                                                                                {
+                                                                                    notesForwardedTotal = 0.0M;
+
+                                                                                    foreach (var dto in notes)
+                                                                                    {
+                                                                                        notesForwardedTotal = notesForwardedTotal + dto.ValueInCents / 100.0M * dto.Count;
+                                                                                        var dropDownListNote = dto.ValueInCents.ToString();
+
+                                                                                        <tr class="clsline">
+                                                                                            <td class="last">
+
+                                                                                                @Html.DropDownListFor(m => m.CashOrderContainer.CashOrderContainerDrops[0].CashOrderContainerDropItems[0].ValueInCents, ViewData[dropDownListNote] as SelectList,
+                                                                                                    new { @disabled = "disabled", name = "dropDownListNote", id = "dropDownListNote", style = "width:125px; height:27px;", denominationType = "Notes" })
+
+                                                                                                @Html.Hidden("hdContainerDropItemId", dto.CashOrderContainerDropItemId, new { name = "hdContainerDropItemId" })
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                @Html.TextBox("textNoteCount", dto.Count, new { @disabled = "disabled", @class = "dropdown denomination right", style = "margin-right: 5px" })
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                @Html.TextBox("textNoteValue", dto.Value, new { @disabled = "disabled", @class = "sbv_notes_value dropdown denomination right" })
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    }
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                    notesForwardedTotal = 0.0M;
+                                                                                    index = 1;
+
+                                                                                    <tr class="clsline">
+                                                                                        <td class="last">
+
+                                                                                            @Html.DropDownList("dropDownListNote", ViewData["dropDownListNote"] as SelectList, new { @disabled = "disabled", id = "dropDownListNote", style = "width:125px; height:27px;", denominationType = "Notes" })
+
+                                                                                            @Html.Hidden("hdContainerDropItemId", 0, new { name = "hdContainerDropItemId" })
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            @Html.TextBox("textNoteCount", "", new { @disabled = "disabled", @class = "dropdown denomination right", style = "margin-right: 5px" })
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            @Html.TextBox("textNoteValue", "", new { @disabled = "disabled", @class = "sbv_notes_value dropdown denomination right" })
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                }
+                                                                            }
+                                                                        </table>
+                                                                    </div> <!-- take_notes -->
+                                                                    <table>
+                                                                        <tr>
+                                                                            <td style="text-align: left; width: 120px;">Subtotal</td>
+                                                                            <td>
+                                                                                @Html.TextBox("textNotesSubtotal", string.Format("{0:0.00}", notesForwardedTotal), new { @class = "SubTotals right", @readonly = "readonly" })
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+
+                                                        </table>
+                                                    </fieldset>
+                                                }
+
+                                                <!-- Coin Details -->
+                                                @{
+                                                    <br />
+                                                    <fieldset id="CoinsFieldset">
+                                                        <strong>Coins</strong>
+                                                        <div class="devideHor" style="margin-top: 2px"></div>
+
+                                                        <table>
+                                                            <tr>
+                                                                <td>
+                                                                    <table width="360px">
+                                                                        <tr>
+                                                                            <td>Denomination</td>
+                                                                            <td style="width: 70px"></td>
+                                                                            <td align="right">Count</td>
+                                                                            <td style="width: 40px"></td>
+                                                                            <td align="right">Value (R)</td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td class="clsCoinssubtotal">
+                                                                    <div class="clscoins">
+                                                                        <table class='denominationparent' currencytype="Coins" width="50%">
+                                                                            @{
+                                                                                index = 0;
+                                                                                var coinsForwarded = cashForwardedDrop.CashOrderContainerDropItems.Where(a => a.ValueInCents / 100 <= 5);
+
+                                                                                if (coinsForwarded.Any())
+                                                                                {
+                                                                                    coinsForwardedTotal = 0.0M;
+
+                                                                                    foreach (var dto in coinsForwarded)
+                                                                                    {
+                                                                                        coinsForwardedTotal = coinsForwardedTotal + dto.ValueInCents / 100.0M * dto.Count;
+                                                                                        index++;
+                                                                                        var dropDownListCoin = dto.ValueInCents.ToString();
+
+                                                                                        <tr class="clsCoinsline">
+                                                                                            <td class="last">
+
+                                                                                                @Html.DropDownListFor(m => m.CashOrderContainer.CashOrderContainerDrops[0].CashOrderContainerDropItems[0].ValueInCents, ViewData[dropDownListCoin] as SelectList,
+                                                                                                    new { @disabled = "disabled", @name = "dropDownListCoin", id = "dropDownListCoin", style = "width:125px; height:27px;", denominationType = "Notes" })
+
+                                                                                                @Html.Hidden("hdContainerDropItemId", dto.CashOrderContainerDropItemId, new { name = "hdContainerDropItemId" })
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                @Html.TextBox("textCoinCount", dto.Count, new { @disabled = "disabled", @class = "dropdown denomination right", style = "margin-right: 5px" })
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                @Html.TextBox("textCoinValue", dto.Value, new { @disabled = "disabled", @class = "sbv_coins_value dropdown denomination right" })
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    }
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                    index = 1;
+                                                                                    coinsForwardedTotal = 0.0M;
+
+                                                                                    <tr class="clsCoinsline">
+                                                                                        <td class="last">
+                                                                                            @Html.DropDownList("dropDownListCoin", ViewData["dropDownListCoin"] as SelectList,
+                                                                                                new { @disabled = "disabled", id = "dropDownListCoin", style = "width:125px; height:27px;", denominationType = "Notes" })
+
+                                                                                            @Html.Hidden("hdContainerDropItemId", "0", new { name = "hdContainerDropItemId" })
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            @Html.TextBox("textCoinCount", "", new { @disabled = "disabled", @class = "dropdown denomination right", style = "margin-right: 5px" })
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            @Html.TextBox("textCoinValue", "", new { @disabled = "disabled", @class = "sbv_coins_value dropdown denomination right" })
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                }
+                                                                            }
+                                                                        </table>
+                                                                    </div> <!-- take -->
+                                                                    <table>
+                                                                        <tr>
+                                                                            <td style="text-align: left; width: 120px;">Subtotal</td>
+                                                                            <td>
+                                                                                @Html.TextBox("textCoinsSubtotal", string.Format("{0:0.00}", coinsForwardedTotal), new { @class = "SubTotals right", @readonly = "readonly" })
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+
+                                                    </fieldset>
+
+                                                }
+
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        }
+                    </td>
+
+                    <td></td>
+
+                    <td class="CashRequired">
+                        <div class="CashRequiredContainerDrop">
+                            <table style="width: 445px;" class="ContainerDropClone">
+                                <tr>
+                                    <td>
+                                        <div style="border: 1px solid; padding: 10px;">
+
+                                            @Html.Hidden("hdContainerDropId", cashRequiredDrop.CashOrderContainerDropId, new { name = "hdContainerDropId" })
+                                            @Html.Hidden("hdDropStatusName", "Active", new { name = "hdDropStatusName" })
+                                            <!-- Note Details -->
+                                            @{
+                                                <fieldset id="NotesFieldset">
+                                                    <strong>Notes</strong>
+                                                    <div class="devideHor" style="margin-top: 2px"></div>
+
+                                                    <table>
+                                                        <tr>
+                                                            <td>
+                                                                <table>
+                                                                    <tr>
+                                                                        <td>Denomination</td>
+                                                                        <td style="width: 70px"></td>
+                                                                        <td class="right">Count</td>
+                                                                        <td style="width: 40px"></td>
+                                                                        <td class="right">Value (R)</td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td class="clsNotessubtotal">
+                                                                <div class="clsnotes">
+                                                                    <table>
+                                                                        @{
+                                                                            @Html.HiddenFor(model => model.CashOrderContainer.CashOrderContainerDrops[0].IsCashForwardedForExchange)
+
+                                                                            index = 0;
+                                                                            var notesRequired = cashRequiredDrop.CashOrderContainerDropItems.Where(a => a.ValueInCents / 100 >= 10);
+
+                                                                            if (notesRequired.Any())
+                                                                            {
+                                                                                notesRequiredTotal = 0.0M;
+
+                                                                                foreach (var dto in notesRequired)
+                                                                                {
+                                                                                    notesRequiredTotal = notesRequiredTotal + dto.ValueInCents / 100.0M * dto.Count;
+                                                                                    index++;
+                                                                                    var dropDownListNote = dto.ValueInCents.ToString();
+
+                                                                                    <tr class="clsline">
+                                                                                        <td class="last">
+
+                                                                                            @Html.DropDownListFor(m => m.CashOrderContainer.CashOrderContainerDrops[0].CashOrderContainerDropItems[0].ValueInCents, ViewData[dropDownListNote] as SelectList,
+                                                                                                new { @disabled = "disabled", name = "dropDownListNote", id = "dropDownListNote", style = "width:125px; height:27px;", denominationType = "Notes" })
+
+                                                                                            @Html.Hidden("hdContainerDropItemId", dto.CashOrderContainerDropItemId, new { name = "hdContainerDropItemId" })
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            @Html.TextBox("textNoteCount", dto.Count, new { @disabled = "disabled", @class = "dropdown denomination right", style = "margin-right: 5px" })
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            @Html.TextBox("textNoteValue", dto.Value, new { @disabled = "disabled", @class = "sbv_notes_value dropdown denomination right" })
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                }
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                notesRequiredTotal = 0.0M;
+                                                                                index = 1;
+
+                                                                                <tr class="clsline">
+                                                                                    <td class="last">
+
+                                                                                        @Html.DropDownList("dropDownListNote", ViewData["dropDownListNote"] as SelectList, new { @disabled = "disabled", id = "dropDownListNote", style = "width:125px; height:27px;", denominationType = "Notes" })
+
+                                                                                        @Html.Hidden("hdContainerDropItemId", 0, new { name = "hdContainerDropItemId" })
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        @Html.TextBox("textNoteCount", "", new { @disabled = "disabled", @class = "dropdown denomination right", style = "margin-right: 5px" })
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        @Html.TextBox("textNoteValue", "", new { @disabled = "disabled", @class = "sbv_notes_value dropdown denomination right" })
+                                                                                    </td>
+                                                                                </tr>
+                                                                            }
+                                                                        }
+                                                                    </table>
+                                                                </div> <!-- take_notes -->
+                                                                <table>
+                                                                    <tr>
+                                                                        <td style="text-align: left; width: 120px;">Subtotal</td>
+                                                                        <td>
+                                                                            @Html.TextBox("textNotesSubtotal", string.Format("{0:0.00}", notesRequiredTotal), new { @class = "SubTotals right", @readonly = "readonly" })
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+
+                                                    </table>
+                                                </fieldset>
+                                            }
+
+                                            <!-- Coin Details -->
+                                            @{
+                                                <br />
+                                                <fieldset id="CoinsFieldset">
+                                                    <strong>Coins</strong>
+                                                    <div class="devideHor" style="margin-top: 2px"></div>
+
+                                                    <table>
+                                                        <tr>
+                                                            <td>
+                                                                <table width="360px">
+                                                                    <tr>
+                                                                        <td>Denomination</td>
+                                                                        <td style="width: 70px"></td>
+                                                                        <td align="right">Count</td>
+                                                                        <td style="width: 40px"></td>
+                                                                        <td align="right">Value (R)</td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td class="clsCoinssubtotal">
+                                                                <div class="clscoins">
+                                                                    <table class='denominationparent' currencytype="Coins" width="50%">
+                                                                        @{
+
+                                                                            index = 0;
+                                                                            var coinsRequired = cashRequiredDrop.CashOrderContainerDropItems.Where(a => a.ValueInCents / 100 <= 5);
+
+                                                                            if (coinsRequired.Any())
+                                                                            {
+                                                                                coinsRequiredTotal = 0.0M;
+
+                                                                                foreach (var dto in coinsRequired)
+                                                                                {
+                                                                                    coinsRequiredTotal = coinsRequiredTotal + dto.ValueInCents / 100.0M * dto.Count;
+                                                                                    index++;
+                                                                                    var dropDownListCoin = dto.ValueInCents.ToString();
+
+                                                                                    <tr class="clsCoinsline">
+                                                                                        <td class="last">
+
+                                                                                            @Html.DropDownListFor(m => m.CashOrderContainer.CashOrderContainerDrops[0].CashOrderContainerDropItems[0].ValueInCents, ViewData[dropDownListCoin] as SelectList,
+                                                                                                new { @disabled = "disabled", name = "dropDownListCoin", id = "dropDownListCoin", style = "width:125px; height:27px;", denominationType = "Notes" })
+
+                                                                                            @Html.Hidden("hdContainerDropItemId", dto.CashOrderContainerDropItemId, new { name = "hdContainerDropItemId" })
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            @Html.TextBox("textCoinCount", dto.Count, new { @disabled = "disabled", @class = "dropdown denomination right", style = "margin-right: 5px" })
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            @Html.TextBox("textCoinValue", dto.Value, new { @disabled = "disabled", @class = "sbv_coins_value dropdown denomination right" })
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                }
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                index = 1;
+                                                                                coinsRequiredTotal = 0.0M;
+
+                                                                                <tr class="clsCoinsline">
+                                                                                    <td class="last">
+                                                                                        @Html.DropDownList("dropDownListCoin", ViewData["dropDownListCoin"] as SelectList,
+                                                                                            new { @disabled = "disabled", id = "dropDownListCoin", style = "width:125px; height:27px;", denominationType = "Notes" })
+
+                                                                                        @Html.Hidden("hdContainerDropItemId", "0", new { name = "hdContainerDropItemId" })
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        @Html.TextBox("textCoinCount", "", new { @disabled = "disabled", @class = "dropdown denomination right", style = "margin-right: 5px" })
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        @Html.TextBox("textCoinValue", "", new { @disabled = "disabled", @class = "sbv_coins_value dropdown denomination right" })
+                                                                                    </td>
+                                                                                </tr>
+                                                                            }
+                                                                        }
+                                                                    </table>
+                                                                </div> <!-- take -->
+                                                                <table>
+                                                                    <tr>
+                                                                        <td style="text-align: left; width: 120px;">Subtotal</td>
+                                                                        <td>
+                                                                            @Html.TextBox("textCoinsSubtotal", string.Format("{0:0.00}", coinsRequiredTotal), new { @class = "SubTotals right", @readonly = "readonly" })
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+
+                                                </fieldset>
+
+                                            }
+
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td colspan="3" class="separator"></td>
+                </tr>
+
+                @if (!string.IsNullOrWhiteSpace(Model.Comments))
+                {
+                    <tr>
+
+                    <td colspan="3" style="border: 1px solid; padding: 5px;">
+                        
+                        <div class="row">
+                            <div class="input-prepend">
+                                <div class="span2">
+                                    @Html.LabelFor(model => model.Comments, new { @class = "add-on ", @style = "width:150px" })
+                                </div>
+                                <div class=" span9">
+                                    @Html.TextAreaFor(model => model.Comments, new { @style = "width:101%; height: 100px", tabindex = "22", @readonly = "readonly", @id = "PreviousComments" })
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+
+                </tr>
+                }
+
+                <tr>
+                    <td colspan="3" style="border: 1px solid; padding: 5px;">
+                        <div class="row pull-right">
+                            <div class="span1">
+                                <button name="Submitted" style="margin-left: 0;" class="btn btn-mini btn-inverse hide" type="button">Submit</button>
+                            </div>
+
+                            <div class="span1">
+                                <button name="Edited" style="margin-left:15px; font-weight:bold" class="btn btn-mini btn btn-success hide" type="button">Save</button>
+                            </div>
+
+                            <div class="span2">
+                                <button onclick="exitViewOrder()" class="btn btn-mini btn-danger" style="width: 100px !important; margin-left: 30px; font-weight: bold" type="button">Exit</button>
+                            </div>
+
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        }
+    </div>
+
+
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+
+
+
+    <style type="text/css">
+        fieldset {
+            padding: 32px !important;
+        }
+
+        legend {
+            visibility: visible !important;
+        }
+
+        #NotesFieldset, #CoinsFieldset {
+            background: ButtonFace;
+            border: 1px solid gray;
+            padding: 10px;
+        }
+
+        .clsNotessubtotal, .clsnotes, .clsline, .remove, .CashForwardedContainerDrop, .CashRequiredContainerDrop, .ContainerDropClone {
+        }
+
+        .CashRequiredContainerDrop, .CashForwardedContainerDrop {
+            background: #fff;
+        }
+
+        .right {
+            text-align: right;
+        }
+
+        .left {
+            text-align: left;
+        }
+
+        .separator {
+            height: 5px;
+        }
+
+        .k-window-action {
+            visibility: hidden !important;
+        }
+    </style>
+
+
+    <script>
+
+        function exitViewOrder() {
+            window.location.href = '@Url.Action("Index")';
+        }
+
+        
+        
+    var fileItems = @Html.Raw(Json.Encode(ViewBag.Attachments));
+        
+    $("#uploadedAttachments").kendoUpload({
+        template: "<span class='k-progress'></span>" +
+                  "<div class='file-wrapper'>" +
+                  "<span class='file-icon #= addFilenameClass(name)#'></span>" +
+                  "<h4 class='file-heading file-name-heading' style='padding-left:32px!important; margin-top:-3px!important;'>Name: #=name#</h4>" +
+                  "<h4 class='file-heading file-size-heading' style='padding-left:32px!important; margin-top:-15px!important;'>Size: #=size# bytes</h4>" +
+                  "<button type='button' class='k-upload-action hide'></button>" +
+                  "</div>",
+        enabled:false,
+        async: {
+            saveUrl: "@Url.Action("Save", "Upload", new { cashOrderId = Model.CashOrderId })",
+            removeUrl: "@Url.Action("Remove", "Upload", new { cashOrderId = Model.CashOrderId })",
+            autoUpload: false
+    },
+    files: fileItems
+    });
+
+    function addFilenameClass(fileName) {
+        var extension = fileName.substr(fileName.lastIndexOf('.'));
+        switch (extension) {
+            case '.jpg':
+            case '.img':
+            case '.png':
+            case '.gif':
+                return "img-file";
+            case '.doc':
+            case '.docx':
+                return "doc-file";
+            case '.xls':
+            case '.xlsx':
+                return "xls-file";
+            case '.pdf':
+                return "pdf-file";
+            case '.zip':
+            case '.rar':
+                return "zip-file";
+            default:
+                return "default-file";
+        }
+    }
+    </script>
+    
+
+    <style>
+        
+        .file-wrapper {
+             height: 40px !important;
+             padding-top: 5px !important;   
+        }
+
+
+        .file-icon {
+            display: inline-block;
+            float: left;
+            width: 16px;
+            height: 16px;
+            margin-left: 10px;
+            margin-top: 2px;
+            padding-right: 5px;
+        }
+
+
+        .img-file, .jpg,.img, .png, .gif {
+            background-image: url(@Url.Content("~/Content/images/upload/jpg.png"));
+            background-size: 16px 16px;
+            background-repeat: no-repeat;
+        }
+
+
+        .doc-file, .doc, .docx {
+            background-image: url(@Url.Content("~/Content/images/upload/doc.png"));
+            background-size: 16px 16px;
+            background-repeat: no-repeat;
+        }
+
+
+        .pdf-file, .pdf {
+            background-image: url(@Url.Content("~/Content/images/upload/pdf.png"));
+            background-size: 16px 16px;
+            background-repeat: no-repeat;
+        }
+
+
+        .xls-file, .xls, .xlsx {
+            background-image: url(@Url.Content("~/Content/images/upload/xls.png"));
+            background-size: 16px 16px;
+            background-repeat: no-repeat;
+        }
+
+
+        .zip-file, .zip {
+            background-image: url(@Url.Content("~/Content/images/upload/zip.png"));
+            background-size: 16px 16px;
+            background-repeat: no-repeat;
+        }
+
+
+        .default-file, .nothing {
+            background-image: url(@Url.Content("~/Content/images/upload/default.png"));
+            background-size: 16px 16px;
+            background-repeat: no-repeat;
+        }
+
+
+        #example .file-heading {
+            font-size: 8pt;
+            display: inline-block;
+            float: left;
+            width: 450px;
+            margin: 0 0 0 20px;
+            height: 25px;
+            -ms-text-overflow: ellipsis;
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+
+        #example .file-name-heading {
+            font-weight: normal;
+        }
+
+
+        #example .file-size-heading {
+            font-weight: normal;
+            font-style: italic;
+            margin-left: 50px !important;
+            margin-top: -3px !important;
+        }
+
+
+        li.k-file .file-wrapper .k-upload-action {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+
+        li.k-file div.file-wrapper {
+            position: relative;
+            height: 75px;
+
+        }
+
+
+        .k-button:hover, .k-button.k-state-hover {
+            color: #2e2e2e;
+            border-color: #b6b6b6;
+            background-color: #bcb4b0;
+        }
+
+
+        .k-button {
+            color: #2e2e2e;
+            border-color: #c5c5c5;
+            background-color: #e9e9e9;
+        }
+
+
+        .k-upload-button {
+            position: relative;
+            min-width: 7.167em;
+            overflow: hidden!important;
+            direction: ltr;
+        }
+        .k-button {
+            display: inline-block;
+            margin: 0;
+            padding: 2px 7px 2px;
+            font-family: inherit;
+            line-height: 1.72em;
+            text-align: center;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .k-textbox>input, .k-input[type="text"], .k-input[type="number"], .k-textbox, .k-picker-wrap .k-input, .k-button {
+            font-family: inherit;
+            border-style: solid;
+            border-width: 1px;
+            -webkit-appearance: none;
+        }
+
+        .k-header, .k-treemap-title, .k-grid-header .k-header>.k-link {
+            color: #313131;
+        }
+        .k-block, .k-widget, .k-popup, .k-content, .k-toolbar, .k-dropdown .k-input {
+            color: #2e2e2e;
+        }
+        .k-block, .k-widget {
+            line-height: normal;
+            outline: 0;
+        }
+
+        .k-header, .k-treemap-title, .k-grid-header .k-header>.k-link {
+            color: #313131;
+        }
+
+        .file-wrapper h4 {
+            font-size: 8pt !important;
+            padding: 0 !important;
+        }
+    </style>
+</form>
+

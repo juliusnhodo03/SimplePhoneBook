@@ -1,0 +1,564 @@
+﻿@using Kendo.Mvc.UI
+@model Application.Dto.Site.SiteDto
+
+@{
+    ViewBag.Title = "Edit Site";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css">
+    .label {
+        width: 100px !important;
+    }
+
+    .required:after {
+        content: "*";
+        font-weight: bold;
+        color: red;
+    }
+</style>
+
+<div class="well">
+    <p>Fields marked with an asterisk <span class="requiredField">*</span> are required</p>
+
+    <div class="ui-widget-header">
+        <h3 style="margin-left: 5px">Edit Site</h3>
+    </div>
+
+
+    <div id="content">
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary()
+
+            <div class="ui-widget-content" style="padding: 5px;">
+
+                <div class="row">
+                    <div class="span2">
+                        @Html.LabelFor(model => model.MerchantId, new { @class = "label required", @style = "width:150px !important" })
+                    </div>
+                    <div class="span2">
+                        <div class="span2">
+                            @(Html.Kendo().DropDownList()
+                                          .Name("MerchantId") //The name of the dropdownlist is mandatory. It specifies the "id" attribute of the widget.
+                                          .DataTextField("Name") //Specifies which property of the Product to be used by the dropdownlist as a text.
+                                          .DataValueField("Id") //Specifies which property of the Product to be used by the dropdownlist as a value.
+                                          .DataSource(source =>
+                                          {
+                                              source.Read(read =>
+                                              {
+                                                  read.Action("GetMerchantsKendo", "Site"); //Set the Action and Controller name
+                                              })
+                                                  .ServerFiltering(true); //If true the DataSource will not filter the data on the client.
+                                          }).HtmlAttributes(new { @style = "width: 239px; margin-left: -15px", tabindex = "1" })
+                            )
+                            @Html.ValidationMessageFor(model => model.MerchantId)
+                        </div>
+                    </div>
+                    <div class="span2 offset2">
+                        @Html.LabelFor(model => model.ContractNumber, new { @class = "label", style = "width: 150px !important" })
+                    </div>
+                    <div class="span2">
+                        @Html.TextBoxFor(model => model.ContractNumber, new { @disabled = "disabled", @id = "txtContractNumber", @style = "width:230px; margin-bottom: 2px;" })
+                    </div>
+                </div>
+
+
+                <div class="input-prepend">
+                    <div class="row">
+                        <div class="span2">
+                            @Html.LabelFor(model => model.Name, new { @class = "label required", @style = "width:150px !important" })
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(model => model.Name, new { @maxlength = 50, tabindex = "2" })
+                            @Html.ValidationMessageFor(model => model.Name)
+                        </div>
+                        <div class="span2 offset2">
+                            @Html.LabelFor(model => model.CitCode, new { @class = "label required", @style = "width:150px !important" })
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(model => model.CitCode, new { @maxlength = 8, tabindex = "3" })
+                            @Html.ValidationMessageFor(model => model.CitCode)
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="input-prepend">
+                        <div class="span2">
+                            @Html.LabelFor(model => model.Description, new { @class = "label required", @style = "width:150px !important" })
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(model => model.Description, new { @maxlength = 50, tabindex = "4" })
+                            @Html.ValidationMessageFor(model => model.Description)
+                        </div>
+                        <div class="span2 offset2">
+                            @Html.LabelFor(model => model.SysproNumber, new { @class = "label required", @style = "width:150px !important" })
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(model => model.SysproNumber, new { @maxlength = 50, tabindex = "5" })
+                            @Html.ValidationMessageFor(model => model.SysproNumber)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-prepend">
+                        <div class="span2">
+                            @Html.LabelFor(model => model.Address.AddressLine1, new { @class = "label", @style = "width:150px !important" })
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(model => model.Address.AddressLine1, new { id = "AddressLine1", tabindex = "6" })
+                            @Html.ValidationMessageFor(model => model.Address.AddressLine1)
+
+                        </div>
+                        <div class="span2 offset2">
+                            @Html.LabelFor(model => model.PostalAddress, new { @class = "label", @style = "width:150px !important" })
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(model => model.PostalAddress, new { @maxlength = 50, tabindex = "7" })
+                            @Html.ValidationMessageFor(model => model.PostalAddress)
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="input-prepend">
+                        <div class="span2">
+                            @Html.LabelFor(model => model.Address.AddressLine2, new { @class = "label required", @style = "width:150px !important" })
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(model => model.Address.AddressLine2, new { id = "AddressLine2", tabindex = "8" })
+                            @Html.ValidationMessageFor(model => model.Address.AddressLine2)
+                        </div>
+                        <div class="span2 offset2">
+                            @Html.LabelFor(model => model.Address.AddressLine3, new { @class = "label required", @style = "width:150px !important" })
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(model => model.Address.AddressLine3, new { id = "AddressLine3", tabindex = "9" })
+                            @Html.ValidationMessageFor(model => model.Address.AddressLine3)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="span2">
+                        @Html.LabelFor(model => model.CityId, new { @class = "label required", @style = "width:150px !important" })
+                    </div>
+                    <div class="span2">
+                        @Html.Kendo().DropDownListFor(a => a.CityId).BindTo(ViewData["Cities"] as SelectList).SelectedIndex(0).HtmlAttributes(new { @style = "width: 238px;", tabindex = "10" })
+                    </div>
+                    <div class="span2 offset2">
+                        @Html.LabelFor(model => model.PostalCode, new { @class = "label required", @style = "width:150px !important" })
+                    </div>
+                    <div class="span2">
+                        @Html.TextBoxFor(model => model.Address.PostalCode, new { id = "PostalCode", tabindex = "11" })
+                        @Html.ValidationMessageFor(model => model.Address.PostalCode)
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="span2">
+                        @Html.LabelFor(model => model.CitCarrierId, new { @class = "label required", @style = "width:150px !important" })
+                    </div>
+                    <div class="span2">
+                        @Html.Kendo().DropDownListFor(a => a.CitCarrierId).BindTo(ViewData["CitCarriers"] as SelectList).SelectedIndex(0).HtmlAttributes(new { @style = "width: 238px;", tabindex = "12" })
+                    </div>
+                    <div class="span2 offset2">
+                        @Html.LabelFor(model => model.CashCenterId, new { @class = "label required", @style = "width:150px !important" })
+                    </div>
+                    <div class="span2">
+                        @Html.Kendo().DropDownListFor(a => a.CashCenterId).BindTo(ViewData["CashCenters"] as SelectList).SelectedIndex(0).HtmlAttributes(new { @style = "width: 238px;", tabindex = "13" })
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="span2">
+                        @Html.LabelFor(model => model.DepositReferenceIsEditable, new { @class = "label required", @style = "width:150px !important" })
+                    </div>
+                    <div class="span2">
+                        <span style="width :150px ; margin-right:5px;"></span>
+                        @*@Html.CheckBox("chkprivate", new { @onclick = "Private_Checked();", @style = "; margin-left: 55px" })*@
+                        @Html.CheckBoxFor(model => model.DepositReferenceIsEditable, new { @id = "chkDepositRef", @onclick = "Private_Checked();", @style = "; margin-left: 3px" })
+                    </div>
+
+                    <div class="span2 offset2">
+                        @Html.LabelFor(model => model.DepositReference, new { @class = "label required", @style = "width:150px !important" })
+                    </div>
+
+                    <div class="span2">
+                        @Html.TextBoxFor(model => model.DepositReference, new { @maxlength = 50, tabindex = "14", @id = "txtSiteDepositRef" })
+                        @Html.ValidationMessageFor(model => model.DepositReference)
+                    </div>
+
+
+                </div>
+                
+                <hr>
+
+                <div class="row">
+                    <div class="span4">
+                        <h4>Contact Information</h4>
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="input-prepend">
+                        <div class="span2">
+                            @Html.LabelFor(model => model.ContactPersonName1, new { @class = "label required", @style = "width:150px !important" })
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(model => model.ContactPersonName1, new { @maxlength = 50, tabindex = "14" })
+                            @Html.ValidationMessageFor(model => model.ContactPersonName1)
+                        </div>
+                        <div class="span2 offset2">
+                            @Html.LabelFor(model => model.ContactPersonName2, new { @class = "label", @style = "width:150px !important" })
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(model => model.ContactPersonName2, new { @maxlength = 50, tabindex = "15" })
+                            @Html.ValidationMessageFor(model => model.ContactPersonName2)
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="input-prepend">
+                        <div class="span2">
+                            @Html.LabelFor(model => model.ContactPersonNumber1, new { @class = "label", @style = "width:150px !important" })
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(model => model.ContactPersonNumber1, new { @maxlength = 50, tabindex = "16" })
+                            @Html.ValidationMessageFor(model => model.ContactPersonNumber1)
+                        </div>
+                        <div class="span2 offset2">
+                            @Html.LabelFor(model => model.ContactPersonNumber2, new { @class = "label", @style = "width:150px !important" })
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(model => model.ContactPersonNumber2, new { @maxlength = 50, tabindex = "17" })
+                            @Html.ValidationMessageFor(model => model.ContactPersonNumber2)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-prepend">
+                        <div class="span2">
+                            @Html.LabelFor(model => model.ContactPersonEmailAddress1, new { @class = "label required", @style = "width:150px !important" })
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(model => model.ContactPersonEmailAddress1, new { @maxlength = 50, tabindex = "18" })
+                            @Html.ValidationMessageFor(model => model.ContactPersonEmailAddress1)
+                        </div>
+                        <div class="span2 offset2">
+                            @Html.LabelFor(model => model.ContactPersonEmailAddress2, new { @class = "label", @style = "width:150px !important" })
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(model => model.ContactPersonEmailAddress2, new { @maxlength = 50, tabindex = "19" })
+                            @Html.ValidationMessageFor(model => model.ContactPersonEmailAddress2)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-prepend">
+                        <div class="span2">
+                            @Html.LabelFor(model => model.ContactPersonDesignation1, new { @class = "label required", @style = "width:150px !important" })
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(model => model.ContactPersonDesignation1, new { @maxlength = 50, tabindex = "20" })
+                            @Html.ValidationMessageFor(model => model.ContactPersonDesignation1)
+                        </div>
+                        <div class="span2 offset2">
+                            @Html.LabelFor(model => model.ContactPersonDesignation2, new { @class = "label", @style = "width:150px !important" })
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(model => model.ContactPersonDesignation2, new { @maxlength = 50, tabindex = "21" })
+                            @Html.ValidationMessageFor(model => model.ContactPersonDesignation2)
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="input-prepend">
+                        <div class="span2">
+                            @Html.LabelFor(model => model.Comments, new { @class = "add-on ", @style = "width:150px" })
+                        </div>
+                        <div class=" span9">
+                            @Html.TextAreaFor(model => model.Comments, new { @style = "width:101%", tabindex = "22" })
+                            @Html.HiddenFor(model => model.IsActive)
+                        </div>
+                    </div>
+                </div>
+
+                @Html.HiddenFor(model => model.AddressId)
+                @Html.HiddenFor(model => model.SiteId)
+                @Html.HiddenFor(model => model.Address.AddressId)
+                @Html.HiddenFor(model => model.Address.AddressTypeId)
+                @Html.HiddenFor(model => model.Address.AddressTypeId)
+                @Html.HiddenFor(model => model.SettlementTypeId)
+               @* @Html.HiddenFor(model => model.ReviewRequiredFlag)*@
+               @* @Html.HiddenFor(model => model.ApprovalRequiredFlag)*@
+
+                <div class="row">
+                    <span id="gap" class="gap">
+                        <a href='@Url.Action("Index")' class="bt_red"><strong>Exit</strong></a>
+                        <a onclick='ExecuteReject()' class="bt_green"><strong>Reject</strong></a>
+                        <a id="btnApprove" class="bt_green"><strong>Approve</strong></a>
+                        <a onclick='ExecDelete()' class="bt_red"><strong>Delete</strong></a>
+                    </span>
+
+                    <input id="btnSubmit" type="submit" value="Save" class="btnStyle" />
+                </div>
+                <hr>
+
+            </div>
+        }
+    </div>
+</div>
+
+<style type="text/css">
+    .requiredField {
+        font-weight: bold;
+        font-size: 12pt;
+    }
+
+    #btnSubmit {
+        visibility: hidden;
+        top: -20px;
+        position: absolute;
+    }
+</style>
+
+
+
+<script id="approve-confirmation" type="text/x-kendo-template">
+    <div>
+        <img src="@Url.Content("~/Content/Images/question.png")" style="float:left" />
+        <p style="margin-left:10px; float:rigth" class="approve-message"> &nbsp; &nbsp;Do you want to submit Site for Approval?</p>
+    </div>
+
+    <div style="margin-left:160px; margin-top:5px;">
+        <button id="btnApproveConfirm" class="approve-confirm k-button" style="width:80px">Yes</button>
+        <button id="btnApproveCancel" class="approve-cancel k-button" style="width:80px">No</button>
+    </div>
+
+</script>
+
+
+<script id="delete-confirmation" type="text/x-kendo-template">
+
+    <div>
+        <img src="@Url.Content("~/Content/Images/question.png")" style="float:left" />
+        <p style="margin-left:10px; float:rigth" class="delete-message"> &nbsp; &nbsp;Do you want to delete Site?</p>
+    </div>
+
+    <div style="margin-left:160px; margin-top:5px;">
+        <button class="delete-confirm k-button" style="width:80px">Yes</button>
+        <button class="delete-cancel k-button" style="width:80px">No</button>
+    </div>
+
+</script>
+
+
+
+<script id="delete-confirmation" type="text/x-kendo-template">
+
+    <div>
+        <img src="@Url.Content("~/Content/Images/question.png")" style="float:left" />
+        <p style="margin-left:10px; float:rigth" class="delete-message"> &nbsp; &nbsp;Do you want to delete the Settlement Account?</p></td>
+    </div>
+
+    <div style="margin-left:160px; margin-top:5px;">
+        <button class="delete-confirm k-button" style="width:80px">Yes</button>
+        <button class="delete-cancel k-button" style="width:80px">No</button>
+    </div>
+
+</script>
+
+
+
+<script type="text/javascript">
+
+    function ExecDelete() {
+        var kendoWindow = $("<div />").kendoWindow({
+            title: "Confirm Delete",
+            resizable: false,
+            modal: true,
+            width: "430px",
+            height: "160px"
+        });
+
+
+        kendoWindow.data("kendoWindow")
+            .content($("#delete-confirmation").html())
+            .center().open();
+
+        kendoWindow
+            .find(".delete-confirm,.delete-cancel")
+            .click(function () {
+                if ($(this).hasClass("delete-confirm")) {
+                    var url = '@Url.Action("Delete")/?id=' + @Model.SiteId;
+                    $.post(url, function (data) {
+                        window.location.href = data.url;
+                    });
+                }
+
+                kendoWindow.data("kendoWindow").close();
+            })
+            .end();
+    }
+
+    // Merchant dropdown change
+    $("#MerchantId").change(function () {
+
+        var parameters = { MerchantId: $(this).val() };
+
+        var url = '@Url.Action("GetMerchantContract")/?merchantId=' + parameters.MerchantId;
+        $.post(url, function (data) {
+            // Merchant Contract Number
+            $("#txtContractNumber").attr('value', data.ContractNumber);
+        });
+    });
+
+
+    function Private_Checked() {
+        $("#chkDepositRef").click(function () {
+
+            if ($('#chkDepositRef').is(':checked')) {
+                $('#txtSiteDepositRef').removeClass("Readonly");
+            }
+            else {
+                $('#txtSiteDepositRef').addClass("Readonly");
+            }
+        });
+    }
+
+</script>
+
+
+
+<style type="text/css">
+    .requiredField {
+        font-weight: bold;
+        font-size: 12pt;
+    }
+
+    #btnSubmit {
+        visibility: hidden;
+        top: -20px;
+        position: absolute;
+    }
+</style>
+
+
+<script id="approve-confirmation" type="text/x-kendo-template">
+    <div style="margin-left:20px;">
+        <img src="@Url.Content("~/Content/Images/warning.jpg")" style="float:left" />
+        <p style="margin-left:5px;" class="approve-message"></p></td>
+    </div>
+
+    <div style="margin-left:160px; margin-top:5px;">
+        <button id="btnApproveCancel" class="approve-cancel k-button" style="width:80px">Ok</button>
+    </div>
+
+</script>
+
+
+<script id="delete-confirmation" type="text/x-kendo-template">
+    <div>
+        <img src="@Url.Content("~/Content/Images/question.png")" width="40px" style="float:left" />
+        <p style="margin-left:10px; float:rigth" class="delete-message"> &nbsp; &nbsp;Do you want to delete Merchant?</p></td>
+    </div>
+
+    <div style="margin-left:160px; margin-top:5px;">
+        <button class="delete-confirm k-button" style="width:80px">Yes</button>
+        <button class="delete-cancel k-button" style="width:80px">No</button>
+    </div>
+</script>
+
+
+<script type="text/javascript">
+    function ExecuteReject() {
+        var rejectSiteObject =
+        {
+            Id: $.trim($('#SiteId').val()),
+            Comments: $.trim($('#Comments').val())
+        };
+
+        var postUrl = '@Url.Action("Reject")';
+
+        if ($.trim($("#Comments").val()) == "") {
+            var title = "Validation";
+            var message = "Please enter Comments to Reject Approval.";
+            validationMessageBox(title, message);
+            return false;
+        }
+
+        var parameters = { rejectSiteDto: rejectSiteObject };
+
+        //call server method
+        $.ajax(
+        {
+            type: "POST",
+            url: postUrl,
+            data: JSON.stringify(parameters),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (result) { //call successfull
+                window.location.href = result.url;
+            },
+            error: function (result) {
+                var title = "Error";
+                var message = "Error on Merchant Saving!";
+                validationMessageBox(title, message);
+            }
+        });
+        // End $.ajax method
+    }
+
+
+    $("#btnApprove").click(function () {
+        $("#btnSubmit").click();
+    });
+
+
+
+    function validationMessageBox(_title, _message) {
+        var kendoWindow = $("<div />").kendoWindow({
+            title: _title,
+            resizable: false,
+            modal: true,
+            width: "430px",
+            height: "160px"
+        });
+
+        kendoWindow.data("kendoWindow")
+            .content($("#approve-confirmation").html())
+            .center().open();
+
+        $(".approve-message").html(_message);
+
+        kendoWindow
+            .find(".approve-confirm,.approve-cancel")
+            .click(function () {
+                if ($(this).hasClass("approve-confirm")) {
+                    $.post(url, function (data) {
+                        window.location.href = data.url;
+                    });
+                }
+
+                kendoWindow.data("kendoWindow").close();
+            })
+            .end();
+    }
+
+
+</script>

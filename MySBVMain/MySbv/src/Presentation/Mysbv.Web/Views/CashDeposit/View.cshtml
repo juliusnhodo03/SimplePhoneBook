@@ -1,0 +1,447 @@
+﻿
+
+@using System.Web.Optimization    
+@using Application.Dto.CashDeposit
+@using Kendo.Mvc.UI
+
+    @model Application.Dto.CashDeposit.CashDepositDto
+
+    @{
+        ViewBag.Title = "View Cash Deposit";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+	<link href="~/Content/KendoUI/kendo.default.min.css" rel="stylesheet" />
+	<link href="~/Content/KendoUI/kendo.common.min.css" rel="stylesheet" />
+	<script src="~/Scripts/KendoUI/kendo.aspnetmvc.min.js"></script>
+	<script src="~/Scripts/KendoUI/kendo.web.min.js"></script>
+
+    <script src="~/Scripts/cash.deposit.model.js"></script>
+    <script src="~/Scripts/cash.deposit.screen.layout.js"></script>
+
+    <style type="text/css">
+        .k-window-action {
+            visibility: hidden;
+        }
+
+        caption {
+            background: #f5f5f5;
+            padding-right: 15px;
+            border-radius: 3px;
+            border: solid 1px ButtonFace;
+        }
+    </style>
+
+<div class="well">
+
+    <div class="ui-widget-header">
+        <h4 style="margin-left: 5px">View Cash Deposit</h4>
+    </div>
+	   
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+            
+                <div class="ui-widget-content" style="padding: 5px;">
+	                <div>
+
+						<div class="row">
+							<div class="input-prepend">
+								<div class="span3">
+									@Html.LabelFor(model => model.MerchantId, new { @class = "label", style = "width: 205px" })
+								</div>
+								<div class="span2">
+									@Html.DropDownList("ddlMerchants", ViewData["Merchants"] as SelectList,
+									new { @disabled = "disabled", @style = "width:225px; margin-bottom: 8px; margin-left: -15px" })
+									)
+								</div>
+
+								<div class="span3 offset1">
+									@Html.LabelFor(model => model.SiteId, new { @class = "label", style = "width: 205px" })
+								</div>
+								<div class="span2">
+									@Html.DropDownList("ddlSiteSbvUser", ViewData["Sites"] as SelectList,
+									new { @disabled = "disabled", @style = "width:175px; margin-bottom: 8px; margin-left: -15px" })
+								</div>
+							</div>
+						</div>
+
+		                
+		                <div class="row">
+			                <div class="input-prepend">
+				                <div class="span3">
+					                @Html.LabelFor(model => model.DepositTypeId, new { @class = "add-on", style = "width: 205px" })
+				                </div>
+				                <div class="span2">
+					                @Html.TextBoxFor(model => model.DepositTypeName, new { @disabled = "disabled", @style = "width:210px; margin-bottom: 8px; margin-left: -15px" })
+				                </div>
+
+				                <div class="span3 offset1">
+					                @Html.LabelFor(model => model.CitCode, new { @class = "add-on", style = "width: 205px" })
+				                </div>
+				                <div class="span2">
+					                @Html.TextBoxFor(model => model.Site.CitCode, new { @disabled = "disabled", id = "txtCitCode", @style = "width:160px; margin-bottom: 8px; margin-left: -15px" })
+				                </div>
+			                </div>
+		                </div>
+
+		                <div class="row">
+			                <div class="input-prepend">
+				                <div class="span3">                                  
+
+					                @if (Model.DepositTypeName == "Multi Deposit")
+					                {
+						                @Html.LabelFor(model => model.CaptureDateString, new { @class = "add-on", style = "width: 205px" })
+									}
+									else
+									{
+										<span class ="add-on" style="width: 205px">Deposit Reference</span>
+					                }
+				                </div>
+				                <div class="span2">
+					                @if (Model.DepositTypeName == "Multi Deposit")
+					                {
+						                @Html.TextBoxFor(model => model.CaptureDateString, new { @disabled = "disabled", @style = "width:210px; margin-bottom: 8px; margin-left: -15px" })
+					                }
+					                else
+					                {
+						                @Html.TextBoxFor(model => model.Narrative, new { @disabled = "disabled", @style = "width:210px; margin-bottom: 8px; margin-left: -15px" })
+					                }
+				                </div>
+
+				                <div class="span3 offset1">
+					                @Html.LabelFor(model => model.ContractNumber, new { @class = "add-on", style = "width: 205px" })
+				                </div>
+				                <div class="span2">
+					                @Html.TextBoxFor(model => model.ContractNumber, new { @disabled = "disabled", @style = "width:160px; margin-bottom: 8px; margin-left: -15px" })
+				                </div>
+			                </div>
+		                </div>
+
+		                <div class="row">
+			                <div class="input-prepend">
+				                <div class="span3">
+					                @Html.LabelFor(model => model.DepositedAmount, new { @class = "add-on", style = "width: 205px" })
+				                </div>
+				                <div class="span2">
+					                @Html.TextBoxFor(model => model.DepositedAmount, new { @disabled = "disabled", @style = "width:210px; margin-bottom: 8px; margin-left: -15px" })
+				                </div>
+
+				                <div class="span3 offset1"></div>
+				                <div class="span2"></div>
+			                </div>
+		                </div>
+	                </div>
+                </div>
+       
+                <br />
+        
+                <!-- Containers -->
+                <div class="ui-widget-header">
+                    <h5 style="margin-left: 5px">Containers</h5>
+                </div>
+        
+        <div class="ui-widget-content" style="padding: 5px; font-size:10pt !important; ">
+            @{ var containerNumber = 0; }
+
+            @foreach (ContainerDto container in Model.Containers)
+            {
+				containerNumber++;
+
+                <fieldset id="fieldsetContainer" class="sFieldsetContainer" style="width: 882px; border: solid 1px gray; padding: 10px; padding-right: 3px; background-color: #f5f5f5; ">
+                    <legend>Container Information</legend>
+
+                    <div style="font-weight:bold; font-size:11pt;">
+                        <span class="container_header_text">Container : &nbsp; @containerNumber  &nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;Total :&nbsp;
+                        <span class="container_header_total">@string.Format("{0:0.00}", container.Amount)</span>
+                        <a class="containerRemoval"></a>
+                    </div>
+
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td style="width: 190px"><label>Container Type</label></td>
+                                <td style="width: 300px">@Html.TextBox("conatinertype", container.ContainerTypeName, new { @disabled = "disabled" })</td>
+                            </tr>
+
+                            <tr>
+                                <td style="width: 190px"><label>Serial Number</label></td>
+                                <td style="width: 300px">@Html.TextBox("Attribute1", container.SerialNumber, new { @disabled = "disabled" })</td>
+                            </tr>
+                                
+                            @if (!string.IsNullOrEmpty(container.SealNumber))
+                            {
+                                <tr>
+                                    <td style="width: 190px"><label>Seal Number</label></td>
+                                    <td style="width: 300px">@Html.TextBox("Attribute2", container.SealNumber, new { @disabled = "disabled" })</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                    <div style="border-bottom: solid 1px gray; margin-left: -10px; width: 895px; position: absolute;"></div>
+                    <br />
+                    <style type="text/css">
+                        .boundary {
+                            background-color: ButtonFace;
+                            border-color:orange;
+                        }
+                    </style>
+                    @foreach (ContainerDropDto drop in container.ContainerDrops)
+                    {
+                        decimal notesTotal = 0M;
+                        decimal coinsTotal = 0M;
+						var dropOrDepositDescription = (Model.DepositTypeName.Contains("Drop")) ? "Drop" : "Deposit";
+						var boundary = drop.Name.ToUpper() == "SUBMITTED" ? "boundary" : "";
+
+                        <div id="ContainerDrop" class="denomination_groups_parent">
+                            <table>
+                                <tr class="drop_level">
+                                    <td>
+										<fieldset class="denomination_groups_clone @boundary" style="width: 850px !important">
+											<legend name="legend"></legend>
+
+
+											<table style="width:97%; font-weight:bold">
+												@if (Model.DepositTypeName == "Multi Drop")
+												{
+													<tr>
+														<td>@dropOrDepositDescription Serial Number</td>
+														<td>@Html.TextBox("txtDropSerialNumber", drop.BagSerialNumber, new { @maxlength = 14, @disabled = "disabled" })</td>
+														<td style='width:100px; padding-right:10px'>Drop Amount</td>
+														<td>@Html.TextBox("txtDropAmount", drop.Amount, new { @disabled = "disabled" })</td>
+													</tr>
+													<tr>
+														<td>Drop Reference</td>
+														<td>@Html.TextBox("txtDropReference", drop.Narrative, new { @maxlength = 14, @disabled = "disabled" })</td>
+														<td style='width:80px; padding-right:10px'>Drop @drop.Number</td>
+														<td><span class="TotalInDrop">Total : @string.Format("{0:0.00}", drop.Amount)</span></td>
+													</tr>
+												}
+												else if (Model.DepositTypeName == "Multi Deposit")
+												{
+													<tr>
+														<td></td>
+														<td></td>
+														<td style='width: 100px; padding-right: 10px'>Deposit Amount</td>
+														<td>@Html.TextBox("txtDropAmount", drop.Amount, new { @disabled = "disabled" })</td>
+													</tr>
+													<tr>
+														<td>Custom Deposit Reference</td>
+														<td>@Html.TextBox("txtDropReference", drop.Narrative, new { @maxlength = 14, @disabled = "disabled" })</td>
+														<td style='width: 100px; padding-right: 10px'>Deposit @drop.Number</td>
+														<td><span class="TotalInDrop">Total : @string.Format("{0:0.00}", drop.Amount)</span></td>
+													</tr>
+												}
+												else
+												{
+													<tr>
+														<td style="width: 180px;padding-left:10px;">
+															<span class="DropTitleAndNumber"> @dropOrDepositDescription </span> :
+															<span class="TotalInDrop">Total : @string.Format("{0:0.00}", drop.Amount)</span>
+														</td>
+
+														<td style='width: 185px; padding-right: 3px'></td>
+
+														<td style='width: 120px; padding-right: 10px; font-weight: normal;'>Deposit Amount</td>
+														<td>@Html.TextBox("txtDropAmount", drop.Amount, new { @disabled = "disabled" })</td>
+													</tr>
+												}
+											</table>
+
+
+											<table class="denominationgroup">
+												<tr class="denominationgroup_clone_row">
+
+													<!-- Note Details -->
+													<td style="padding:10px;">
+														<div class="CurrencyDenominations">
+															<fieldset>
+																<legend>Note Details</legend>
+
+																<table>
+																	<caption>
+																		<strong>Notes</strong>
+																	</caption>
+																	<tr>
+																		<td>
+																			<table>
+																				<tr>
+																					<td>Denomination</td>
+																					<td style="width:70px"></td>
+																					<td align="right">Count</td>
+																					<td style="width:40px"></td>
+																					<td align="right">Value (R)</td>
+																				</tr>
+																			</table>
+																		</td>
+																	</tr>
+
+																	<tr>
+																		<td class="clsNotessubtotal">
+																			<div class="clsnotes">
+																				<table class='denominationparent' currencytype="Notes" width="50%">
+
+																					@foreach (ContainerDropItemDto dto in drop.ContainerDropItems.Where(a => a.DenominationType == "Notes"))
+																					{
+																						notesTotal = notesTotal + dto.ValueInCents / 100 * dto.Count;
+
+																						<tr class="clsline">
+																							<td class="last">
+																								@Html.TextBox("denomination", dto.DenominationName, new { @disabled = "disabled", @class = "dropdown ddldenomination" })
+																							</td>
+																							<td>@Html.TextBox("Count", dto.Count, new { @disabled = "disabled", @class = "dropdown ddldenomination rightAlign" })</td>
+																							<td>@Html.TextBox("Amount", dto.Value, new { @disabled = "disabled", @class = "dropdown ddldenomination rightAlign" })</td>
+																							<td>
+																								<a type="button" name="buttonAddNotes" style="width:16px; height:16px; visibility:hidden">
+																									<img src="~/Content/images/add.png" height="18px" alt="" class="allButtonsBorder" />
+																								</a>
+																							</td>
+																							<td style="width:16px; height:16px; visibility:hidden">
+																								<a class="remove" type="button" name="buttonRemoveNotes"> <img alt="" src='~/Content/images/remove.png' class="allButtonsBorder" /> </a>
+																							</td>
+																						</tr>
+																					}
+																					<tr>
+																						<td style="text-align:left; font-weight:bold">Subtotal</td>
+																						<td colspan="3">
+																							@Html.TextBox("textNotesSubtotal", string.Format("{0:0.00}", notesTotal), new { @class = "SubTotals rightAlign", @disabled = "disabled", @style = "width: 245px !important;" })
+																						</td>
+																						<td></td>
+																					</tr>
+																				</table>
+																			</div> <!-- take_notes -->
+																		</td>
+																	</tr>
+																</table>
+															</fieldset>
+
+														</div>
+													</td>
+
+
+													<!-- Coin Details -->
+													<td style="padding:10px;">
+														<div class="CurrencyDenominations">
+															<fieldset>
+																<legend>Coin Details</legend>
+																<table>
+																	<caption>
+																		<strong>Coins</strong>
+																	</caption>
+																	<tr>
+																		<td>
+																			<table>
+																				<tr>
+																					<td>Denomination</td>
+																					<td style="width:70px"></td>
+																					<td align="right">Count</td>
+																					<td style="width:40px"></td>
+																					<td align="right">Value (R)</td>
+																				</tr>
+																			</table>
+																		</td>
+																	</tr>
+
+																	<tr>
+																		<td class="clsCoinssubtotal">
+																			<div class="clsCoins">
+																				<table class='denominationparent' currencytype="Coins" width="50%">
+
+																					@foreach (ContainerDropItemDto dto in drop.ContainerDropItems.Where(a => a.DenominationType == "Coins"))
+																					{
+																						coinsTotal = coinsTotal + (1.0M * dto.ValueInCents) / 100 * dto.Count;
+																						<tr class="clsline">
+																							<td class="last">
+																								@Html.TextBox("denomination", dto.DenominationName, new { @disabled = "disabled", @class = "dropdown ddldenomination" })
+																							</td>
+																							<td>@Html.TextBox("Count", dto.Count, new { @disabled = "disabled", @class = "dropdown ddldenomination rightAlign" })</td>
+																							<td>@Html.TextBox("Amount", dto.Value, new { @disabled = "disabled", @class = "dropdown ddldenomination rightAlign" })</td>
+																							<td>
+																								<a type="button" name="buttonAddCoins" style="width:16px; height:16px; visibility:hidden">
+																									<img src="~/Content/images/add.png" height="18px" alt="" class="allButtonsBorder" />
+																								</a>
+																							</td>
+																							<td style="width:16px; height:16px; visibility:hidden">
+																								<a class="remove" type="button" name="buttonRemoveCoins"> <img alt="" src='~/Content/images/remove.png' class="allButtonsBorder" /> </a>
+																							</td>
+																						</tr>
+																					}
+																					<tr>
+																						<td style="text-align:left; font-weight:bold">Subtotal</td>
+																						<td colspan="3">
+																							@Html.TextBox("textCoinsSubtotal", string.Format("{0:0.00}", coinsTotal), new { @class = "SubTotals rightAlign", @disabled = "disabled", @style = "width: 245px !important;" })
+																						</td>
+																						<td></td>
+																					</tr>
+																				</table>
+																			</div> <!-- take_coins -->
+
+																		</td>
+																	</tr>
+																</table>
+															</fieldset>
+
+															@{
+																var submitButtonText = drop.Name.ToUpper() == "SUBMITTED" ? "Submitted" : "Saved";
+															}
+
+															<div class="row" name="IsNotForSingleDeposit">
+																<div class="span8"></div>
+																<div class="span3 offset1">
+																	<button style="margin-left: 185px;" disabled="disabled" name="ButtonSubmitDrop" class="btn btn-mini btn-inverse" type="button">@submitButtonText</button>
+																</div>
+															</div>
+
+														</div>
+													</td>
+												</tr>
+											</table>
+										</fieldset>
+
+
+
+
+
+                                    </td>
+                                    <td class="containerDropRemoval"></td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <br />
+                        notesTotal = 0M;
+                        coinsTotal = 0M;
+                    }
+
+                </fieldset>
+
+            <br />
+            }
+
+            <div class="row pull-right" style="margin-top: 5px; margin-right:-35px">
+                <div class="span1"></div>
+
+                <div class="span2">
+                    <button onclick="createJavaScript: window.location.href = '@Url.Action("Index")'"
+                            class="btn btn-mini btn-danger" style="width: 100px !important;margin-top: -25px; margin-left: 5px; font-weight: bold" type="button">
+                        Exit
+                    </button>
+                </div>
+
+            </div>
+            
+            <br/>
+        </div>
+
+    }
+    </div>
+
+    @section Scripts {
+        @Styles.Render("~/Content/css")
+        @Styles.Render("~/Content/themes/base/css")
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/jqueryui")
+
+    }

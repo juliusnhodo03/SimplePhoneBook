@@ -1,0 +1,214 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
+    <meta http-equiv="EXPIRES" content="0" />
+    <meta http-equiv="PRAGMA" content="NO-CACHE">
+
+        <title>@ViewBag.Title - MySbv</title>
+
+        <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+        <link rel="shortcut icon" href="~/Content/Images/favicon.png" />
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/jqueryui")
+
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render("~/bundles/confirm")
+        @Scripts.Render("~/bundles/toastr")
+        @Scripts.Render("~/bundles/Urls")
+        @Scripts.Render("~/bundles/customtoast")
+        @Scripts.Render("~/bundles/ajaxcall")
+        @Scripts.Render("~/bundles/kendo")
+        @Styles.Render("~/Content/css")
+        @Styles.Render("~/Content/themes/base/css")
+        @Styles.Render("~/Content/kendo")
+        @Scripts.Render("~/bundles/modernizr")
+
+        <script src="~/Scripts/angular.min.js"></script>
+        <script src="~/Scripts/KendoUI/kendo.all.min.js"></script>
+        <script src="~/Scripts/angular-kendo.min.js"></script>
+
+        @RenderSection("scripts", required: false)
+    
+        <!--[if (gte IE 5.5)&(lt IE 7)]><p>You are using IE 5.5 or IE 6.</p><p>Please upgrade your version of Internet Explorer.</p><![endif]-->
+
+</head>
+<body>
+
+    <div class="content-wrapper">
+        <div class="wrap .hidden-phone">
+            <h1 class="sbvIcon" style="margin-left: 20px;"><img src="~/Content/Images/sbv_logo.jpg" style="height: 130px; width: 350px;" alt="logo.png" /></h1>
+            <div class="sbvlogo"><img src="~/Content/Images/whiteline.jpg" alt=" sbv home"></div>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div style="margin-left: 80px;">@Html.Partial("User")</div>
+            }
+            
+
+        </div>
+
+        @if (!User.Identity.IsAuthenticated)
+        {
+            <div id='cssmenu' style="margin-top:5px">
+                <ul>
+                    <li class='active'>@Html.Partial("_LoginPartial")</li>
+                </ul>
+            </div>
+        }
+        else
+        {
+            <div id='cssmenu' style="margin-top:5px; width: 112.5%">
+                <ul>
+                    <li class='active'>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li class='has-sub'>
+                        <a href='#'><span>Cash Handling</span></a>
+                        <ul>
+                            <li>@Html.ActionLink("Cash Deposits", "Index", "CashDeposit")</li>
+                            <li class='last'>@Html.ActionLink("Cash Processing", "Index", "CashProcessing")</li>
+                            <li class='last'>@Html.ActionLink("Cash Order Processing", "ProcessOrder", "CashOrder")</li>
+                        </ul>
+                    </li>
+                    <li class='has-sub'>
+                        <a href='#'><span>Order</span></a>
+                        <ul>
+                            <li class='has-sub'>
+                                <a href='#'><span>Cash</span></a>
+                                <ul>
+                                    <li>@Html.ActionLink("Float", "Index", "CashOrder")</li>
+                                </ul>
+                            </li>
+                            <li>@Html.ActionLink("Approval", "TaskList", "CashOrder")</li>
+                        </ul>
+                    </li>
+                    <li class='has-sub'>
+                        <a href='#'><span>Financial Management</span></a>
+                        <ul>
+                            <li>@Html.ActionLink("Rejected Deposits", "Index", "RejectedDeposits")</li>
+                            <li>@Html.ActionLink("Vault Transactions", "Index", "VaultTransactions")</li>
+                            <li class='has-sub'>
+                                <a href='#'><span>mySBV.Vault Payment</span></a>
+                                <ul>
+                                    <li class='has-sub'>@Html.ActionLink("Request Payment", "Index", "VaultPayment")</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("Reports", "Index", "Reports")</li>
+                    <li class='has-sub'>
+                        <a href='#'><span>Maintenance</span></a>
+                        <ul>
+                            <li class='has-sub'>
+                                <a href='#'><span>User Administration</span></a>
+                                <ul>
+                                    <li>@Html.ActionLink("Head Office User", "Index", "HeadOfficeUser")</li>
+                                    <li>@Html.ActionLink("Cash Centre User", "Index", "CashCenterUser")</li>
+                                    <li class='last'>@Html.ActionLink("Merchant User", "Index", "MerchantUser")</li>
+                                </ul>
+                            </li>
+                            <li class='has-sub'>
+                                <a href='#'><span>Location Administration</span></a>
+                                <ul>
+                                    <li class='last'>@Html.ActionLink("Cluster Administration", "Index", "Cluster")</li>
+                                </ul>
+                            </li>
+                            <li class='has-sub'> @Html.ActionLink("Merchant Administration", "Index", "Merchant") </li>
+                            <li class='has-sub'>
+                                <a href='#'><span>Site Administration</span></a>
+                                <ul>
+                                    <li class='has-sub'>@Html.ActionLink("Site", "Index", "Site")</li>
+                                    <li class='has-sub'>@Html.ActionLink("Bank Account", "Index", "BankAccount")</li>
+                                    <li class='has-sub'>@Html.ActionLink("Product", "Index", "Product")</li>
+                                </ul>
+                            </li>
+                            <li>@Html.ActionLink("Approval", "Index", "Approval")</li>
+                            <li>@Html.ActionLink("Cash Centre", "Index", "CashCenter")</li>
+                            <li class='last'>@Html.ActionLink("CIT Carrier", "Index", "Carrier")</li>
+                            <li class='has-sub'> @Html.ActionLink("Bank", "Index", "Bank") </li>
+                            <li class='has-sub'> @Html.ActionLink("Device", "Index", "DeviceType") </li>
+                            <li class='has-sub'> @Html.ActionLink("Product Type", "Index", "ProductType") </li>
+                            <li class='has-sub'> @Html.ActionLink("Container Type", "Index", "ContainerType") </li>
+                            <li class='has-sub'> @Html.ActionLink("Sales Area", "Index", "SalesArea") </li>
+                        </ul>
+                    </li>
+                    <li class='last'>@Html.ActionLink("Profile", "Manage", "Account")</li>
+                    <li class='has-sub'>
+                        <a href='#'><span>Training Manuals</span></a>
+                        <ul>
+                            <li class='has-sub'>
+                                <a href='#'><span>mySBV.deposit</span> </a>
+                                <ul>
+                                    <li><a href="~/Content/Manuals/MySBV-CashDepositProcessing.pdf" target="_blank">mySBV Cash Processing</a></li>
+                                    <li><a href="~/Content/Manuals/MySBV-CashDeposits.pdf" target="_blank">mySBV Cash Deposit</a></li>
+                                    <li><a href="~/Content/Manuals/MySBV-LogInGuide.pdf" target="_blank">mySBV Login Guide</a></li>
+                                    <li><a href="~/Content/Manuals/MySBV-Maintenance.pdf" target="_blank">mySBV Maintenance</a></li>
+                                </ul>
+                            </li>
+                            <li class='has-sub'>
+                                <a href='#'><span>mySBV.vault</span></a>
+                                <ul>
+                                    <li><a href="~/Content/Manuals/MySBV-VaultPaymentScreen.pdf" target="_blank">mySBV Vault Payment</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class='last'>@Html.Partial("_LoginPartial")</li>
+                </ul>
+            </div>
+        }
+
+        @RenderSection("featured", required: false)
+        @RenderSection("Code", required: false)
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section>
+        <footer>
+            © 2012 SBV Services (Pty) Ltd, Registered as a Security Service Provider by the PSIRA,registration number 4082 Company Reg. No. 1986/003865/07.<br />
+            Phone: 011 283 2000&nbsp; Email: <a href="mailto:helpdesk@sbv.co.za" class="link">Support Office</a>.
+            <span>
+                Developed by <a class="link" href="http://www.sbv.co.za/" target="_blank" rel="nofollow">SBV Services</a> Version :
+                @typeof(MvcApplication).Assembly.GetName().Version.ToString()
+            </span>
+            <span>
+                @Html.ActionLink("Admin Login", "AdminLogin", "Account")
+            </span>
+        </footer>
+    </div>
+
+
+
+    <script>
+        @Html.Raw(TempData["Script"])
+
+        $(document).ready(function () {
+            jQuery.validator.setDefaults({
+                highlight: function (element, errorClass, validClass) {
+                    if (element.type === 'radio') {
+                        this.findByName(element.name).addClass(errorClass).removeClass(validClass);
+                    } else {
+                        $(element).addClass(errorClass).removeClass(validClass);
+                        $(element).closest('.control-group').removeClass('success').addClass('error');
+                    }
+                },
+                unhighlight: function (element, errorClass, validClass) {
+                    if (element.type === 'radio') {
+                        this.findByName(element.name).removeClass(errorClass).addClass(validClass);
+                    } else {
+                        $(element).removeClass(errorClass).addClass(validClass);
+                        $(element).closest('.control-group').removeClass('error').addClass('success');
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
+
+

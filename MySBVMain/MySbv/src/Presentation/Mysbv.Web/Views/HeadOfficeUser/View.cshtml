@@ -1,0 +1,360 @@
+﻿@model Application.Dto.Users.UserDto
+@using System.Web.Optimization
+@using Kendo.Mvc.UI
+
+@{
+    ViewBag.Title = "Edit Head Offic User";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css">
+    .label {
+        width: 100px !important;
+    }
+
+    .required:after {
+        content: "*";
+        font-weight: bold;
+        color: red;
+    }
+</style>
+
+<div class="well">
+
+   
+
+    <div class="ui-widget-header">
+        <h3 style="margin-left: 5px"> View Head Office User Account</h3>
+    </div>
+    <div id="content">
+
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary()
+
+            <div class="ui-widget-content" style="padding: 5px;">
+
+
+                <div class="row">
+
+                    <div class="span4">
+                        <h4>User Information</h4>
+                    </div>
+                    <div class="span4 offset2">
+                        <h4>Login Information</h4>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="span2">
+                        @Html.LabelFor(a => a.TitleId, new { @class = "label", @style = "width:150px !important" })
+
+                    </div>
+
+                    <div class="span2">
+                        @(Html.Kendo().DropDownListFor(a => a.TitleId).BindTo(ViewData["Titles"] as SelectList).HtmlAttributes(new { @disabled = "disabled", @style = "width:238px; margin-bottom: 8px", @tabindex = "1" }))
+                    </div>
+                    <div class="span2 offset2">
+                        @Html.LabelFor(a => a.UserName, new { @class = "label", @style = "width:150px !important" })
+
+                    </div>
+
+                    <div class="span2">
+                        @Html.TextBoxFor(a => a.UserName, new { @disabled = "disabled", @class = "tbstyle", @id = "username", @maxlength = "12" })
+                        @Html.ValidationMessageFor(m => m.UserName)
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-prepend">
+                        <div class="span2">
+                            @Html.LabelFor(a => a.FirstName, new { @class = "add-on", @style = "width:150px" })
+                            <span class="requiredField">*</span>
+                        </div>
+
+                        <div class="span2">
+                            @Html.TextBoxFor(a => a.FirstName, new { @disabled = "disabled", @class = "tbstyle", @id = "firstname", @maxlength = "20", @tabindex = "2" })
+                            @Html.ValidationMessageFor(a => a.FirstName)
+                        </div>
+                        <div class="span2 offset2">
+                            @Html.LabelFor(a => a.EmailAddress, new { @class = "label", @style = "width:150px !important" })
+
+                        </div>
+
+                        <div class="span2">
+                            @Html.TextBoxFor(a => a.EmailAddress, new { @disabled = "disabled", @class = "tbstyle", @maxlength = "100", @tabindex = "10" })
+                            @Html.ValidationMessageFor(m => m.EmailAddress)
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-prepend">
+                        <div class="span2">
+                            @Html.LabelFor(a => a.LastName, new { @class = "add-on ", @style = "width:150px" })
+                            <span class="requiredField">*</span>
+                        </div>
+
+                        <div class="span2">
+                            @Html.TextBoxFor(a => a.LastName, new { @disabled = "disabled", @class = "tbstyle", @id = "lastname", @maxlength = "20", @tabindex = "3" })
+                            @Html.ValidationMessageFor(a => a.LastName)
+                        </div>
+                        @*<div class="input-prepend">
+                            <div class="span2 offset2">
+                                <span class="label" style="width: 150px !Important">
+                                    ResetPassWord
+                                </span>
+
+                            </div>
+
+                            
+                        </div>*@
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="span2">
+                        <span class="label " style="width: 150px !Important; margin-bottom:5px;">
+                            SA Citizen ?
+                            <span class="requiredField"></span>
+                        </span>
+                    </div>
+                    <div class="span2">
+                        <span style="width :150px ; margin-right:5px;"></span><input type="checkbox" tabindex="4" disabled ="disabled" checked="unchecked" id="chkCitizenship" />
+                    </div>
+
+                </div>
+
+
+                <div class="row" id="SAIdNumber">
+                    <div class="input-prepend">
+                        <div class="span2">
+                            @Html.LabelFor(a => a.IdNumber, new { @class = "add-on", @style = "width:150px" })
+                            <span class="requiredField">*</span>
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(a => a.IdNumber, new { @disabled = "disabled", @class = "tbstyle", @id = "idnumber", @maxlength = "14", @tabindex = "5" })
+                            @Html.ValidationMessageFor(a => a.IdNumber)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" id="PassportNumber">
+                    <div class="input-prepend">
+                        <div class="span2">
+                            @Html.LabelFor(a => a.PassportNumber, new { @class = "add-on", style = "width: 150px" })
+                            <span class="requiredField">*</span>
+
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(a => a.PassportNumber, new { @disabled = "disabled", @class = "tbstyle", @id = "passportnumber", @maxlength = "20", @tabindex = "5" })
+                            @Html.ValidationMessageFor(a => a.PassportNumber)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-prepend">
+                        <div class="span2">
+                            @Html.LabelFor(a => a.CellNumber, new { @class = "add-on", @style = "width:150px" })
+                            <span class="requiredField"></span>
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(a => a.CellNumber, new { @disabled = "disabled", @class = "tbstyle", @maxlength = "10", @tabindex = "6" })
+                            @Html.ValidationMessageFor(a => a.CellNumber)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-prepend">
+
+                        <div class="span2">
+                            @Html.LabelFor(a => a.OfficeNumber, new { @class = "add-on", @style = "width:150px" })
+                            <span class="requiredField">*</span>
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(a => a.OfficeNumber, new { @disabled = "disabled", @class = "tbstyle", @maxlength = "10", @tabindex = "7" })
+                            @Html.ValidationMessageFor(a => a.OfficeNumber)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-prepend">
+                        <div class="span2">
+                            @Html.LabelFor(a => a.FaxNumber, new { @class = "add-on", @style = "width:150px" })
+                            <span class="requiredField"></span>
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(a => a.FaxNumber, new { @disabled = "disabled", @class = "tbstyle", @maxlength = "10", @tabindex = "8" })
+                            @Html.ValidationMessageFor(a => a.FaxNumber)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-prepend">
+                        <div class="span2">
+                            @Html.LabelFor(a => a.IsLocked, new { @class = "add-on", @style = "width:150px" })
+                            <span class="requiredField"></span>
+                        </div>
+                        <div class="span2">
+                            <span style="width :150px ; margin-right:5px;"></span>
+                            @Html.CheckBoxFor(a => a.IsLocked, new { @disabled = "disabled", @class = "chkbxstyle", @tabindex = "9" })
+                            @Html.ValidationMessageFor(a => a.IsLocked)
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class=" row">
+                    <div class="span5"><h4>Role Information</h4></div>
+                </div>
+
+                <p><b>User must have at least 1 role</b> <span class="requiredField"></span> </p>
+
+                <div class="row">
+                    <div class="span2">@Html.LabelFor(model => model.IsAdmin)</div>
+                    <div class="span2">@Html.LabelFor(model => model.IsApprover)</div>
+                    <div class="span2">@Html.LabelFor(model => model.IsFinanceReviewer)</div>
+                    <div class="span2">@Html.LabelFor(model => model.IsDataCapture)</div>
+                </div>
+
+                <div class="row">
+                    <div class="span2">
+                        @Html.CheckBoxFor(model => model.IsAdmin, new { @disabled = "disabled", @style = "margin-top: -14px", @tabindex = "12" })
+                        @Html.ValidationMessageFor(model => model.IsAdmin)
+                    </div>
+                    <div class="span2">
+                        @Html.CheckBoxFor(model => model.IsApprover, new { @disabled = "disabled", @tabindex = "13" })
+                        @Html.ValidationMessageFor(model => model.IsApprover)
+                    </div>
+                    <div class="span2">
+                        @Html.CheckBoxFor(model => model.IsFinanceReviewer, new { @disabled = "disabled", @style = "margin-top: -14px", @tabindex = "14" })
+                        @Html.ValidationMessageFor(model => model.IsFinanceReviewer)
+                    </div>
+                    <div class="span2">
+                        @Html.CheckBoxFor(model => model.IsDataCapture, new { @disabled = "disabled", @style = "margin-top: -14px", @tabindex = "15" })
+                        @Html.ValidationMessageFor(model => model.IsDataCapture)
+                    </div>
+                    <hr />
+                    <div>
+                        @Html.HiddenFor(a => a.CreatedById)
+                        @Html.HiddenFor(a => a.CreateDate)
+                        @Html.HiddenFor(a => a.UserId)
+                        @Html.HiddenFor(a => a.IsNotDeleted)
+                        @Html.HiddenFor(a => a.UserName)
+                        @Html.HiddenFor(a => a.UserTypeId)
+                        @Html.HiddenFor(a => a.IdNumber, new { @id = "hiddenId" })
+                    </div>
+
+
+                    <div class="row">
+                        <div style="margin-left: 33px">
+                            <div class="span2 offset8">
+                                @*<input type="submit" value="Save" class="btn btn-primary" style="width: 100px" tabindex="16" />*@
+                            </div>
+                            <div class="span1">
+                                <a href='@Url.Action("Index")' id="confirm" class="btn btn-danger" style="width: 70px; margin-left: -45px" tabindex="17">Cancel</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+            </div>
+
+
+
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $("#resetpassword").css("width", "237px");
+
+        if ($.trim($('#IdNumber').val()) != "") {
+            $("#SAIdNumber").show();
+            $("#PassportNumber").hide();
+
+        } else {
+            $("#SAIdNumber").hide();
+            $("#PassportNumber").show();
+            $("#chkCitizenship").removeAttr('checked');
+        }
+    });
+
+    $("#chkCitizenship").click(function () {
+        if ($("#chkCitizenship").is(':checked')) {
+            $("#SAIdNumber").show();
+            $("#PassportNumber").hide();
+            $("#passportnumber").val("");
+            $("#idnumber").val(@Model.IdNumber);
+        } else {
+            $("#SAIdNumber").hide();
+            $("#PassportNumber").show();
+            $("#idnumber").val("");
+            $("#passportnumber").val(@Model.PassportNumber);
+        }
+    });
+
+    $("#resetpassword").click(function () {
+        return confirm("Are you sure you want to reset the user's password?");
+    });
+
+    $("#IsAdmin").click(function () {
+        $("#IsApprover").attr("checked", false);
+        $("#IsFinanceReviewer").attr("checked", false);
+        $("#IsDataCapture").attr("checked", false);
+    });
+
+    $("#IsApprover").click(function () {
+        $("#IsAdmin").attr("checked", false);
+        $("#IsFinanceReviewer").attr("checked", false);
+        $("#IsDataCapture").attr("checked", false);
+    });
+
+    $("#IsFinanceReviewer").click(function () {
+        $("#IsAdmin").attr("checked", false);
+        $("#IsApprover").attr("checked", false);
+        $("#IsDataCapture").attr("checked", false);
+    });
+
+    $("#IsDataCapture").click(function () {
+        $("#IsAdmin").attr("checked", false);
+        $("#IsApprover").attr("checked", false);
+        $("#IsFinanceReviewer").attr("checked", false);
+    });
+
+    $(function () {
+        if ($("#hiddenId").val() == '') {
+            $("#chkCitizenship").prop('checked', false);
+            $("#SAIdNumber").hide();
+            $("#PassportNumber").show();
+            $("#idnumber").val("");
+            $("#passportnumber").val(@Model.PassportNumber);
+        } else {
+            $("#chkCitizenship").prop('checked', true);
+            $("#SAIdNumber").show();
+            $("#PassportNumber").hide();
+            $("#passportnumber").val("");
+            $("#idnumber").val(@Model.IdNumber);
+        }
+    });
+
+    $(".bt_red").easyconfirm({ locale: { title: 'Confirm ', button: ['No', 'Yes'], text: 'Cash Centre user record is not yet Saved. Do you want to continue?' } });
+
+</script>
+

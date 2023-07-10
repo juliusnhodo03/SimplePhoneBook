@@ -1,0 +1,214 @@
+﻿@model Application.Dto.Profile.UserProfileDto
+
+@using System.Web.Optimization
+@using Kendo.Mvc.UI
+
+<style type="text/css">
+    .label {
+        width: 100px !important;
+    }
+
+    .required:after {
+        content: "*";
+        font-weight: bold;
+        color: red;
+    }
+</style>
+
+<p>Fields marked with an asterisk <span class="requiredField">*</span> are required</p>
+
+<div class="ui-widget-header">
+    <h4 style="margin-left: 5px">Cash Center User</h4>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+
+    <div class="row">
+        <div class="span">
+            <h4>User information</h4>
+        </div>
+        <div class="span3 offset4">
+            <h4>Loging Information</h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span2">
+            @Html.LabelFor(a => a.TitleId, new { @class = "label required", style = "width: 150px !Important" })
+        </div>
+        <div class="span2">
+            @(Html.Kendo().DropDownListFor(a => a.TitleId).BindTo(ViewData["Titles"] as SelectList).HtmlAttributes(new { @style = "width:243px; margin-bottom: 8px", @tabindex = "1" }))
+        </div>
+
+        <div class="span2 offset2">
+            @Html.LabelFor(a => a.UserName, new { @class = "label required", style = "width: 150px !Important" })
+        </div>
+        <div class="span2">
+            @Html.TextBoxFor(a => a.UserName, new { @readonly = "readonly", @class = "tbstyle", @id = "username", @maxlength = "14", @tabindex = "10" })
+            @Html.ValidationMessageFor(m => m.UserName)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span2">
+            @Html.LabelFor(a => a.FirstName, new { @readonly = "readonly", @class = "label required", style = "width: 150px !important" })
+        </div>
+        <div class="span2">
+            @Html.TextBoxFor(a => a.FirstName, new { @class = "tbstyle", @id = "firstname", @maxlength = "14", @tabindex = "2" })
+            @Html.ValidationMessageFor(a => a.FirstName)
+        </div>
+        <div class="span2 offset2">
+
+            @Html.LabelFor(a => a.EmailAddress, new { @readonly = "readonly", @class = "label required", style = "width: 150px !important" })
+        </div>
+        <div class="span2">
+            @Html.TextBoxFor(a => a.EmailAddress, new { @maxlength = "50", @tabindex = "11" })
+            @Html.ValidationMessageFor(m => m.EmailAddress)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span2">
+            @Html.LabelFor(a => a.LastName, new { @class = "label required", style = "width: 150px !important" })
+        </div>
+        <div class="span2">
+            @Html.TextBoxFor(a => a.LastName, new { @class = "tbstyle", @id = "lastname", @maxlength = "14", @tabindex = "3" })
+            @Html.ValidationMessageFor(a => a.LastName)
+        </div>
+
+        <div class="span2 offset2"></div>
+        <div class="span2">
+            <a href="javascript:displayResetForm();" class="btn btn-default" style="width: 220px">Reset Password</a>
+        </div>
+    </div>
+
+    <div class="row" id="PassportNumber">
+        <div class="span2">
+            @Html.LabelFor(a => a.PassportNumber, new { @readonly = "readonly", @class = "label required", style = "width: 150px !important; margin-bottom:5px;" })
+        </div>
+        <div class="input-prepend">
+            <div class="span2">
+                @Html.TextBoxFor(a => a.PassportNumber, new { @readonly = "readonly", @class = "tbstyle", @id = "passportnumber", @maxlength = "20", @tabindex = "5" })
+                @Html.ValidationMessageFor(a => a.PassportNumber)
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="span3 offset2">
+                <h4 style="margin-top: -1px">Cash Centre Information</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" id="SAIdNumber">
+        <div class="span2">
+            @Html.LabelFor(a => a.IdNumber, new { @readonly = "readonly", @class = "label required", style = "width: 150px !important;" })
+
+        </div>
+        <div class="input-prepend">
+            <div class="span2">
+                @Html.TextBoxFor(a => a.IdNumber, new { @readonly = "readonly", @class = "tbstyle", @id = "passportnumber", @maxlength = "20", @tabindex = "5" })
+                @Html.ValidationMessageFor(a => a.IdNumber)
+            </div>
+        </div>
+
+        <div class="span2 offset2">
+            <span class="label" style="width: 150px !Important; "> Cash Centre<span class="requiredField">*</span></span>
+        </div>
+        <div class="span2">
+            @(Html.Kendo().DropDownListFor(a => a.CashCentreId).BindTo(ViewData["CashCenters"] as SelectList).HtmlAttributes(new { @readonly = "readonly", @style = "width:238px; ", @tabindex = "14" }))
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="span2">
+            @Html.LabelFor(a => a.CellNumber, new { @class = "label required", style = "width: 150px !Important" })
+        </div>
+        <div class="span2">
+            @Html.TextBoxFor(a => a.CellNumber, new { @class = "tbstyle", @maxlength = "10", @tabindex = "6" })
+            @Html.ValidationMessageFor(a => a.CellNumber)
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="span2">
+            @Html.LabelFor(a => a.OfficeNumber, new { @class = "label required", style = "width: 150px !Important" })
+        </div>
+        <div class="span2">
+            @Html.TextBoxFor(a => a.OfficeNumber, new { @class = "tbstyle", @maxlength = "10", @tabindex = "7" })
+            @Html.ValidationMessageFor(a => a.OfficeNumber)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span2">
+            @Html.LabelFor(a => a.FaxNumber, new { @class = "label", style = "width: 150px !Important" })
+        </div>
+        <div class="span2">
+            @Html.TextBoxFor(a => a.FaxNumber, new { @class = "tbstyle", @maxlength = "10", @tabindex = "8" })
+            @Html.ValidationMessageFor(a => a.FaxNumber)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span">
+            <h4>Role Information</h4>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="span">
+            <h5>User must have at least 1 role <span class="requiredField">*</span></h5>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="span1">
+            @Html.LabelFor(model => model.IsRecon, new { @disabled = "disabled" })
+        </div>
+        <div class="span3 offset2">
+            @Html.LabelFor(model => model.IsTellerSupervisor, new { @disabled = "disabled" })
+        </div>
+        <div class="span1">
+            @Html.LabelFor(model => model.IsTeller, new { @disabled = "disabled" })
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="span1">
+            @Html.HiddenFor(a => a.IsRecon)
+            @Html.CheckBoxFor(model => model.IsRecon, new { @disabled = "disabled", @style = "margin-top: -14px", @tabindex = "14" })
+        </div>
+        <div class="span3 offset2">
+            @Html.HiddenFor(a => a.IsTellerSupervisor)
+            @Html.CheckBoxFor(model => model.IsTellerSupervisor, new { @disabled = "disabled", @style = "margin-top: -14px", @tabindex = "15" })
+        </div>
+        <div class="span1">
+            @Html.HiddenFor(a => a.IsTeller)
+            @Html.CheckBoxFor(model => model.IsTeller, new { @disabled = "disabled", @style = "margin-top: -14px", @tabindex = "16" })
+        </div>
+    </div>
+
+        <!--Buttons-->
+    <div class="row">
+        <div class="span1 offset9">
+            <input type="submit" value="Save" class="btn btn-primary" style="width: 100px; margin-left: -25px" />
+        </div>
+        <div class="span1">
+            <a href='@Url.Action("Index", "Home")' id="confirm" class="btn btn-danger" style="width: 70px; margin-left: 0px">Cancel</a>
+        </div>
+    </div>
+
+    @Html.HiddenFor(a => a.UserId)
+    @Html.HiddenFor(a => a.CreatedById)
+    @Html.HiddenFor(a => a.UserTypeId)
+    @Html.HiddenFor(a => a.CreateDate)
+}

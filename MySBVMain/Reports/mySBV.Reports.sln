@@ -1,0 +1,83 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "BillingAndAudits", "BillingAndAudits\BillingAndAudits.rptproj", "{EE237BCF-87FC-4DCD-BBC6-3AC095E1CBD2}"
+EndProject
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Payments", "Payments\Payments.rptproj", "{D7FC427E-3B3C-4D72-B5EE-81B87A4FEAAF}"
+EndProject
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "CashOrders", "CashOrders\CashOrders.rptproj", "{9933AA04-B8DA-416A-A089-DF30E02DB496}"
+EndProject
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "CashProcessing", "CashProcessing\CashProcessing.rptproj", "{258135F3-70AE-412B-BF7A-9840B50A200F}"
+EndProject
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "CashDeposits", "CashDeposits\CashDeposits.rptproj", "{842B3DAD-385B-4183-A02D-9968C1618845}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE237BCF-87FC-4DCD-BBC6-3AC095E1CBD2}.Debug|Default.ActiveCfg = Release
+		{EE237BCF-87FC-4DCD-BBC6-3AC095E1CBD2}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{EE237BCF-87FC-4DCD-BBC6-3AC095E1CBD2}.DebugLocal|Default.Build.0 = DebugLocal
+		{EE237BCF-87FC-4DCD-BBC6-3AC095E1CBD2}.Release|Default.ActiveCfg = Release
+		{EE237BCF-87FC-4DCD-BBC6-3AC095E1CBD2}.Release|Default.Build.0 = Release
+		{EE237BCF-87FC-4DCD-BBC6-3AC095E1CBD2}.Release|Default.Deploy.0 = Release
+		{D7FC427E-3B3C-4D72-B5EE-81B87A4FEAAF}.Debug|Default.ActiveCfg = DebugLocal
+		{D7FC427E-3B3C-4D72-B5EE-81B87A4FEAAF}.Debug|Default.Build.0 = DebugLocal
+		{D7FC427E-3B3C-4D72-B5EE-81B87A4FEAAF}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{D7FC427E-3B3C-4D72-B5EE-81B87A4FEAAF}.DebugLocal|Default.Build.0 = DebugLocal
+		{D7FC427E-3B3C-4D72-B5EE-81B87A4FEAAF}.Release|Default.ActiveCfg = Release
+		{D7FC427E-3B3C-4D72-B5EE-81B87A4FEAAF}.Release|Default.Build.0 = Release
+		{D7FC427E-3B3C-4D72-B5EE-81B87A4FEAAF}.Release|Default.Deploy.0 = Release
+		{9933AA04-B8DA-416A-A089-DF30E02DB496}.Debug|Default.ActiveCfg = DebugLocal
+		{9933AA04-B8DA-416A-A089-DF30E02DB496}.Debug|Default.Build.0 = DebugLocal
+		{9933AA04-B8DA-416A-A089-DF30E02DB496}.Debug|Default.Deploy.0 = DebugLocal
+		{9933AA04-B8DA-416A-A089-DF30E02DB496}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{9933AA04-B8DA-416A-A089-DF30E02DB496}.DebugLocal|Default.Build.0 = DebugLocal
+		{9933AA04-B8DA-416A-A089-DF30E02DB496}.DebugLocal|Default.Deploy.0 = DebugLocal
+		{9933AA04-B8DA-416A-A089-DF30E02DB496}.Release|Default.ActiveCfg = Release
+		{9933AA04-B8DA-416A-A089-DF30E02DB496}.Release|Default.Build.0 = Release
+		{9933AA04-B8DA-416A-A089-DF30E02DB496}.Release|Default.Deploy.0 = Release
+		{258135F3-70AE-412B-BF7A-9840B50A200F}.Debug|Default.ActiveCfg = DebugLocal
+		{258135F3-70AE-412B-BF7A-9840B50A200F}.Debug|Default.Build.0 = DebugLocal
+		{258135F3-70AE-412B-BF7A-9840B50A200F}.Debug|Default.Deploy.0 = DebugLocal
+		{258135F3-70AE-412B-BF7A-9840B50A200F}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{258135F3-70AE-412B-BF7A-9840B50A200F}.DebugLocal|Default.Build.0 = DebugLocal
+		{258135F3-70AE-412B-BF7A-9840B50A200F}.DebugLocal|Default.Deploy.0 = DebugLocal
+		{258135F3-70AE-412B-BF7A-9840B50A200F}.Release|Default.ActiveCfg = Release
+		{258135F3-70AE-412B-BF7A-9840B50A200F}.Release|Default.Build.0 = Release
+		{258135F3-70AE-412B-BF7A-9840B50A200F}.Release|Default.Deploy.0 = Release
+		{842B3DAD-385B-4183-A02D-9968C1618845}.Debug|Default.ActiveCfg = DebugLocal
+		{842B3DAD-385B-4183-A02D-9968C1618845}.Debug|Default.Build.0 = DebugLocal
+		{842B3DAD-385B-4183-A02D-9968C1618845}.Debug|Default.Deploy.0 = DebugLocal
+		{842B3DAD-385B-4183-A02D-9968C1618845}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{842B3DAD-385B-4183-A02D-9968C1618845}.DebugLocal|Default.Build.0 = DebugLocal
+		{842B3DAD-385B-4183-A02D-9968C1618845}.DebugLocal|Default.Deploy.0 = DebugLocal
+		{842B3DAD-385B-4183-A02D-9968C1618845}.Release|Default.ActiveCfg = Release
+		{842B3DAD-385B-4183-A02D-9968C1618845}.Release|Default.Build.0 = Release
+		{842B3DAD-385B-4183-A02D-9968C1618845}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://so-srv-tfsapp01:8080/tfs/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = CashDeposits\\CashDeposits.rptproj
+		SccProjectName1 = CashDeposits
+		SccLocalPath1 = CashDeposits
+		SccProjectUniqueName2 = CashOrders\\CashOrders.rptproj
+		SccProjectName2 = CashOrders
+		SccLocalPath2 = CashOrders
+		SccProjectUniqueName3 = CashProcessing\\CashProcessing.rptproj
+		SccProjectName3 = CashProcessing
+		SccLocalPath3 = CashProcessing
+		SccProjectUniqueName4 = BillingAndAudits\\BillingAndAudits.rptproj
+		SccProjectName4 = BillingAndAudits
+		SccLocalPath4 = BillingAndAudits
+	EndGlobalSection
+EndGlobal

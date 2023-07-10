@@ -1,0 +1,64 @@
+[2015-03-16 14:49:12,354] [DEBUG] Vault.Integration.Msmq.Connector.MsmqConnector - Adding a Request Message to queue -      
+Infrastructure.Logging.Logger.Debug
+[2015-03-16 14:49:12,584] [DEBUG] Vault.Integration.Msmq.Connector.MsmqConnector - message Added to queue -      
+Infrastructure.Logging.Logger.Debug
+[2015-03-16 14:49:12,612] [DEBUG] Vault.Integration.Msmq.Connector.MsmqConnector - Message Label 
+[20177699951177] -      
+Infrastructure.Logging.Logger.Debug
+[2015-03-16 16:19:21,980] [ERROR] Mysbv.Web.MvcApplication - MESSAGE
+You do not have the required role(s) 'SBVAdmin, RetailSupervisor'
+STACKTRACE
+   at Mysbv.Web.CustomAttributes.CustomAuthorizeAttribute.HandleUnauthorizedRequest(AuthorizationContext filterContext) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\CustomAttributes\CustomAuthorizeAttribute.cs:line 14
+   at System.Web.Mvc.AuthorizeAttribute.OnAuthorization(AuthorizationContext filterContext)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAuthorizationFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__19(AsyncCallback asyncCallback, Object asyncState)
+INNER EXCEPTION   at Mysbv.Web.CustomAttributes.CustomAuthorizeAttribute.HandleUnauthorizedRequest(AuthorizationContext filterContext) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\CustomAttributes\CustomAuthorizeAttribute.cs:line 14
+   at System.Web.Mvc.AuthorizeAttribute.OnAuthorization(AuthorizationContext filterContext)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAuthorizationFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__19(AsyncCallback asyncCallback, Object asyncState) - Mysbv.Web.CustomAttributes.NotauthorizedHttpException (0x80004005): You do not have the required role(s) 'SBVAdmin, RetailSupervisor'
+   at Mysbv.Web.CustomAttributes.CustomAuthorizeAttribute.HandleUnauthorizedRequest(AuthorizationContext filterContext) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\CustomAttributes\CustomAuthorizeAttribute.cs:line 14
+   at System.Web.Mvc.AuthorizeAttribute.OnAuthorization(AuthorizationContext filterContext)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAuthorizationFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__19(AsyncCallback asyncCallback, Object asyncState)
+
+Infrastructure.Logging.Logger.LogException
+[2015-03-16 16:37:44,858] [ERROR] Mysbv.Web.MvcApplication - MESSAGE
+The SMTP server requires a secure connection or the client was not authenticated. The server response was: 5.7.1 Client was not authenticated
+STACKTRACE
+   at System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.MailCommand.Send(SmtpConnection conn, Byte[] command, MailAddress from, Boolean allowUnicode)
+   at System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at Mysbv.Web.Controllers.BaseController.SendMoreEmails(List`1 recipients, MailMessage attachments, String subject, String body) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 244
+INNER EXCEPTION   at System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.MailCommand.Send(SmtpConnection conn, Byte[] command, MailAddress from, Boolean allowUnicode)
+   at System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at Mysbv.Web.Controllers.BaseController.SendMoreEmails(List`1 recipients, MailMessage attachments, String subject, String body) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 244 - System.Net.Mail.SmtpException: The SMTP server requires a secure connection or the client was not authenticated. The server response was: 5.7.1 Client was not authenticated
+   at System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.MailCommand.Send(SmtpConnection conn, Byte[] command, MailAddress from, Boolean allowUnicode)
+   at System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at Mysbv.Web.Controllers.BaseController.SendMoreEmails(List`1 recipients, MailMessage attachments, String subject, String body) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 244
+
+Infrastructure.Logging.Logger.LogException
+[2015-03-16 17:01:00,582] [ERROR] Mysbv.Web.MvcApplication - MESSAGE
+The SMTP server requires a secure connection or the client was not authenticated. The server response was: 5.7.1 Client was not authenticated
+STACKTRACE
+   at System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.MailCommand.Send(SmtpConnection conn, Byte[] command, MailAddress from, Boolean allowUnicode)
+   at System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at Mysbv.Web.Controllers.BaseController.SendMoreEmails(List`1 recipients, MailMessage attachments, String subject, String body) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 244
+INNER EXCEPTION   at System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.MailCommand.Send(SmtpConnection conn, Byte[] command, MailAddress from, Boolean allowUnicode)
+   at System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at Mysbv.Web.Controllers.BaseController.SendMoreEmails(List`1 recipients, MailMessage attachments, String subject, String body) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 244 - System.Net.Mail.SmtpException: The SMTP server requires a secure connection or the client was not authenticated. The server response was: 5.7.1 Client was not authenticated
+   at System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.MailCommand.Send(SmtpConnection conn, Byte[] command, MailAddress from, Boolean allowUnicode)
+   at System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at Mysbv.Web.Controllers.BaseController.SendMoreEmails(List`1 recipients, MailMessage attachments, String subject, String body) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 244
+
+Infrastructure.Logging.Logger.LogException

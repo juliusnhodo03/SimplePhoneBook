@@ -1,0 +1,225 @@
+﻿@model Application.Dto.FinancialManagement.RejectedDepositDto
+
+@{
+    ViewBag.Title = "View Rejected Deposit Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css">
+    .label {
+        width: 100px !important;
+    }
+
+    .required:after {
+        content: "*";
+        font-weight: bold;
+        color: red;
+    }
+</style>
+<div class="well">
+
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+
+        <div class="ui-widget-header">
+            <h4 style="margin-left: 5px">Rejected Deposits</h4>
+
+        </div>
+
+        <div class="ui-widget-content" style="padding: 5px;">
+
+            <div class="row">
+                <div class="span">
+                    <h4>Client Information</h4>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="span2">
+                    @Html.LabelFor(a => a.MerchantName, new { @class = "label", style = "width: 150px !important" })
+                </div>
+                <div class="input-prepend">
+                    <div class="span2">
+
+                        @Html.TextBoxFor(a => a.MerchantName, new { @class = "tbstyle", @id = "firstname", @maxlength = "14", @disabled = "disabled", @tabindex = "2" })
+
+                    </div>
+
+                    <div class="span2 offset2">
+                        @Html.LabelFor(a => a.SiteName, new { @class = "label", style = "width: 150px !important" })
+                    </div>
+
+                    <div class="span2">
+                        @Html.TextBoxFor(a => a.SiteName, new { @disabled = "disabled", @tabindex = "10" })
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="span2">
+                    @Html.LabelFor(a => a.CitCode, new { @class = "label", style = "width: 150px !important" })
+                </div>
+                <div class="input-prepend">
+                    <div class="span2">
+
+                        @Html.TextBoxFor(a => a.CitCode, new { @class = "tbstyle", @disabled = "disabled", @tabindex = "2" })
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="span">
+                    <h4>Banking Information</h4>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="span2">
+                    @Html.LabelFor(a => a.AccountNumber, new { @class = "label", style = "width: 150px !important" })
+                </div>
+                <div class="input-prepend">
+                    <div class="span2">
+
+                        @Html.TextBoxFor(a => a.AccountNumber, new { @class = "tbstyle", @id = "firstname", @disabled = "disabled", @tabindex = "2" })
+
+                    </div>
+
+                    <div class="span2 offset2">
+                        @Html.LabelFor(a => a.BranchCode, new { @class = "label", style = "width: 150px !important" })
+                    </div>
+
+                    <div class="span2">
+                        @Html.TextBoxFor(a => a.BranchCode, new { @disabled = "disabled", @tabindex = "10" })
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="span2">
+                    @Html.LabelFor(a => a.AccountType, new { @class = "label", style = "width: 150px !important" })
+                </div>
+                <div class="input-prepend">
+                    <div class="span2">
+
+                        @Html.TextBoxFor(a => a.AccountType, new { @class = "tbstyle", @id = "firstname", @maxlength = "50", @disabled = "disabled", @tabindex = "2" })
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="span">
+                    <h4>Transaction Information</h4>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="span2">
+                    @Html.LabelFor(a => a.Narrative, new { @class = "label", style = "width: 150px !important" })
+                </div>
+                <div class="input-prepend">
+                    <div class="span2">
+
+                        @Html.TextBoxFor(a => a.Narrative, new { @class = "tbstyle", @id = "firstname", @maxlength = "14", @disabled = "disabled", @tabindex = "2" })
+
+                    </div>
+
+                    <div class="span2 offset2">
+                        @Html.LabelFor(a => a.DepositAmount, new { @class = "label", style = "width: 150px !important" })
+                    </div>
+
+                    <div class="span2">
+                        @Html.TextBoxFor(a => a.DepositAmount, new { @maxlength = "50", @disabled = "disabled", @tabindex = "10" })
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="span2">
+                    @Html.LabelFor(a => a.DepositType, new { @class = "label", style = "width: 150px !important" })
+                </div>
+                <div class="input-prepend">
+                    <div class="span2">
+
+                        @Html.TextBoxFor(a => a.DepositType, new { @class = "tbstyle", @id = "firstname", @disabled = "disabled", @tabindex = "2" })
+
+                    </div>
+
+                    <div class="span2 offset2">
+                        @Html.LabelFor(a => a.SbvReference, new { @class = "label", style = "width: 150px !important" })
+                    </div>
+
+                    <div class="span2">
+                        @Html.TextBoxFor(a => a.SbvReference, new { @maxlength = "50", @disabled = "disabled", @tabindex = "10" })
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="span2">
+                    @Html.LabelFor(a => a.RejectionDateTime, new { @class = "label", style = "width: 150px !important" })
+                </div>
+                <div class="input-prepend">
+                    <div class="span2">
+                        @Html.TextBoxFor(a => a.RejectionDateTime, new { @class = "tbstyle", @id = "firstname", @disabled = "disabled", @tabindex = "2" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="span">
+                    <h4>Error Description</h4>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="span2">
+                    @Html.LabelFor(a => a.ErrorCode, new { @class = "label", style = "width: 150px !important" })
+                </div>
+                <div class="input-prepend">
+                    <div class="span2">
+                        @Html.TextBoxFor(a => a.ErrorCode, new { @class = "tbstyle", @id = "firstname", @maxlength = "14", @disabled = "disabled", @tabindex = "2" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="span2">
+                    @Html.LabelFor(a => a.RejectionReason, new { @class = "label", style = "width: 150px !important" })
+                </div>
+
+                <div class="span8">
+                    @Html.TextBoxFor(a => a.RejectionReason, new
+                    {
+                        @maxlength = "200",
+                        @disabled = "disabled",
+                        @tabindex = "10",
+                        style = "width: 715px !important"
+                    })
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="span2 offset6">
+                    
+                </div>
+                <div class="span2">
+                    <span style="width :150px ; margin-right:21px;"></span>
+                </div>
+                <div class="span1">
+                    <a href='@Url.Action("Index")' class="btn btn-danger" style="width: 70px; margin-left: -10px">Exit</a>
+                </div>
+
+            </div>
+
+        </div>
+    }
+</div>
+

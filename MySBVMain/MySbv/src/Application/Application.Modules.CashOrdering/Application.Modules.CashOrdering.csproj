@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8AB24030-943C-4581-935B-22964C277340}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Application.Modules.CashOrdering</RootNamespace>
+    <AssemblyName>Application.Modules.CashOrdering</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CashOrders\CashOrderingValidation.cs" />
+    <Compile Include="CashOrders\ICashOrderingValidation.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Domain\Domain.Data.Core\Domain.Data.Core.csproj">
+      <Project>{10884691-742f-465e-a2c5-eef041a29fa7}</Project>
+      <Name>Domain.Data.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\Domain.Data.Model\Domain.Data.Model.csproj">
+      <Project>{de2bc459-2aac-4d57-a7a0-e54719d010f2}</Project>
+      <Name>Domain.Data.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\Domain.Repository\Domain.Repository.csproj">
+      <Project>{dc10de33-85d5-4228-9979-03287b391cc1}</Project>
+      <Name>Domain.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\Domain.Security\Domain.Security.csproj">
+      <Project>{79fa0e39-4ab3-4624-a65f-350ad3fcaccc}</Project>
+      <Name>Domain.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Utility\Utility.Core\Utility.Core.csproj">
+      <Project>{e4c993b5-45e5-4a20-8cf4-0a1c82f78dae}</Project>
+      <Name>Utility.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Application.Dto\Application.Dto.csproj">
+      <Project>{865035d3-e160-49da-baf8-c14e8b30f9be}</Project>
+      <Name>Application.Dto</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Application.Mapper\Application.Mapper.csproj">
+      <Project>{915ea008-80bf-4447-8948-d3e9a2632d1f}</Project>
+      <Name>Application.Mapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Application.Modules.Account\Application.Modules.Account.csproj">
+      <Project>{BBE99B90-36C8-44AE-9774-40FDD04FF9CC}</Project>
+      <Name>Application.Modules.Account</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Application.Modules.Common\Application.Modules.Common.csproj">
+      <Project>{c1ba0afe-4d26-4654-b02b-7c8cb06731eb}</Project>
+      <Name>Application.Modules.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

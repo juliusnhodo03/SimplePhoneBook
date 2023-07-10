@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{88352B6E-8C44-4D84-A287-56E7D1D57F39}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Vault.Integration.WebService</RootNamespace>
+    <AssemblyName>Vault.Integration.WebService</AssemblyName>
+    <ProjectTypeGuids>{3D9AD99F-2412-4246-B90B-4EAA41C64699};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <StartArguments>/client:"WcfTestClient.exe"</StartArguments>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+    <XsdCodeGenEnabled>True</XsdCodeGenEnabled>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Ninject">
+      <HintPath>..\..\..\packages\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bindings.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EmailManager.cs" />
+    <Compile Include="IEmailManager.cs" />
+    <Compile Include="IVaultService.cs" />
+    <Compile Include="MessageLoggerExtensionElement.cs" />
+    <Compile Include="PathConfiguration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VaultService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Application\Application.Modules.CashHandling.CashProcessing.VaultProcessor\Application.Modules.CashHandling.CashProcessing.VaultProcessor.csproj">
+      <Project>{0DAB55DB-A56B-4B37-AE3A-A5CF842D30C4}</Project>
+      <Name>Application.Modules.CashHandling.CashProcessing.VaultProcessor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Application\Application.Modules.CashHandling.CashProcessing.WebProcessor\Application.Modules.CashHandling.CashProcessing.WebProcessor.csproj">
+      <Project>{094C7887-4CFC-4EAF-BE21-EC6C96BF1313}</Project>
+      <Name>Application.Modules.CashHandling.CashProcessing.WebProcessor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Application\Application.Modules.Common\Application.Modules.Common.csproj">
+      <Project>{C1BA0AFE-4D26-4654-B02B-7C8CB06731EB}</Project>
+      <Name>Application.Modules.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\Domain.Data.Core\Domain.Data.Core.csproj">
+      <Project>{10884691-742f-465e-a2c5-eef041a29fa7}</Project>
+      <Name>Domain.Data.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\Domain.Data.Model\Domain.Data.Model.csproj">
+      <Project>{de2bc459-2aac-4d57-a7a0-e54719d010f2}</Project>
+      <Name>Domain.Data.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\Domain.Logging\Domain.Logging.csproj">
+      <Project>{8266F4E3-867C-48F8-BA20-7F5109A0AAE4}</Project>
+      <Name>Domain.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\Domain.Notifications\Domain.Notifications.csproj">
+      <Project>{F60C2A23-B492-4720-A3DF-E35931F2B3B7}</Project>
+      <Name>Domain.Notifications</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\Domain.Repository\Domain.Repository.csproj">
+      <Project>{DC10DE33-85D5-4228-9979-03287B391CC1}</Project>
+      <Name>Domain.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\Domain.Security\Domain.Security.csproj">
+      <Project>{79fa0e39-4ab3-4624-a65f-350ad3fcaccc}</Project>
+      <Name>Domain.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\Domain.Serializer\Domain.Serializer.csproj">
+      <Project>{D4350D61-AA31-4013-9D90-5A25849575D8}</Project>
+      <Name>Domain.Serializer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\Infrastructure.Logging\Infrastructure.Logging.csproj">
+      <Project>{8C01C23F-9E35-43E5-9F35-8ECD2B1863A4}</Project>
+      <Name>Infrastructure.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\Infrastructure.Notifications\Infrastructure.Notifications.csproj">
+      <Project>{F34CFA8D-A94E-4B07-8366-3B0AE79D05E7}</Project>
+      <Name>Infrastructure.Notifications</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\Infrastructure.Repository\Infrastructure.Repository.csproj">
+      <Project>{38fcc1f8-8358-4480-85f5-aa68abae0e8c}</Project>
+      <Name>Infrastructure.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\Infrastructure.Serializer\Infrastructure.Serializer.csproj">
+      <Project>{b6348252-451e-4bb6-8aaa-492e38935447}</Project>
+      <Name>Infrastructure.Serializer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Utility\Utility.Core\Utility.Core.csproj">
+      <Project>{E4C993B5-45E5-4A20-8CF4-0A1C82F78DAE}</Project>
+      <Name>Utility.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vault.Integration.DataContracts\Vault.Integration.DataContracts.csproj">
+      <Project>{440d5709-58e1-43e7-9b94-c668a6ed3c03}</Project>
+      <Name>Vault.Integration.DataContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vault.Integration.MessageController\Vault.Integration.MessageController.csproj">
+      <Project>{E8ADCB90-E520-4C7B-B4DD-A59D0933E5C1}</Project>
+      <Name>Vault.Integration.MessageController</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vault.Integration.MessageValidator\Vault.Integration.MessageValidator.csproj">
+      <Project>{f60b94fb-0e4b-4814-98ee-2d06efb2e023}</Project>
+      <Name>Vault.Integration.MessageValidator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vault.Integration.Msmq.Connector\Vault.Integration.Msmq.Connector.csproj">
+      <Project>{0B2FB969-B7B7-4833-9A87-5ACA535572B6}</Project>
+      <Name>Vault.Integration.Msmq.Connector</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vault.Integration.Request.Data\Vault.Integration.Request.Data.csproj">
+      <Project>{9B49CFBA-4A3F-429B-B513-6F547174149D}</Project>
+      <Name>Vault.Integration.Request.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VSToolsPath Condition="'$(VSToolsPath)' == '' and '$(VisualStudioVersion)' != '' and '$(VisualStudioVersion)' != '11.0'">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio</VSToolsPath>
+    <WcfServiceModelTargetPath>$(VSToolsPath)\WCF</WcfServiceModelTargetPath>
+  </PropertyGroup>
+  <Import Project="$(WcfServiceModelTargetPath)\Microsoft.VisualStudio.ServiceModel.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{3D9AD99F-2412-4246-B90B-4EAA41C64699}">
+        <WcfProjectProperties>
+          <AutoStart>True</AutoStart>
+        </WcfProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E8ADCB90-E520-4C7B-B4DD-A59D0933E5C1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Vault.Integration.MessageController</RootNamespace>
+    <AssemblyName>Vault.Integration.MessageController</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IMessageController.cs" />
+    <Compile Include="MessageController.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Domain\Domain.Data.Core\Domain.Data.Core.csproj">
+      <Project>{10884691-742f-465e-a2c5-eef041a29fa7}</Project>
+      <Name>Domain.Data.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\Domain.Data.Model\Domain.Data.Model.csproj">
+      <Project>{de2bc459-2aac-4d57-a7a0-e54719d010f2}</Project>
+      <Name>Domain.Data.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\Domain.Logging\Domain.Logging.csproj">
+      <Project>{8266F4E3-867C-48F8-BA20-7F5109A0AAE4}</Project>
+      <Name>Domain.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\Domain.Repository\Domain.Repository.csproj">
+      <Project>{dc10de33-85d5-4228-9979-03287b391cc1}</Project>
+      <Name>Domain.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\Infrastructure.Logging\Infrastructure.Logging.csproj">
+      <Project>{8C01C23F-9E35-43E5-9F35-8ECD2B1863A4}</Project>
+      <Name>Infrastructure.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Utility\Utility.Core\Utility.Core.csproj">
+      <Project>{e4c993b5-45e5-4a20-8cf4-0a1c82f78dae}</Project>
+      <Name>Utility.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vault.Integration.DataContracts\Vault.Integration.DataContracts.csproj">
+      <Project>{440d5709-58e1-43e7-9b94-c668a6ed3c03}</Project>
+      <Name>Vault.Integration.DataContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vault.Integration.Msmq.Connector\Vault.Integration.Msmq.Connector.csproj">
+      <Project>{0b2fb969-b7b7-4833-9a87-5aca535572b6}</Project>
+      <Name>Vault.Integration.Msmq.Connector</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

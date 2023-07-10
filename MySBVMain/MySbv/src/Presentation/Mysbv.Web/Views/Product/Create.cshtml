@@ -1,0 +1,469 @@
+﻿@model Application.Dto.Product.SiteProductDto
+
+@using System.Activities.Statements
+@using Application.Dto.Product
+@using Kendo.Mvc.UI
+@{
+    ViewBag.Title = "Add Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+    <script src="~/Scripts/bloodhound.min.js"></script>
+    <script src="~/Scripts/typeahead.jquery.min.js"></script>
+    <link href="~/Content/typeahead.css" rel="stylesheet" />
+}
+<style type="text/css">
+    .label {
+        width: 100px !important;
+    }
+
+    .required:after {
+        content: "*";
+        font-weight: bold;
+        color: red;
+    }
+
+    input[type=text] {
+        width: 205px !important;
+    }
+
+    select {
+        width: 220px !important;
+    }
+
+</style>
+
+<div class="well">
+
+    <p>Fields marked with an asterisk <span class="requiredField">*</span> are required</p>
+
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+
+        <div class="ui-widget-header">
+            <h4 style="margin-left: 5px">Add Product</h4>
+        </div>
+
+        <div class="ui-widget-content" style="padding: 5px;">
+
+            <div class="well">
+
+                <div class="ui-widget-header">
+                    <h5 style="margin-left: 5px">Product Site</h5>
+                </div>
+
+                <div style="margin-top: 5px">
+                    <div class="row">
+                        
+                        @if (Model.SiteId > 0)
+                        {
+                            <div>
+                            <div class="span2">
+                                @Html.LabelFor(a => a.SiteId, new { @class = "label required", style = "width: 150px !Important" })
+                            </div>
+                            <div class="span2">
+                                @(Html.Kendo().DropDownListFor(a => a.SiteId).BindTo(ViewData["Sites"] as SelectList)
+                                      .Events(a => a.Select("onSiteChanged"))
+                                      .HtmlAttributes(new { @style = "width:243px; margin-bottom: 8px ", @tabindex = "1", @id = "SiteId", @disabled = "disabled" }))
+                            </div>
+
+                            <div class="span2 offset1" style="margin-left: 155px">
+                                @Html.LabelFor(a => a.CitCode, new { @class = "label required", style = "width: 150px !Important" })
+                            </div>
+
+                            <div class="span2">
+                                @Html.TextBoxFor(a => a.CitCode, new { id = "citCode", @disabled = "disabled", @class = "tbstyle", @maxlength = "14" })
+                            </div>
+                        </div>
+                        }
+                        else
+                        {
+                            <div>
+                            <div class="span2">
+                                @Html.LabelFor(a => a.SiteId, new { @class = "label required", style = "width: 150px !Important" })
+                            </div>
+                            <div class="span2">
+                                @(Html.Kendo().DropDownListFor(a => a.SiteId).BindTo(ViewData["Sites"] as SelectList)
+                                      .Events(a => a.Select("onSiteChanged"))
+                                      .HtmlAttributes(new { @style = "width:243px; margin-bottom: 8px ", @tabindex = "1", @id = "SiteId" }))
+                            </div>
+
+                            <div class="span2 offset1" style="margin-left: 155px">
+                                @Html.LabelFor(a => a.CitCode, new { @class = "label required", style = "width: 150px !Important" })
+                            </div>
+
+                            <div class="span2">
+                                @Html.TextBoxFor(a => a.CitCode, new { id = "citCode", @disabled = "disabled", @class = "tbstyle", @maxlength = "14" })
+                            </div>
+                        </div>
+                        }
+
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="productTypeBody">
+                
+                <div class="well" id="contentArea">
+
+                </div>
+
+                <div class="row">
+                    <div class="pull-right">
+                        <div class="span2">
+                            <input type="button" name="done" value="Save" class="btn btn-primary" style="width: 140px; margin-left: 13px" tabindex="20" />
+                        </div>
+                        <div class="span2" style="margin-right: 40px">
+                            <a href='@Url.Action("Index")' id="confirm" class="btn btn-danger" style="width: 140px;">Cancel</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+    
+    
+    <script type="text/javascript">
+
+        $(function() {
+            var productselectionpartial = "@Url.Action("ProductSelectionPartial", "Product")";
+            $.get(productselectionpartial, function (template) {
+                $("#contentArea").append(template);
+                $("button[name='remove']").first().hide();
+            });
+        });
+
+        
+
+        function error_handler(e) {
+            if (e.errors) {
+                var message = "Errors:\n";
+                $.each(e.errors, function (key, value) {
+                    if ('errors' in value) {
+                        $.each(value.errors, function () {
+                            message += this + "\n";
+                        });
+                    }
+                });
+                alert(message);
+            }
+        }
+
+        function onSiteChanged(e) {
+
+            var dataItem = this.dataItem(e.item.index());
+
+            var url = '@Url.Action("CitCode")/?siteId=' + dataItem.Value;
+            $.post(url, function (data) {
+                var citCode = data.CitCode;
+                $('#citCode').val(citCode);
+            });
+        }
+
+        function addNewProduct(button) {
+            var productselectionpartial = "@Url.Action("ProductSelectionPartial", "Product")";
+            var body = button.parents(".productTypeBody").find("#contentArea");
+
+            $.get(productselectionpartial, function (template) {
+                body.append(template);
+            });
+        }
+
+
+        $("input[name = 'done']").click(function () {
+
+            var hasValidationFailed = false;
+            var message = "";
+
+            var mySbvVault = 2;
+            
+            var productsHolderDto = { Products: [] };
+            var productSelections = $(".productSelectionWrapper");
+
+            message += "<ul style='list-style-image:url(" + resolveUrl("../Content/images/bullet.jpg", "done") + ") !important;'>\n";
+            
+            productSelections.each(function() {
+                var item = $(this);
+
+                var siteId = $("#SiteId").val();
+                var serviceTypeId = item.find("#ddlServiceTypes").val();
+                var settlementTypeId = item.find("#ddlSettlementTypes").val();
+                var implementationDate = new Date($("#edtImplementationDate").val());
+                var terminationDate = new Date($("#edtTerminationDate").val());
+                var productTypeId = item.find("#productType").val();
+                var deviceTypeId = null;
+                var serialNumber = "";
+                var publicHolidayInclInFeeFlag = false;
+
+                
+                if (siteId == '' || siteId == -1 || siteId == 0) {
+                    message += "<li>Site</li>\n";
+                    hasValidationFailed = true;
+                }
+
+                if (productTypeId == '' || productTypeId == -1 || productTypeId == 0) {
+                    message += "<li>Product Type</li>\n";
+                    hasValidationFailed = true;
+                }
+                
+                if (serviceTypeId == '' || serviceTypeId == -1 || serviceTypeId == 0) {
+                    message += "<li>Service Type</li>\n";
+                    hasValidationFailed = true;
+                }
+
+                if (settlementTypeId == '' || settlementTypeId == -1 || settlementTypeId == 0) {
+                    message += "<li>Settlement Type</li>\n";
+                    hasValidationFailed = true;
+                }
+
+                if (implementationDate == '' || implementationDate == -1 || implementationDate == 0 || implementationDate == 'Invalid Date') {
+                    message += "<li>Implementation Date is required</li>\n";
+                    hasValidationFailed = true;
+                }
+
+
+                //UPDATE DEVICE IDs FOR PRODUCT VAULT
+                if (productTypeId == mySbvVault) {
+                    var vault = item.find(".Vault");
+                    vault.each(function () {
+                        var vaultItems = $(this);
+                        deviceTypeId = vaultItems.find("#ddlDevices").val();
+                        serialNumber = vaultItems.find("#txtSerialNumber").val();
+                        var ddlSupplier = vaultItems.find("#ddlSupplier").val();
+
+                        if (ddlSupplier == '' || ddlSupplier == -1 || ddlSupplier == 0) {
+                            message += "<li>Supplier</li>\n";
+                            hasValidationFailed = true;
+                        }
+
+                        if (serialNumber == '' || serialNumber == -1 || serialNumber == 0) {
+                            message += "<li>Serial Number</li>\n";
+                            hasValidationFailed = true;
+                        }
+
+                        if (deviceTypeId == '' || deviceTypeId == -1 || deviceTypeId == 0) {
+                            message += "<li>Device Name</li>\n";
+                            hasValidationFailed = true;
+                        }
+                    });
+                }
+                
+
+                //Set the Termination Date to null if not filled.
+                if (terminationDate == '' || terminationDate == -1 || terminationDate == 0) {
+                    terminationDate = null;
+                }
+
+                if (terminationDate != null && implementationDate > terminationDate) {
+                    message += "<li>Implementation date cannot be greater than the termination date</li>\n";
+                    hasValidationFailed = true;
+                }
+                
+                
+                if (hasValidationFailed == true) {
+                    return true;
+                }
+
+                var product = {
+                    ProductTypeId: productTypeId,
+                    DeviceTypeId: deviceTypeId,
+                    SerialNumber: serialNumber,
+                    SiteId: siteId,
+                    ServiceTypeId: serviceTypeId,
+                    SettlementTypeId: settlementTypeId,
+                    ImplementationDateString: implementationDate,
+                    TerminationDateString: terminationDate,
+                    PublicHolidayInclInFeeFlag: publicHolidayInclInFeeFlag,
+                    FeeCodes: []
+            };
+                
+                
+                $(".code").each(function () {
+                    var codeControl = $(this);
+                    
+                    if (codeControl.val() != '') {
+                        product.FeeCodes.push(codeControl.val());
+                    }
+                });
+                
+                productsHolderDto.Products.push(product);
+
+                return true;
+            });
+            
+
+            if (hasValidationFailed == true) {
+                message += "</ul>";
+
+                var windowId = "ValidationWindow";
+                var header = "Field Validation";
+                var errorWarning = "Please fill in required fields:";
+
+                validationMessageBox(windowId, header, errorWarning, message, 450, 300);
+
+                return true;
+            }
+
+
+            var obj = { productsHolder: productsHolderDto };
+
+            //call server method
+            $.ajax(
+            {
+                type: "POST",
+                url: '@Url.Action("Create", "Product")',
+                data: JSON.stringify(obj),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data, textStatus, jqXHR) {
+                    if(data.Url.length > 0)
+                        window.location.href = data.Url; @*'@Url.Action("Index", "Product")' + "/?load=" + 1;*@
+                    else
+                        validationMessageBox('ValidationWindow', 'Validation Error', '', data.Message, 300, 250);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    window.location.href = '@Url.Action("Error")';
+                },
+            }); // End $.ajax method
+
+            return true;
+        });
+
+
+        function getFeeId(code) {
+            var url = '@Url.Action("GetFeesValue")' + "/?code=" + code;
+            var id;
+            $.get(url, function (r) {
+                id = r;
+            });
+            return id;
+        }
+
+        function resolveUrl(actualUrl, processName) {
+            var url = "";
+
+            if (processName == "done") {
+                url = "../" + actualUrl;
+            }
+            else {
+                url = actualUrl;
+            }
+            return url;
+        }
+
+        function validationMessageBox(windowId, header, errorWarning, message, width, height) {
+            var kendoWindow = $("<div />").kendoWindow({
+                title: header,
+                resizable: false,
+                modal: true,
+                width: width,
+                height: height
+            });
+
+            kendoWindow.data("kendoWindow")
+                .content($("#" + windowId).html())
+                .center().open();
+
+            $(".confirmation-message").html(message);
+            $(".headerTitle").html(errorWarning);
+
+            kendoWindow
+                .find(".no-cancel,.confirm-cancel")
+                .click(function () {
+                    if ($(this).hasClass("confirm-cancel")) {
+                        $("#btnExitToIndex").click();
+                    }
+
+                    kendoWindow.data("kendoWindow").close();
+                })
+                .end();
+        }
+        
+    </script>
+
+</div>
+
+<script id="ValidationWindow" type="text/x-kendo-template">
+    <div style="margin-left:20px;">
+        <span class="headerTitle" />
+        <span style="margin-left:5px;" class="confirmation-message"></span>
+    </div>
+
+    <div style="margin-left:160px; margin-top:5px;">
+        <button id="btnConfirmCancel" class="no-cancel k-button" style="width:80px">Ok</button>
+    </div>
+</script>
+
+
+<script id="ConfirmWindow" type="text/x-kendo-template">
+    <div style="margin-left:20px;">
+        <img src="@Url.Content("~/Content/Images/question.png")" style="float:left" />
+        <br />
+        <p style="margin-left:5px;" class="confirmation-message"></p>
+    </div>
+
+    <div style="margin-left:160px; margin-top:5px;">
+        <button id="btnConfirmCancel" class="confirm-cancel k-button" style="width:80px">Yes</button>
+        <button id="btnNoCancel" class="no-cancel k-button" style="width:80px">No</button>
+    </div>
+</script>
+
+
+<script id="DeleteContainermWindow" type="text/x-kendo-template">
+    <div style="margin-left:20px;">
+        <img src="@Url.Content("~/Content/Images/question.png")" style="float:left" />
+        <br />
+        <p style="margin-left:5px;" class="confirmation-message"></p>
+    </div>
+
+    <div style="margin-left:160px; margin-top:5px;">
+        <button id="btnConfirmCancel" class="confirm-cancel k-button" style="width:80px">Yes</button>
+        <button id="btnNoCancel" class="no-cancel k-button" style="width:80px">No</button>
+    </div>
+</script>
+
+
+<script id="loadingWindow" type="text/x-kendo-template">
+    <div style="margin-left:20px; margin-top:30px;">
+        <table>
+            <tr>
+                <td><img src="@Url.Content("~/Content/Images/loading.gif")" /></td>
+                <td style="width:10px;"></td>
+                <td><span class="confirmation-message"></span></td>
+            </tr>
+        </table>
+    </div>
+
+    <div style="margin-left:160px; margin-top:5px;">
+        <button id="btnConfirmCancel" class="confirm-cancel" style="width:80px; visibility:hidden">Yes</button>
+    </div>
+</script>
+
+<script id="MessageWindow" type="text/x-kendo-template">
+    <div style="margin-left:20px;">
+        <img src="@Url.Content("~/Content/Images/infoimg.jpg")" class="imager" style="float:left" />
+        <br />
+        <p style="margin-left:5px;" class="confirmation-message"></p>
+    </div>
+
+    <div style="margin-left:160px; margin-top:15px;">
+        <button id="btnConfirmCancel" class="confirm-cancel k-button" style="width:80px">Ok</button>
+    </div>
+</script>
+
+
+
+<script type="text/javascript">
+
+    $("#confirm").easyconfirm({ locale: { title: 'Confirm', button: ['No', 'Yes'], text: 'Product record is not yet Saved. Do you want to continue?' } });
+
+    function Error() {
+        $('#trloading').hide();
+    }
+</script>

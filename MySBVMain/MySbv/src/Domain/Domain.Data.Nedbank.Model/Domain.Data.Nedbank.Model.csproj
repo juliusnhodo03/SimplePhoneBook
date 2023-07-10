@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{19136439-B98C-462C-8DAD-3AAF2FCD07A4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Domain.Data.Nedbank.Model</RootNamespace>
+    <AssemblyName>Domain.Data.Nedbank.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="NedbankDuplicate.cs" />
+    <Compile Include="RecordIdentifier.cs" />
+    <Compile Include="NedbankEntryCode.cs" />
+    <Compile Include="NedbankBatchFile.cs" />
+    <Compile Include="NedbankClientProfile.cs" />
+    <Compile Include="NedbankClientType.cs" />
+    <Compile Include="NedbankConfiguration.cs" />
+    <Compile Include="NedbankUnpaidsRecordType.cs" />
+    <Compile Include="NedbankUnpaidOrNaedo.cs" />
+    <Compile Include="NedbankFileItem.cs" />
+    <Compile Include="NedbankInstructionFileType.cs" />
+    <Compile Include="NedbankHeaderRecord.cs" />
+    <Compile Include="NedbankResponseDetail.cs" />
+    <Compile Include="NedbankTrailerRecord.cs" />
+    <Compile Include="NedbankScheduler.cs" />
+    <Compile Include="NedbankServiceType.cs" />
+    <Compile Include="NedbankTransactionType.cs" />
+    <Compile Include="NedbankUnpaidReason.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain.Data.Core\Domain.Data.Core.csproj">
+      <Project>{10884691-742F-465E-A2C5-EEF041A29FA7}</Project>
+      <Name>Domain.Data.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain.Data.Model\Domain.Data.Model.csproj">
+      <Project>{DE2BC459-2AAC-4D57-A7A0-E54719D010F2}</Project>
+      <Name>Domain.Data.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

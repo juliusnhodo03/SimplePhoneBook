@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CashConnect" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://www.cashconnect.co.za/CCMV2IntegrationService/CashConnect.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://www.cashconnect.co.za/CCMV2IntegrationService/CashConnect.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://www.cashconnect.co.za/CCMV2IntegrationService/CashConnect.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CCIntegrationLibrary" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICashConnect_CountInfoReceive_InputMessage">
+    <wsdl:part name="parameters" element="tns:CountInfoReceive" />
+  </wsdl:message>
+  <wsdl:message name="ICashConnect_CountInfoReceive_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CountInfoReceiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICashConnect_Get_Safe_Transation_List_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Safe_Transation_List" />
+  </wsdl:message>
+  <wsdl:message name="ICashConnect_Get_Safe_Transation_List_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Safe_Transation_ListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICashConnect_safe_InputMessage">
+    <wsdl:part name="parameters" element="tns:safe" />
+  </wsdl:message>
+  <wsdl:message name="ICashConnect_safe_OutputMessage">
+    <wsdl:part name="parameters" element="tns:safeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICashConnect_bagsObject_InputMessage">
+    <wsdl:part name="parameters" element="tns:bagsObject" />
+  </wsdl:message>
+  <wsdl:message name="ICashConnect_bagsObject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:bagsObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICashConnect_bag_InputMessage">
+    <wsdl:part name="parameters" element="tns:bag" />
+  </wsdl:message>
+  <wsdl:message name="ICashConnect_bag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:bagResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICashConnect_transactionsObject_InputMessage">
+    <wsdl:part name="parameters" element="tns:transactionsObject" />
+  </wsdl:message>
+  <wsdl:message name="ICashConnect_transactionsObject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:transactionsObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICashConnect_transaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:transaction" />
+  </wsdl:message>
+  <wsdl:message name="ICashConnect_transaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:transactionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ICashConnect">
+    <wsdl:operation name="CountInfoReceive">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICashConnect/CountInfoReceive" message="tns:ICashConnect_CountInfoReceive_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICashConnect/CountInfoReceiveResponse" message="tns:ICashConnect_CountInfoReceive_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Safe_Transation_List">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICashConnect/Get_Safe_Transation_List" message="tns:ICashConnect_Get_Safe_Transation_List_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICashConnect/Get_Safe_Transation_ListResponse" message="tns:ICashConnect_Get_Safe_Transation_List_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="safe">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICashConnect/safe" message="tns:ICashConnect_safe_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICashConnect/safeResponse" message="tns:ICashConnect_safe_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="bagsObject">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICashConnect/bagsObject" message="tns:ICashConnect_bagsObject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICashConnect/bagsObjectResponse" message="tns:ICashConnect_bagsObject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="bag">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICashConnect/bag" message="tns:ICashConnect_bag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICashConnect/bagResponse" message="tns:ICashConnect_bag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="transactionsObject">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICashConnect/transactionsObject" message="tns:ICashConnect_transactionsObject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICashConnect/transactionsObjectResponse" message="tns:ICashConnect_transactionsObject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="transaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICashConnect/transaction" message="tns:ICashConnect_transaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICashConnect/transactionResponse" message="tns:ICashConnect_transaction_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ICashConnect" type="tns:ICashConnect">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CountInfoReceive">
+      <soap:operation soapAction="http://tempuri.org/ICashConnect/CountInfoReceive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Safe_Transation_List">
+      <soap:operation soapAction="http://tempuri.org/ICashConnect/Get_Safe_Transation_List" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="safe">
+      <soap:operation soapAction="http://tempuri.org/ICashConnect/safe" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bagsObject">
+      <soap:operation soapAction="http://tempuri.org/ICashConnect/bagsObject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bag">
+      <soap:operation soapAction="http://tempuri.org/ICashConnect/bag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="transactionsObject">
+      <soap:operation soapAction="http://tempuri.org/ICashConnect/transactionsObject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="transaction">
+      <soap:operation soapAction="http://tempuri.org/ICashConnect/transaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CashConnect">
+    <wsdl:port name="BasicHttpBinding_ICashConnect" binding="tns:BasicHttpBinding_ICashConnect">
+      <soap:address location="http://www.cashconnect.co.za/CCMV2IntegrationService/CashConnect.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

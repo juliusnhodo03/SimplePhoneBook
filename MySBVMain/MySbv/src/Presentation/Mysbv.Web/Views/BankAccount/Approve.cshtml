@@ -1,0 +1,352 @@
+﻿@using Kendo.Mvc.UI
+@model Application.Dto.Account.AccountDto
+
+@{
+    ViewBag.Title = "Approve Bank Account";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css">
+    .label {
+        width: 100px !important;
+    }
+
+    .required:after {
+        content: "*";
+        font-weight: bold;
+        color: red;
+    }
+</style>
+<div class="well">
+
+    <!--<h2> Add New Cash Centre </h2> -->
+    <p>Fields marked with an asterisk <span class="requiredField">*</span> are required</p>
+
+    <div class="ui-widget-header">
+        <h4 style="margin-left: 5px">Bank Account Approval</h4>
+    </div>
+
+    <div id="content">
+
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary()
+            <div class="ui-widget-content" style="padding: 5px;">
+
+                <div class="row">
+                    <div class="span2">
+                        @Html.LabelFor(model => model.SiteId, new { @class = "label required", @style = "width:150px !important" })
+                    </div>
+                    <div class="span2">
+                        <div class="span2">
+                            @(Html.Kendo().DropDownList()
+                                      .Name("SiteId") //The name of the dropdownlist is mandatory. It specifies the "id" attribute of the widget.
+                                      .DataTextField("Name") //Specifies which property of the Product to be used by the dropdownlist as a text.
+                                      .DataValueField("Id") //Specifies which property of the Product to be used by the dropdownlist as a value.
+                                      .DataSource(source =>
+                                      {
+                                          source.Read(read =>
+                                          {
+                                              read.Action("GetSites", "BankAccount"); //Set the Action and Controller name
+                                          })
+                                              .ServerFiltering(true); //If true the DataSource will not filter the data on the client.
+                                      }).HtmlAttributes(new { @style = "width: 239px; margin-left: -20px", tabindex = "1" })
+                            )
+                        </div>
+                    </div>
+
+                    <div class="span2 offset2">
+                        @Html.LabelFor(model => model.CitCode, new { @class = "label required", @style = "width:150px !important" })
+                    </div>
+                    <div class="span2">
+                        @Html.TextBoxFor(model => model.CitCode, new { @disabled = "disabled", @id = "txtCitCode" })
+                    </div>
+                </div>
+
+                <br />
+
+                <div class="row">
+                    <div class="span2">
+                        @Html.LabelFor(model => model.BankId, new { @class = "label required", @style = "width:152px !important" })
+                    </div>
+                    <div class="span2">
+                        <div class="span2">
+                            @(Html.Kendo().DropDownList()
+                                      .Name("BankId") //The name of the dropdownlist is mandatory. It specifies the "id" attribute of the widget.
+                                      .DataTextField("Name") //Specifies which property of the Product to be used by the dropdownlist as a text.
+                                      .DataValueField("Id") //Specifies which property of the Product to be used by the dropdownlist as a value.
+                                      .DataSource(source =>
+                                      {
+                                          source.Read(read =>
+                                          {
+                                              read.Action("GetBanksKendo", "BankAccount"); //Set the Action and Controller name
+                                          })
+                                              .ServerFiltering(true); //If true the DataSource will not filter the data on the client.
+                                      }).HtmlAttributes(new { @style = "width: 239px; margin-left: -20px", tabindex = "2" })
+                            )
+
+                        </div>
+                    </div>
+
+                    <div class="span2 offset2">
+                        @Html.LabelFor(model => model.BranchCode, new { @class = "label required", @style = "width:150px !important" })
+                    </div>
+                    <div class="span2">
+                        @Html.TextBoxFor(model => model.BranchCode, new { @disabled = "disabled", @id = "txtBranchCode" })
+                    </div>
+
+
+                </div>
+
+                <div class="row">
+                    <div class="span2">
+
+                        @Html.LabelFor(model => model.AccountTypeId, new { @class = "label required", @style = "width:150px !important" })
+                    </div>
+                    <div class="span2">
+                        <div class="span2">
+                            @* @Html.Kendo().DropDownListFor(a => a.AccountTypeId).BindTo(ViewData["GetAccountTypes"] as SelectList).SelectedIndex(0).HtmlAttributes(new { @style = "width: 238px;", tabindex = "3" })*@
+                            @(Html.Kendo().DropDownList()
+                              .Name("AccountTypeId") //The name of the dropdownlist is mandatory. It specifies the "id" attribute of the widget.
+                              .DataTextField("Name") //Specifies which property of the Product to be used by the dropdownlist as a text.
+                              .DataValueField("Id") //Specifies which property of the Product to be used by the dropdownlist as a value.
+                              .DataSource(source =>
+                              {
+                                  source.Read(read =>
+                                  {
+                                      read.Action("GetAccountTypes", "BankAccount"); //Set the Action and Controller name
+                                  })
+                                      .ServerFiltering(true); //If true the DataSource will not filter the data on the client.
+                              }).HtmlAttributes(new { @style = "width: 239px; margin-left: -20px", tabindex = "1" })
+                            )
+                        </div>
+                    </div>
+
+                    <div class="span2 offset2">
+                        @Html.LabelFor(model => model.BeneficiaryCode, new { @class = "label required", @disabled = "disabled", @style = "width:150px !important" })
+                    </div>
+                    <div class="span2">
+                        @Html.TextBoxFor(model => model.BeneficiaryCode, new { @readonly = "readonly" })
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-prepend">
+                        <div class="span2">
+                            @Html.LabelFor(model => model.AccountHolderName, new { @class = "label required", @style = "width:150px !important" })
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(model => model.AccountHolderName, new { @maxlength = "40", tabindex = "4" })
+                            @Html.ValidationMessageFor(model => model.AccountHolderName)
+                        </div>
+                        <div class="span2 offset2">
+                            @Html.LabelFor(model => model.AccountNumber, new { @class = "label required", @style = "width:150px !important" })
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(model => model.AccountNumber, new { @maxlength = "20", tabindex = "5" })
+                            @Html.ValidationMessageFor(model => model.AccountNumber)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-prepend">
+                        <div class="span2">
+                            @Html.LabelFor(model => model.DefaultAccount, new { @class = "label", @style = "width:150px !important" })
+                        </div>
+                        <div class="span2">
+                            @Html.CheckBoxFor(model => model.DefaultAccount, new { tabindex = "6", @style = "width:215px !important; margin-left: -85px" })
+                        </div>
+                        <div class="span2 offset2"></div>
+                        <div class="span2"></div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-prepend">
+                        <div class="span2">
+                            @Html.LabelFor(model => model.CurrentComments, new { @class = "add-on ", @style = "width:150px" })
+                        </div>
+                        <div class=" span9">
+                            @Html.TextAreaFor(model => model.CurrentComments, new { @style = "width:101%; height: 100px", tabindex = "22", @id = "CurrentComments" })
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="input-prepend">
+                        <div class="span2">
+                            @Html.LabelFor(model => model.PreviousComments, new { @class = "add-on ", @style = "width:150px" })
+                        </div>
+                        <div class=" span9">
+                            @Html.TextAreaFor(model => model.PreviousComments, new { @style = "width:101%; height: 100px", tabindex = "22", @readonly = "readonly", @id = "PreviousComments" })
+                        </div>
+                    </div>
+                </div>
+
+                @Html.HiddenFor(model => model.AccountId)
+                @Html.HiddenFor(model => model.SiteId)
+                @Html.HiddenFor(model => model.BankId)
+                @Html.HiddenFor(model => model.AccountTypeId)
+                @Html.HiddenFor(model => model.StatusId)
+                
+
+            @if (Roles.IsUserInRole("SBVAdmin") && Model.StatusId == 13 || Roles.IsUserInRole("SBVApprover") && Model.StatusId == 13) //StatusId 13 (PENDING)
+            {
+                <div class="row">
+                    <div class="span2 offset6">
+                        <input name="command" id="btnApprove" type="submit" value="Approve" class="btn btn-primary" style="width: 100px" />
+                    </div>
+                    <div class="span2">
+                        <span style="width :150px ; margin-right:21px;"></span>
+                        <a onclick='ExecuteReject()' class="btn btn-success" style="width: 70px; margin-left: -45px"><strong>Decline</strong></a>
+                    </div>
+                    <div class="span1">
+                        <a href='@Url.Action("Index", "Approval")' id="confirm" class="btn btn-danger" style="width: 70px; margin-left: -45px">Exit</a>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="row">
+                    <div class="span2 offset6">
+                        <input name="command" id="btnApprove" disabled="disabled" type="submit" value="Approve" class="btn btn-primary" style="width: 100px" />
+                    </div>
+                    <div class="span2">
+                        <span style="width :150px ; margin-right:21px;"></span>
+                        <a disabled="disabled" class="btn btn-success" style="width: 70px; margin-left: -45px"><strong>Decline</strong></a>
+                    </div>
+                    <div class="span1">
+                        <a href='@Url.Action("Index", "Approval")' id="confirm" class="btn btn-danger" style="width: 70px; margin-left: -45px">Exit</a>
+                    </div>
+                </div>
+            }
+                <input id="btnSubmit" type="submit" value="Save" class="btnStyle" />
+
+            </div>
+        }
+    </div>
+
+</div>
+
+
+<style type="text/css">
+    .requiredField {
+        font-weight: bold;
+        font-size: 12pt;
+    }
+
+    #btnSubmit {
+        visibility: hidden;
+        top: -20px;
+        position: absolute;
+    }
+</style>
+
+
+<script id="approve-confirmation" type="text/x-kendo-template">
+    <div style="margin-left:20px;">
+        <img src="@Url.Content("~/Content/Images/warning.jpg")" style="float:left" />
+        <p style="margin-left:5px;" class="approve-message"></p></td>
+    </div>
+
+    <div style="margin-left:160px; margin-top:5px;">
+        <button id="btnApproveCancel" class="approve-cancel k-button" style="width:80px">Ok</button>
+    </div>
+
+</script>
+
+
+<script id="delete-confirmation" type="text/x-kendo-template">
+    <div>
+        <img src="@Url.Content("~/Content/Images/question.png")" width="40px" style="float:left" />
+        <p style="margin-left:10px; float:right" class="delete-message"> &nbsp; &nbsp;Do you want to delete Bank Account?</p></td>
+    </div>
+
+    <div style="margin-left:160px; margin-top:5px;">
+        <button class="delete-confirm k-button" style="width:80px">Yes</button>
+        <button class="delete-cancel k-button" style="width:80px">No</button>
+    </div>
+</script>
+
+
+<script type="text/javascript">
+    function ExecuteReject() {
+        var rejectBankAccountObject =
+        {
+            Id: $.trim($('#AccountId').val()),
+            PreviousComments: $.trim($('#PreviousComments').val()),
+            CurrentComments: $.trim($('#CurrentComments').val())
+        };
+
+        var postUrl = '@Url.Action("Reject")';
+
+        if ($.trim($("#CurrentComments").val()) == "") {
+            var title = "Validation";
+            var message = "Please enter Comments to Reject Approval.";
+            validationMessageBox(title, message);
+            return false;
+        }
+
+        var parameters = { rejectAccountDto: rejectBankAccountObject };
+
+        //call server method
+        $.ajax(
+        {
+            type: "POST",
+            url: postUrl,
+            data: JSON.stringify(parameters),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (result) { //call successfull
+                window.location.href = result.url;
+            },
+            error: function (result) {
+                var title = "Error";
+                var message = result.Message;
+                validationMessageBox(title, message);
+            }
+        });
+        // End $.ajax method
+    }
+
+
+    $("#btnApprove").click(function () {
+        $("#btnSubmit").click();
+    });
+
+
+
+
+    function validationMessageBox(_title, _message) {
+        var kendoWindow = $("<div />").kendoWindow({
+            title: _title,
+            resizable: false,
+            modal: true,
+            width: "430px",
+            height: "160px"
+        });
+
+        kendoWindow.data("kendoWindow")
+            .content($("#approve-confirmation").html())
+            .center().open();
+
+        $(".approve-message").html(_message);
+
+        kendoWindow
+            .find(".approve-confirm,.approve-cancel")
+            .click(function () {
+                if ($(this).hasClass("approve-confirm")) {
+                    $.post(url, function (data) {
+                        window.location.href = data.url;
+                    });
+                }
+
+                kendoWindow.data("kendoWindow").close();
+            })
+            .end();
+    }
+
+
+</script>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="73dd6e31-634a-411a-9db5-ee4f93e7be62" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://www.cashconnect.co.za/CCMV2IntegrationService/CashConnect.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CashConnect.xsd" MetadataType="Schema" ID="1553b791-f91b-4a69-95de-504f91a0d0b7" SourceId="1" SourceUrl="http://www.cashconnect.co.za/CCMV2IntegrationService/CashConnect.svc?xsd=xsd1" />
+    <MetadataFile FileName="CashConnect1.xsd" MetadataType="Schema" ID="1b8f035a-7bcc-45e2-915a-8b39f3e360a8" SourceId="1" SourceUrl="http://www.cashconnect.co.za/CCMV2IntegrationService/CashConnect.svc?xsd=xsd0" />
+    <MetadataFile FileName="CashConnect2.xsd" MetadataType="Schema" ID="850d9822-bfb7-4f4a-83fc-c53d6c740734" SourceId="1" SourceUrl="http://www.cashconnect.co.za/CCMV2IntegrationService/CashConnect.svc?xsd=xsd2" />
+    <MetadataFile FileName="CashConnect.disco" MetadataType="Disco" ID="463ba9fc-d635-45c0-8596-e0d073fce02b" SourceId="1" SourceUrl="http://www.cashconnect.co.za/CCMV2IntegrationService/CashConnect.svc?disco" />
+    <MetadataFile FileName="CashConnect.wsdl" MetadataType="Wsdl" ID="9735824a-1aff-4dc4-b6fa-1df29322a8f9" SourceId="1" SourceUrl="http://www.cashconnect.co.za/CCMV2IntegrationService/CashConnect.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,211 @@
+﻿@using Kendo.Mvc.UI
+@model IEnumerable<Application.Dto.CashCenter.ListCashCenterDto>
+
+@{
+    ViewBag.Title = "List Cash Centre";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="well">
+    <div class="ui-widget-header">
+        <h4 style="margin-left: 5px">Cash Centers</h4>
+    </div>
+    <div class="ui-widget-content" style="padding: 5px;">
+        @if (ViewBag.IsValidUser == true)
+        {
+        @Html.ActionLink("Create New Cash Centre", "Create", "CashCenter", null, new { @class = "btn", @style = "margin-bottom: 15px" })
+        @(Html.Kendo().Grid(Model)
+              .Name("Grid")
+              .Columns(columns =>
+              {
+                  columns.Bound(p => p.Number).Sortable(true);
+                  columns.Bound(p => p.Name).Sortable(true);
+                  columns.Bound(p => p.RegionName).Sortable(false);
+                  columns.Bound(p => p.EmailAddress1).Width(60).Encoded(false).ClientTemplate("#= addNewlines(EmailAddress1) #");
+                  columns.Bound(p => p.TelephoneNumber).Sortable(false);
+                  columns.Bound(p => p.ContactPerson).Sortable(false);
+                  columns.Template(@<text></text>).ClientTemplate("<a title='View' href='" + Url.Action("View", "CashCenter") + "/?id=#=CashCenterId#'><img src='" + @Url.Content("~/Content/Images/grid_images/view.png") + "'/></a>").Width(40).HtmlAttributes(new { @style = "text-align: center" });
+                  columns.Template(@<text></text>).ClientTemplate("<a title='Edit' href='" + Url.Action("Edit", "CashCenter") + "/?id=#=CashCenterId#'><img src='" + @Url.Content("~/Content/Images/grid_images/edit.png") + "'/></a>").Width(40).HtmlAttributes(new { @style = "text-align: center" });
+                  columns.Template(@<text></text>).ClientTemplate("<a title='Delete' href='javascript:ExecDelete(#=CashCenterId#)'><img src='" + @Url.Content("~/Content/Images/grid_images/Delete.png") + "'/></a>").Width(40).HtmlAttributes(new { @style = "text-align: center" });
+              })
+              .Filterable(filterable => filterable
+                  .Extra(false)
+                  .Operators(operators => operators
+                      .ForString(str => str.Clear()
+                          .StartsWith("Starts with")
+                          .IsEqualTo("Is equal to")
+                          .IsNotEqualTo("Is not equal to")
+                          .Contains("Contains")
+                      ))
+              )
+              .ToolBar(toolbar =>
+              {
+                  toolbar.Template(@<text>
+
+                                        <table class="serach-toolbar">
+                                            <tr>
+                                                <td>Search</td>
+                                                <td>
+                                                    @(Html.Kendo().AutoComplete()
+                                                          .Name("SearchInput")
+                                                          .Filter("startswith")
+                                                          .MinLength(1)
+                                                          .HtmlAttributes(new { style = "width:350px" })
+                                                          .DataSource(source =>
+                                                          {
+                                                              source.Read(read =>
+                                                              {
+                                                                  read.Action("AutoCompleteCashCentersByColumn", "CashCenter").Data("onAdditionalData");
+                                                              })
+                                                                  .ServerFiltering(true);
+                                                          })
+                                                          )
+
+                                                </td>
+
+                                                <td><label class="category-label" for="category">Filter</label></td>
+                                                <td>
+                                                    <div class="toolbar">
+                                                        @(Html.Kendo().DropDownList()
+                                                              .Name("ddlFilterBy")
+                                                              .OptionLabel("All")
+                                                              .DataTextField("Name")
+                                                              .DataValueField("Tag")
+                                                              .AutoBind(false)
+                                                              .HtmlAttributes(new { @style = "width:200px !important;" })
+                                                              .DataSource(ds => ds.Read("CashCentersColumnsListingToolbarTemplate", "CashCenter")))
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <span id="gap" class="gap">
+                                                        <a class="btn" id="RebindGrid"><strong>Search</strong></a>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </text>);
+              })
+              .TableHtmlAttributes(new { @style = "margin-bottom: 8px;" })
+              .Pageable(page => page.ButtonCount(5))
+              .Sortable(sort => sort.Enabled(true).AllowUnsort(false).SortMode(GridSortMode.MultipleColumn))
+              .DataSource(datasource => datasource
+                  .Ajax()
+                  .PageSize(10)
+                  .ServerOperation(false)
+                  .Model(a => a.Id(b => b.CashCenterId))))
+        }
+        else
+        {
+        <h4 style="color: red">
+            The current logged in user has no profile. Make sure you are not making use of SBVAdmin Account when working on MySBV.
+            This Account is only there for the development team. Thank you.
+        </h4>
+        }
+    </div>
+</div>
+
+
+
+<script id="delete-confirmation" type="text/x-kendo-template">
+
+    <div>
+        <img src="@Url.Content("~/Content/Images/question.png")" style="float:left" />
+        <p style="margin-left:10px; float:rigth" class="delete-message"> &nbsp; &nbsp;Do you want to delete the Cash Centre?</p></td>
+    </div>
+
+    <div style="margin-left:160px; margin-top:5px;">
+        <button class="delete-confirm k-button" style="width:80px">Yes</button>
+        <button class="delete-cancel k-button" style="width:80px">No</button>
+    </div>
+
+
+</script>
+
+<script type="text/javascript">
+
+    function ExecDelete(param) {
+        var kendoWindow = $("<div />").kendoWindow({
+            title: "Confirm Delete",
+            resizable: false,
+            modal: true,
+            width: "430px",
+            height: "160px"
+        });
+
+        kendoWindow.data("kendoWindow")
+            .content($("#delete-confirmation").html())
+            .center().open();
+
+        kendoWindow
+            .find(".delete-confirm,.delete-cancel")
+            .click(function () {
+                if ($(this).hasClass("delete-confirm")) {
+                    var url = '@Url.Action("Delete")/?id=' + param;
+                    $.post(url, function (data) {
+                        window.location.href = data.url;
+                    });
+                }
+
+                kendoWindow.data("kendoWindow").close();
+            })
+            .end();
+    }
+
+
+    $("#RebindGrid").click(function () {
+        refreshGrid();
+    });
+
+
+    function refreshGrid() {
+        var columnName = $("#ddlFilterBy").val();
+        var searchValue = $.trim($("#SearchInput").val());
+
+        searchValue = (searchValue == "") ? "________" : searchValue;
+
+        var grid = $("#Grid").data("kendoGrid");
+
+        if (columnName) {
+            grid.dataSource.filter({ field: columnName, operator: "contains", value: searchValue });
+        } else {
+            grid.dataSource.filter({});
+        }
+    }
+
+
+    $("#ddlFilterBy").change(function () {
+
+        $("#SearchInput").kendoAutoComplete({
+            dataTextField: $(this).val()
+        });
+
+        $("#SearchInput").css("width", "350px");
+
+        $("#SearchInput").val("");
+
+        if ($(this).val() == "") {
+            refreshGrid();
+        }
+
+        $("#SearchInput").val("");
+    });
+
+
+    function onAdditionalData() {
+        return {
+            columName: $("#ddlFilterBy").val(),
+            searchData: $("#SearchInput").val()
+        };
+    }
+
+
+    function addNewlines(str) {
+        var result = '';
+        while (str.length > 0) {
+            result += str.substring(0, 18) + '\n';
+            str = str.substring(18);
+        }
+        return result;
+    }
+
+</script>

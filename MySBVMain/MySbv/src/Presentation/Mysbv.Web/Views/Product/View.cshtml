@@ -1,0 +1,206 @@
+﻿@model Application.Dto.Product.ProductDto
+
+@using Application.Dto.Product
+@using Kendo.Mvc.UI
+@{
+    ViewBag.Title = "Add Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style type="text/css">
+    .label {
+        width: 100px !important;
+    }
+
+    .required:after {
+        content: "*";
+        font-weight: bold;
+        color: red;
+    }
+
+    input[type=text] {
+        width: 205px !important;
+    }
+
+    select {
+        width: 220px !important;
+    }
+
+</style>
+
+<div class="well">
+
+    <p>Fields marked with an asterisk <span class="requiredField">*</span> are required</p>
+
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+
+        <div class="ui-widget-header">
+            <h4 style="margin-left: 5px">Add Product</h4>
+        </div>
+
+        <div class="ui-widget-content" style="padding: 5px;">
+
+            <div class="well">
+
+                <div class="ui-widget-header">
+                    <h5 style="margin-left: 5px">Product Site</h5>
+                </div>
+
+                <div style="margin-top: 5px">
+                    <div class="row">
+                        <div>
+                            <div class="span2">
+                                @Html.LabelFor(a => a.SiteId, new { @class = "label required", style = "width: 150px !Important" })
+                            </div>
+                            <div class="span2">
+                                @(Html.Kendo().DropDownListFor(a => a.SiteId).BindTo(ViewData["Sites"] as SelectList)
+                                      .Events(a => a.Select("onSiteChanged"))
+                                      .HtmlAttributes(new { @style = "width:220px; margin-bottom: 8px ", @tabindex = "1", @id = "SiteId", @disabled = "disabled" }))
+                            </div>
+
+                            <div class="span2 offset1" style="margin-left: 155px">
+                                @Html.LabelFor(a => a.CitCode, new { @class = "label required", style = "width: 150px !Important" })
+                            </div>
+
+                            <div class="span2">
+                                @Html.TextBoxFor(a => a.CitCode, new { id = "citCode", @disabled = "disabled", @class = "tbstyle", @maxlength = "14" })
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="row">
+                        <div class="span2">
+                            @Html.LabelFor(a => a.ServiceTypeId, new { @class = "label required", @style = "width:150px !important" })
+                        </div>
+                        <div class="span2">
+                            @(Html.Kendo().DropDownListFor(a => a.ServiceTypeId).BindTo(ViewData["ServiceTypes"] as SelectList).HtmlAttributes(new { @style = "width:220px; margin-bottom: 8px", tabindex = "10", id = "ddlServiceTypes", @disabled = "disabled" }))
+                            @Html.ValidationMessageFor(m => m.ServiceTypeId)
+                        </div>
+                        <div class="span2 offset1" style="margin-left: 155px">
+                            @Html.LabelFor(a => a.SettlementTypeId, new { @class = "label required", @style = "width:150px !important" })
+
+                        </div>
+                        <div class="span2">
+                            @(Html.Kendo().DropDownListFor(a => a.SettlementTypeId).BindTo(ViewData["SettlementTypes"] as SelectList).HtmlAttributes(new { @style = "width:220px; margin-bottom: 8px", tabindex = "10", id = "ddlSettlementTypes", @disabled = "disabled" }))
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="row">
+                        <div class="span2">
+                            @Html.LabelFor(a => a.ImplementationDateString, new { @class = "label required", @style = "width:150px !important" })
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(a => a.ImplementationDateString, new { @id = "edtImplementationDate", @disabled = "disabled" })
+                        </div>
+                        <div class="span2 offset1" style="margin-left: 155px">
+                            @Html.LabelFor(a => a.TerminationDateString, new { @class = "label required", @style = "width:150px !important", @id = "edtImplementationDate" })
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(a => a.TerminationDateString, new { @id = "edtTerminationDate", @disabled = "disabled" })
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="span2">
+                            @Html.LabelFor(a => a.ProductTypeId, new { @class = "label required", @style = "width:150px !important" })
+                        </div>
+                        <div class="span2">
+                            @(Html.Kendo().DropDownListFor(a => a.ProductTypeId).BindTo(ViewData["ProductTypes"] as SelectList).HtmlAttributes(new { @style = "width:220px; margin-bottom: 8px", tabindex = "10", id = "productType", @disabled = "disabled" }))
+                        </div>
+                    </div>
+                    
+                    @Html.Hidden("hdProductId", Model.ProductId, new { name = "hdProductId" })
+
+                    
+                    @switch (Model.ProductTypeId)
+                    {
+                        case 1:
+                        {
+                            ViewBag.Title = "Edit MySbvDeposit Product";
+                            @Html.Partial("ViewDepositFeePartial", Model);
+                            break;
+                        }
+                        case 2:
+                        {
+                            ViewBag.Title = "Edit MySbvDeposit Product";
+                            @Html.Partial("ViewVaultFeePartial", Model);
+                            break;
+                        }
+                        case 3:
+                        {
+                            ViewBag.Title = "Edit MySbvDeposit Product";
+                            @Html.Partial("ViewCitFeePartial", Model);
+                            break;
+                        }
+                        default:
+                        break;
+                    }
+                    
+                </div>
+                
+
+            </div>
+            
+            <div class="productTypeBody">
+
+                <div class="row">
+                    <div class="pull-right">
+                        <div class="span2" style="margin-right: 40px">
+                            <a href='@Url.Action("Index")' id="confirm" class="btn btn-danger" style="width: 140px;">Cancel</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+
+    <script type="text/javascript">
+        
+        function error_handler(e) {
+            if (e.errors) {
+                var message = "Errors:\n";
+                $.each(e.errors, function (key, value) {
+                    if ('errors' in value) {
+                        $.each(value.errors, function () {
+                            message += this + "\n";
+                        });
+                    }
+                });
+                alert(message);
+            }
+        }
+
+        function onSiteChanged(e) {
+
+            var dataItem = this.dataItem(e.item.index());
+
+            var url = '@Url.Action("CitCode")/?siteId=' + dataItem.Value;
+            $.post(url, function (data) {
+                var citCode = data.CitCode;
+                $('#citCode').val(citCode);
+            });
+        }
+
+        function addNewProduct(button) {
+            var productselectionpartial = "@Url.Action("ProductSelectionPartial", "Product")";
+            var body = button.parents(".productTypeBody").find("#contentArea");
+
+            $.get(productselectionpartial, function (template) {
+                body.append(template);
+            });
+        }
+        
+
+    </script>
+
+</div>
+
+

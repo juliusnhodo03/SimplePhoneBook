@@ -1,0 +1,53 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "Error";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .title {
+        margin-left: 5%;
+    }
+</style>
+
+<div class="well">
+    <div class="ui-widget-header">
+        <h4 style="margin-left: 5px">Internal Application Error</h4>
+    </div>
+    <div class="ui-widget-content" style="padding: 5px;">
+        <hgroup class="title">
+            <table>
+                <tr>
+                    <td>
+                        <img src=@Url.Content("~/Content/Images/error.png") />
+                        >
+                    </td>
+
+                    <td>
+                        <span id="spnErrMessage">
+                            &nbsp;There is a problem with the page you are trying to reach and it cannot be displayed.
+                            <br />
+                            <br />
+                            &nbsp;We apologise for the inconvience,our webmaster has been notified of the
+                            error.
+                            <br />
+                            <br />
+                            &nbsp;Please try the one of following:
+                            <ul>
+                                <li>
+                                    Try to reload the <a href="javascript:window.history.go(-1)">page</a>
+                                    that caused the error.
+                                </li>
+                                <li>
+                                    Click the <a href="javascript:location.reload()">here</a>for helpdesk information.
+                                </li>
+                            </ul>
+                            <br />
+                            <br />
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </hgroup>
+    </div>
+</div>

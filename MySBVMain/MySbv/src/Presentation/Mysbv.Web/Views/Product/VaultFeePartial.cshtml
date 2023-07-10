@@ -1,0 +1,271 @@
+﻿@using System.Collections
+@using Domain.Data.Model
+@using Kendo.Mvc.UI
+@model Application.Dto.Product.ProductDto
+
+@{
+    Layout = null;
+}
+
+<div class="Vault">
+    <div class="ui-widget-header" style="margin-bottom: 5px">
+        <h5 style="margin-left: 5px;">mySBV.vault Product Fees</h5>
+    </div>
+
+    <div class="row">
+        <div class="span2">
+            @Html.LabelFor(model => model.DeviceSupplierId, new { @class = "label required", @style = "width:205px !important" })
+        </div>
+        <div class="span2">
+            @Html.DropDownListFor(a => a.DeviceSupplierId, ViewData["Suppliers"] as SelectList, new { id = "ddlSupplier", @class = "dropdown", @style = "margin-left: 57px; width:161px !important" })
+        </div>
+
+        <div class="span2 offset2">
+            @*@Html.LabelFor(model => model.DeviceId, new { @class = "label required", @style = "width:205px !important" })*@
+        </div>
+        <div class="span2">
+            @*@Html.DropDownListFor(a => a.DeviceId, ViewData["devices"] as SelectList, new { id = "ddlDevices", @class = "dropdown", @style = "margin-left: 57px; width:161px !important" })*@
+        </div>
+    </div>
+    
+    
+    <div class="row">
+        <div class="span2">
+            @Html.LabelFor(model => model.DeviceTypeId, new { @class = "label required", @style = "width:205px !important" })
+        </div>
+        <div class="span2">
+            @Html.DropDownListFor(a => a.DeviceTypeId, ViewData["devices"] as SelectList, new { id = "ddlDevices", @class = "dropdown", @style = "margin-left: 57px; width:161px !important" })
+        </div>
+
+        <div class="span2 offset2">
+            @Html.LabelFor(model => model.SerialNumber, new { @class = "label required", @style = "width:205px !important" })
+        </div>
+        <div class="span2">
+           @Html.TextBoxFor(a => a.SerialNumber, new { @maxlength = "30", @style = "margin-left: 57px; width:150px !important", tabindex = "6", @id = "txtSerialNumber" })
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="span2">
+            @Html.LabelFor(model => model.VaultCashProcessingFeeCode, new { @class = "label", @style = "width:205px !important" })
+        </div>
+        <div class="span2">
+            @Html.TextBoxFor(a => a.VaultCashProcessingFeeCode, new { @maxlength = "5", @class = "code", @style = "margin-left: 57px; width:150px !important", tabindex = "6", @id = "txtCashProcessingFeeCode" })
+        </div>
+
+        <div class="span2 offset2">
+            @Html.LabelFor(model => model.VaultCashProcessingFee, new { @class = "label", @style = "width:205px !important" })
+        </div>
+        <div class="span2">
+            @Html.TextBoxFor(model => model.VaultCashProcessingFee, new { @class = "value", @readonly = "readonly", @style = "margin-left: 57px; width:150px !important", tabindex = "6" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span2">
+            @Html.LabelFor(model => model.PenaltyFeeCode, new { @class = "label", @style = "width:205px !important" })
+        </div>
+        <div class="span2">
+            @Html.TextBoxFor(model => model.PenaltyFeeCode, new { @maxlength = "5", @class = "code", @style = "margin-left: 57px; width:150px !important", tabindex = "6", @id = "txtPenaltyFeeCode" })
+        </div>
+
+        <div class="span2 offset2">
+            @Html.LabelFor(model => model.PenaltyFee, new { @class = "label", @style = "width:205px !important" })
+        </div>
+        <div class="span2">
+            @Html.TextBoxFor(model => model.PenaltyFee, new { @class = "value", @readonly = "readonly", @style = "margin-left: 57px; width:150px !important", tabindex = "6" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span2">
+            @Html.LabelFor(model => model.MonthlySubscriptionFeeCode, new { @class = "label", @style = "width:205px !important" })
+        </div>
+        <div class="span2">
+            @Html.TextBoxFor(model => model.MonthlySubscriptionFeeCode, new { @maxlength = "5", id = "txtMonthlySubscriptionFeeCode", @class = "code", @style = "margin-left: 57px; width:150px !important", tabindex = "6" })
+        </div>
+
+        <div class="span2 offset2">
+            @Html.LabelFor(model => model.MonthlySubscriptionFee, new { @class = "label", @style = "width:205px !important" })
+        </div>
+        <div class="span2">
+            @Html.TextBoxFor(model => model.MonthlySubscriptionFee, new { @class = "value", @readonly = "readonly", @style = "margin-left: 57px; width:150px !important", tabindex = "6" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span2">
+            @Html.LabelFor(model => model.MinMonthlyFeeCode, new { @class = "label", @style = "width:205px !important" })
+        </div>
+        <div class="span2">
+            @Html.TextBoxFor(model => model.MinMonthlyFeeCode, new { @maxlength = "5", id = "txtMinMonthlyFeeCode", @class = "code", @style = "margin-left: 57px; width:150px !important", tabindex = "6" })
+        </div>
+
+        <div class="span2 offset2">
+            @Html.LabelFor(model => model.MinMonthlyFee, new { @class = "label", @style = "width:205px !important" })
+        </div>
+        <div class="span2">
+            @Html.TextBoxFor(model => model.MinMonthlyFee, new { @class = "value", @readonly = "readonly", @style = "margin-left: 57px; width:150px !important", tabindex = "6" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span2">
+            @Html.LabelFor(model => model.VolumeBreakerValueMinCode, new { @class = "label", @style = "width:205px !important" })
+        </div>
+        <div class="span2">
+            @Html.TextBoxFor(model => model.VolumeBreakerValueMinCode, new { @maxlength = "5", id = "txtVolumeBreakerValueMinCode", @class = "code", @style = "margin-left: 57px; width:150px !important", tabindex = "6" })
+
+        </div>
+
+        <div class="span2 offset2">
+            @Html.LabelFor(model => model.VolumeBreakerValueMinFee, new { @class = "label", @style = "width:205px !important" })
+        </div>
+        <div class="span2">
+            @Html.TextBoxFor(model => model.VolumeBreakerValueMinFee, new { @class = "value", @readonly = "readonly", @style = "margin-left: 57px; width:150px !important", tabindex = "6" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span2">
+            @Html.LabelFor(model => model.VolumeBreakerValueMaxCode, new { @class = "label", @style = "width:205px !important" })
+        </div>
+        <div class="span2">
+            @Html.TextBoxFor(model => model.VolumeBreakerValueMaxCode, new { @maxlength = "5", id = "txtVolumeBreakerValueMaxCode", @class = "code", @style = "margin-left: 57px; width:150px !important", tabindex = "6" })
+
+        </div>
+
+        <div class="span2 offset2">
+            @Html.LabelFor(model => model.VolumeBreakerValueMaxFee, new { @class = "label", @style = "width:205px !important" })
+        </div>
+        <div class="span2">
+            @Html.TextBoxFor(model => model.VolumeBreakerValueMaxFee, new { @class = "value", @readonly = "readonly", @style = "margin-left: 57px; width:150px !important", tabindex = "6" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span2">
+            @Html.LabelFor(model => model.CashDeviceRentalFeeCode, new { @class = "label", @style = "width:205px !important" })
+        </div>
+        <div class="span2">
+            @Html.TextBoxFor(model => model.CashDeviceRentalFeeCode, new { @maxlength = "5", id = "txtCashDeviceRentalFeeCode", @class = "code", @style = "margin-left: 57px; width:150px !important", tabindex = "6" })
+        </div>
+
+        <div class="span2 offset2">
+            @Html.LabelFor(model => model.CashDeviceRentalFee, new { @class = "label", @style = "width:205px !important" })
+        </div>
+        <div class="span2">
+            @Html.TextBoxFor(model => model.CashDeviceRentalFee, new { @class = "value", @readonly = "readonly", @style = "margin-left: 57px; width:150px !important", tabindex = "6" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span2">
+            @Html.LabelFor(model => model.CashDeviceRiskCoverCode, new { @class = "label", @style = "width:205px !important" })
+        </div>
+        <div class="span2">
+            @Html.TextBoxFor(model => model.CashDeviceRiskCoverCode, new { @maxlength = "5", id = "txtCashDeviceRiskCoverCode", @class = "code", @style = "margin-left: 57px; width:150px !important", tabindex = "6" })
+        </div>
+
+        <div class="span2 offset2">
+            @Html.LabelFor(model => model.CashDeviceRiskCoverFee, new { @class = "label", @style = "width:205px !important" })
+        </div>
+        <div class="span2">
+            @Html.TextBoxFor(model => model.CashDeviceRiskCoverFee, new { @class = "value", @readonly = "readonly", @style = "margin-left: 57px; width:150px !important", tabindex = "6" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span2">
+            @Html.LabelFor(model => model.CashInDeviceRiskCoverCode, new { @class = "label", @style = "width:205px !important" })
+        </div>
+        <div class="span2">
+            @Html.TextBoxFor(model => model.CashInDeviceRiskCoverCode, new { @maxlength = "5", id = "txtCashInDeviceRiskCoverCode", @class = "code", @style = "margin-left: 57px; width:150px !important", tabindex = "6" })
+        </div>
+
+        <div class="span2 offset2">
+            @Html.LabelFor(model => model.CashInDeviceRiskCoverFee, new { @class = "label", @style = "width:205px !important" })
+        </div>
+        <div class="span2">
+            @Html.TextBoxFor(model => model.CashInDeviceRiskCoverFee, new { @class = "value", @readonly = "readonly", @style = "margin-left: 57px; width:150px !important", tabindex = "6" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span2">
+            @Html.LabelFor(model => model.DeviceTrainingFeeCode, new { @class = "label", @style = "width:205px !important" })
+        </div>
+        <div class="span2">
+            @Html.TextBoxFor(model => model.DeviceTrainingFeeCode, new { @maxlength = "5", id = "txtDeviceTrainingFeeCode", @class = "code", @style = "margin-left: 57px; width:150px !important", tabindex = "6" })
+        </div>
+
+        <div class="span2 offset2">
+            @Html.LabelFor(model => model.DeviceTrainingFee, new { @class = "label", @style = "width:205px !important" })
+        </div>
+        <div class="span2">
+            @Html.TextBoxFor(model => model.DeviceTrainingFee, new { @class = "value", @readonly = "readonly", @style = "margin-left: 57px; width:150px !important", tabindex = "6" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span2">
+            @Html.LabelFor(model => model.CashInstallationFeeCode, new { @class = "label", @style = "width:205px !important" })
+        </div>
+        <div class="span2">
+            @Html.TextBoxFor(model => model.CashInstallationFeeCode, new { @maxlength = "5", id = "txtCashInstallationFeeCode", @class = "code", @style = "margin-left: 57px; width:150px !important", tabindex = "6" })
+        </div>
+
+        <div class="span2 offset2">
+            @Html.LabelFor(model => model.CashInstallationFee, new { @class = "label", @style = "width:205px !important" })
+        </div>
+        <div class="span2">
+            @Html.TextBoxFor(model => model.CashInstallationFee, new { @class = "value", @readonly = "readonly", @style = "margin-left: 57px; width:150px !important", tabindex = "6" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span2">
+            @Html.LabelFor(model => model.DeviceMovementFeeCode, new { @class = "label", @style = "width:205px !important" })
+        </div>
+        <div class="span2">
+            @Html.TextBoxFor(model => model.DeviceMovementFeeCode, new { @maxlength = "5", id = "txtDeviceMovementFeeCode", @class = "code", @style = "margin-left: 57px; width:150px !important", tabindex = "6" })
+        </div>
+
+        <div class="span2 offset2">
+            @Html.LabelFor(model => model.DeviceMovementFee, new { @class = "label", @style = "width:205px !important" })
+        </div>
+        <div class="span2">
+            @Html.TextBoxFor(model => model.DeviceMovementFee, new { @class = "value", @readonly = "readonly", @style = "margin-left: 57px; width:150px !important", tabindex = "6" })
+        </div>
+    </div>
+
+    <script language="javascript">
+
+    $("#ddlSupplier").change(function () {
+        var id = $(this).val();
+
+        $.getJSON('@Url.Action("GetDevices")', { supplierId: id }, function (result) {
+
+            var devicesSelected = $('#ddlDevices');
+            devicesSelected.empty();
+
+            devicesSelected.append($('<option/>', {
+                value: -1,
+                text: "Please Select"
+            }));
+
+            $.each(result, function (index, device) {
+                devicesSelected.append($('<option/>', {
+                    value: device.value,
+                    text: device.text
+                }));
+            });
+        });
+    });
+
+    </script>
+
+
+
+</div>

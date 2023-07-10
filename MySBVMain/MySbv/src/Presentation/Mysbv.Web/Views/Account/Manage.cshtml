@@ -1,0 +1,205 @@
+﻿@model Application.Dto.Profile.UserProfileDto
+
+@using System.Web.Optimization
+
+@{
+    ViewBag.Title = "Manage Account";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="well">
+
+    <script src="~/Scripts/KendoUI/kendo.tooltip.min.js"> </script>
+
+    <div class="ui-widget-header">
+        <h4 style="margin-left: 5px">Profile</h4>
+    </div>
+    <div class="ui-widget-content" style="padding: 5px;">
+        <div>
+            @switch (Model.UserTypeId)
+            {
+                case 1:
+                    @Html.Partial("CashCenterUser", Model)
+                    ;
+                    break;
+                case 2:
+                @Html.Partial("MerchantUser", Model)
+                    ;
+                    break;
+                case 3:
+                @Html.Partial("HeadOfficeUser", Model)
+                    break;
+                default:
+                <h4 style="color: red">
+                    The current logged in user has no profile. Make sure you are not making use of SBVAdmin Account when working on MySBV.
+                    This Account is only there for the development team. Thank you.
+                </h4>
+                    break;
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<div id="example" class="k-content">
+    <div class="demo-section">
+        <script id="reset-confirmation" type="text/x-kendo-template">
+            <div class="well">
+                <div class="form" id="resetForm" data-role="validator" novalidate="novalidate">
+                    <p>
+                        You're logged in as <strong>@User.Identity.Name</strong>
+                    </p>
+                    <div class="row">
+                        <div class="span1">
+                            <img src="@Url.Content("~/Content/Images/grid_images/lock.png")" />
+                        </div>
+                        <div class="span4">
+                            <div class="row">
+                                <div class="input-prepend">
+                                    <div class="span2">
+                                        <label class="add-on" style="width:120px">Password<span class="requiredField"> *</span></label>
+                                    </div>
+                                    <div class="span2">
+                                        <input type="password" style="width: 150px; margin-left: -30px" id="password" name="password" required="required" />
+                                    </div>
+                                    <div class="span2">
+                                        <span class="k-widget k-tooltip k-tooltip-validation k-invalid-msg" id="WarnMessagePasswordR"><span class="k-icon k-warning" id="WarnMessagePasswordR"> </span>password Required</span>
+                                        <span class="k-widget k-tooltip k-tooltip-validation k-invalid-msg" id="WarnMessageP6orMore"><span class="k-icon k-warning" id="WarnMessageP6orMore"> </span>Password must be 6 or more</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-prepend">
+                                    <div class="span2">
+                                        <label class="add-on" style="width:120px">Confirm Password<span class="requiredField"> *</span></label>
+                                    </div>
+                                    <div class="span2">
+                                        <input type="password" style="width: 150px; margin-left: -30px" id="passwordConfirm" name="passwordConfirm" required="required" />
+                                    </div>
+                                    <div class="span2">
+                                        <span class="k-widget k-tooltip k-tooltip-validation k-invalid-msg" id="WarnMessageConfirmP"><span class="k-icon k-warning" id="WarnMessageConfirmP"> </span>Confirm password</span>
+                                        <span class="k-widget k-tooltip k-tooltip-validation k-invalid-msg" id="WarnMessagePnotMatch"><span class="k-icon k-warning" id="WarnMessagePnotMatch"> </span>password do not match</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span3 offset1">
+                            <button class="reset-confirm btn btn-success" value="Change password" style="width:80px">Yes</button>
+                            <a href="javascript:ResetForm();" class="reset-cancel btn btn-danger" style="width:80px">No</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </script>
+
+        <script type="text/javascript">
+
+    function displayResetForm() {
+        var kendoWindow = $("<div />").kendoWindow({
+            title: "Reset Password",
+            resizable: true,
+            modal: true,
+            width: "450px"
+        });
+
+        kendoWindow.data("kendoWindow")
+            .content($("#reset-confirmation").html())
+            .center().open();
+
+        $("#WarnMessagePasswordR").hide();
+        $("#WarnMessageConfirmP").hide();
+        $("#WarnMessageP6orMore").hide();
+        $("#WarnMessagePnotMatch").hide();
+        $('#password').focusout(function () {
+            if ($('#password').val().length >= 6) {
+                $("#WarnMessagePasswordR").hide();
+                $("#WarnMessageP6orMore").hide();
+                $('#passwordConfirm').focus();
+            }
+
+        });
+
+        kendoWindow
+            .find(".reset-confirm,.reset-cancel")
+            .click(function () {
+                if ($(this).hasClass("reset-confirm")) {
+
+                    var password = $("#password").val();
+                    var passwordConfirm = $("#passwordConfirm").val();
+                    if (password.length < 1 && passwordConfirm.length < 1) {
+
+                        $("#WarnMessagePasswordR").show();
+                        $('#password').focus();
+                        return;
+                    }
+
+                    if (password.length < 6) {
+                        $("#WarnMessagePasswordR").hide();
+                        $("#WarnMessageP6orMore").show();
+                        $("#WarnMessageConfirmP").hide();
+                        $('#password').focus();
+                        return;
+                    }
+
+                    if (password != passwordConfirm) {
+
+                        $("#WarnMessagePasswordR").hide();
+                        $("#WarnMessageP6orMore").hide();
+                        $("#WarnMessagePnotMatch").show();
+                        $('#passwordConfirm').focus();
+                        return;
+                    }
+
+                    var passwordModel = {
+                        Password: password,
+                        ConfirmPassword: passwordConfirm
+                    }
+
+                    @*
+
+
+
+                            $.post(url, function (data) {
+                                window.location.href = data.url,
+
+                                window.location.href = '@Url.Action("Index", "Home")' + "?passwordReset=true";
+                            });*@
+
+                    var parameter = { model: passwordModel }
+
+                    var url = '@Url.Action("ResetUserPassword","Account")';
+                    var returnUrl = '@Url.Action("Manage","Account")';
+
+                    $.ajax(
+                    {
+                        type: "POST",
+                        url: url,
+                        data: JSON.stringify(parameter),
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (result) {
+                            window.location.href = returnUrl;
+                        },
+                        error: function (result) {
+                            window.location.href = returnUrl;
+                        }
+                    });
+
+
+
+
+                }
+
+                kendoWindow.data("kendoWindow").destroy();
+
+            }).destroy();
+    }
+        </script>
+    </div>
+</div>
+

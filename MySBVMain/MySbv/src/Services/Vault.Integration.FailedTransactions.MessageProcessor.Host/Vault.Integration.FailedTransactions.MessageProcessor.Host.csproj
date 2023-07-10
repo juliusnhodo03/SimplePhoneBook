@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FA4D4FD4-B47A-4BE7-97F7-2CA5A89AE7B5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Vault.Integration.FailedTransactions.MessageProcessor.Host</RootNamespace>
+    <AssemblyName>Vault.Integration.FailedTransactions.MessageProcessor.Host</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.0.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Ninject.3.0.1.10\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bindings.cs" />
+    <Compile Include="Framework\ConsoleHarness.cs" />
+    <Compile Include="Framework\IWindowsService.cs" />
+    <Compile Include="Framework\TypeExtensions.cs" />
+    <Compile Include="Framework\WindowsServiceAttribute.cs" />
+    <Compile Include="Framework\WindowsServiceHarness.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Framework\WindowsServiceHarness.Designer.cs">
+      <DependentUpon>WindowsServiceHarness.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Framework\WindowsServiceInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Framework\WindowsServiceInstaller.Designer.cs">
+      <DependentUpon>WindowsServiceInstaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IRunner.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Runner.cs" />
+    <Compile Include="ServiceImplementation.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Install.bat" />
+    <None Include="packages.config" />
+    <None Include="uninstall.bat" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Application\Application.Modules.Common\Application.Modules.Common.csproj">
+      <Project>{C1BA0AFE-4D26-4654-B02B-7C8CB06731EB}</Project>
+      <Name>Application.Modules.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\Domain.Data.Core\Domain.Data.Core.csproj">
+      <Project>{10884691-742f-465e-a2c5-eef041a29fa7}</Project>
+      <Name>Domain.Data.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\Domain.Logging\Domain.Logging.csproj">
+      <Project>{8266F4E3-867C-48F8-BA20-7F5109A0AAE4}</Project>
+      <Name>Domain.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\Domain.Repository\Domain.Repository.csproj">
+      <Project>{DC10DE33-85D5-4228-9979-03287B391CC1}</Project>
+      <Name>Domain.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\Domain.Serializer\Domain.Serializer.csproj">
+      <Project>{D4350D61-AA31-4013-9D90-5A25849575D8}</Project>
+      <Name>Domain.Serializer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\Infrastructure.Logging\Infrastructure.Logging.csproj">
+      <Project>{8C01C23F-9E35-43E5-9F35-8ECD2B1863A4}</Project>
+      <Name>Infrastructure.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\Infrastructure.Repository\Infrastructure.Repository.csproj">
+      <Project>{38fcc1f8-8358-4480-85f5-aa68abae0e8c}</Project>
+      <Name>Infrastructure.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\Infrastructure.Serializer\Infrastructure.Serializer.csproj">
+      <Project>{b6348252-451e-4bb6-8aaa-492e38935447}</Project>
+      <Name>Infrastructure.Serializer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Utility\Utility.Core\Utility.Core.csproj">
+      <Project>{E4C993B5-45E5-4A20-8CF4-0A1C82F78DAE}</Project>
+      <Name>Utility.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vault.Integration.DataContracts\Vault.Integration.DataContracts.csproj">
+      <Project>{440D5709-58E1-43E7-9B94-C668A6ED3C03}</Project>
+      <Name>Vault.Integration.DataContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vault.Integration.FailedTransactions.MessageProcessor\Vault.Integration.FailedTransactions.MessageProcessor.csproj">
+      <Project>{4C75FE7B-26EE-4AA6-9AA0-47BE58517B06}</Project>
+      <Name>Vault.Integration.FailedTransactions.MessageProcessor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vault.Integration.MessageController\Vault.Integration.MessageController.csproj">
+      <Project>{E8ADCB90-E520-4C7B-B4DD-A59D0933E5C1}</Project>
+      <Name>Vault.Integration.MessageController</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vault.Integration.MessageProcessor\Vault.Integration.MessageProcessor.csproj">
+      <Project>{4800FA84-6880-4FDA-8D49-14F7CD5E7B3B}</Project>
+      <Name>Vault.Integration.MessageProcessor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vault.Integration.MessageValidator\Vault.Integration.MessageValidator.csproj">
+      <Project>{F60B94FB-0E4B-4814-98EE-2D06EFB2E023}</Project>
+      <Name>Vault.Integration.MessageValidator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vault.Integration.Msmq.Connector\Vault.Integration.Msmq.Connector.csproj">
+      <Project>{0B2FB969-B7B7-4833-9A87-5ACA535572B6}</Project>
+      <Name>Vault.Integration.Msmq.Connector</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vault.Integration.Request.Data\Vault.Integration.Request.Data.csproj">
+      <Project>{9B49CFBA-4A3F-429B-B513-6F547174149D}</Project>
+      <Name>Vault.Integration.Request.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

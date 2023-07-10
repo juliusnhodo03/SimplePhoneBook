@@ -1,0 +1,370 @@
+﻿@model Application.Dto.Users.CashCenterUserDto
+
+@using System.Web.Optimization
+@using Kendo.Mvc.UI
+
+@{
+    ViewBag.Title = "Add Cash Centre User";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css">
+    .label {
+        width: 100px !important;
+    }
+
+    .required:after {
+        content: "*";
+        font-weight: bold;
+        color: red;
+    }
+</style>
+
+<div class="well">
+
+    <p>Fields marked with an asterisk <span class="requiredField">*</span> are required</p>
+
+    <div class="ui-widget-header">
+        <h3 style="margin-left: 5px">Create Cash Center User Account</h3>
+    </div>
+
+    <div id="content">
+
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary()
+        
+            <div class="ui-widget-content" style="padding: 5px;">
+
+                <div class="row">
+                    <div class="span4">
+                        <h4>User Information</h4>
+                    </div>
+
+                    <div class="span4 offset2">
+                        <h4>Login Information</h4>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="span2">
+                        <span class="label" style="width: 150px !Important; margin-bottom:5px;"> Title<span class="requiredField">*</span></span>
+                    </div>
+                    <div class="span2">
+                        @(Html.Kendo().DropDownListFor(a => a.UserDto.TitleId).BindTo(ViewData["Titles"] as SelectList).HtmlAttributes(new { @style = "width:238px; margin-bottom: 8px ", @tabindex = "1" }))
+                    </div>
+                    <div class="input-prepend">
+                        <div class="span2 offset2">
+                            @Html.LabelFor(a => a.UserDto.UserName, new { @class = "add-on required", @style = "width:150px" })
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(a => a.UserDto.UserName, new { @class = "tbstyle", id = "username", @maxlength = "12" })
+                            @Html.ValidationMessageFor(m => m.UserDto.UserName)
+                        </div>
+                    </div>
+                </div>
+                 
+
+                <div class="row">
+                    <div class="input-prepend">
+                        <div class="span2">
+                            @Html.LabelFor(a => a.UserDto.FirstName, new { @class = "add-on required", @style = "width:150px" })
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(a => a.UserDto.FirstName, new { @class = "tbstyle", id = "firstname", @maxlength = "20", @tabindex = "2" })
+                            @Html.ValidationMessageFor(a => a.UserDto.FirstName)
+                        </div>
+                        <div class="span2 offset2">
+                            @Html.LabelFor(a => a.UserDto.EmailAddress, new { @class = "label required", @style = "width:150px !important" })
+
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(a => a.UserDto.EmailAddress, new { @class = "tbstyle", @maxlength = "100", @tabindex = "10" })
+                            @Html.ValidationMessageFor(m => m.UserDto.EmailAddress)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-prepend">
+                        <div class="span2">
+                            @Html.LabelFor(a => a.UserDto.LastName, new { @class = "add-on required", @style = "width:150px" })
+                            <span class="requiredField">*</span>
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(a => a.UserDto.LastName, new { @class = "tbstyle", id = "lastname", @maxlength = "20", @tabindex = "3" })
+                            @Html.ValidationMessageFor(a => a.UserDto.LastName)
+                        </div>
+                        <div class="span2 offset2">
+                            @Html.LabelFor(a => a.UserDto.Password, new { @class = "label required", id = "passsword" ,@style = "width:150px !important" })
+
+                        </div>
+                        <div class="span2">
+                            @Html.PasswordFor(a => a.UserDto.Password, new { @class = "tbstyle", @maxlength = "20", @tabindex = "11" })
+                            @Html.ValidationMessageFor(m => m.UserDto.Password)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class=" input-prepend">
+                        <div class="span2">
+                            <span class="label" style="width: 150px !Important; margin-bottom:5px;">SA Citizen ?<span class="requiredField">*</span></span>
+                        </div>
+
+                        <div class="span2">
+                            <span style="width :150px ; margin-right:5px;"></span><input type="checkbox" checked="checked" tabindex="4" id="chkCitizenship" />
+                        </div>
+
+                        <div class="span2 offset2 ">
+                            @Html.LabelFor(a => a.UserDto.ConfirmPassword, new { @class = "label required", @style = "width:150px !important" })
+                        </div>
+                        <div class="span2">
+                            @Html.PasswordFor(a => a.UserDto.ConfirmPassword, new { @class = "tbstyle", @maxlength = "20", tabindex = "13" })
+                            @Html.ValidationMessageFor(m => m.UserDto.ConfirmPassword)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" id="SAIdNumber">
+                    <div class="input-prepend">
+                        <div class="span2">
+                            @Html.LabelFor(a => a.UserDto.IdNumber, new { @class = "add-on required", @style = "width:150px" })
+                            <span class="requiredField">*</span>
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(a => a.UserDto.IdNumber, new { @class = "tbstyle", @id = "idnumber", @maxlength = "20", tabindex = "5" })
+                            @Html.ValidationMessageFor(a => a.UserDto.IdNumber)
+                        </div>
+                        <div class="span2 offset2 ">
+                            <h4>Cash Centre Information</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" id="PassportNumber">
+                    <div class="input-prepend">
+                        <div class="span2">
+                            @Html.LabelFor(a => a.UserDto.PassportNumber, new { @class = "add-on required", style = "width: 150px" })
+
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(a => a.UserDto.PassportNumber, new { @class = "tbstyle", @id = "passportnumber", @maxlength = "20", tabindex = "5" })
+                            @Html.ValidationMessageFor(a => a.UserDto.PassportNumber)
+                        </div>
+                        <div class="span2 offset2 ">
+                            <h4>Cash Centre Information</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=" input-prepend">
+                        <div class="span2">
+                            @Html.LabelFor(a => a.UserDto.CellNumber, new { @class = "label required", @style = "width:150px !important" })
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(a => a.UserDto.CellNumber, new { @class = "tbstyle", @maxlength = "10", tabindex = "6" })
+                            @Html.ValidationMessageFor(a => a.UserDto.CellNumber)
+                        </div>
+                    </div>
+                    <div class="span2 offset2">
+
+                        <span class="label" style="width: 150px !Important; margin-bottom:5px;"> Cash Centre<span class="requiredField">*</span></span>
+                    </div>
+                    <div class="span2">
+                        @(Html.Kendo().DropDownListFor(a => a.CashCenterId).BindTo(ViewData["CashCenters"] as SelectList).HtmlAttributes(new { @style = "width:238px; margin-bottom: 8px", tabindex = "13" }))
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-prepend">
+                        <div class="span2">
+                            @Html.LabelFor(a => a.UserDto.OfficeNumber, new { @class = "add-on required", @style = "width:150px" })
+                            <span class="requiredField">*</span>
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(a => a.UserDto.OfficeNumber, new { @class = "tbstyle", @maxlength = "10", tabindex = "7" })
+                            @Html.ValidationMessageFor(a => a.UserDto.OfficeNumber)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-prepend">
+                        <div class="span2">
+                            @Html.LabelFor(a => a.UserDto.FaxNumber, new { @class = "add-on", @style = "width:150px" })
+                            <span class="requiredField">*</span>
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(a => a.UserDto.FaxNumber, new { @class = "tbstyle", @maxlength = "10", tabindex = "8" })
+                            @Html.ValidationMessageFor(a => a.UserDto.FaxNumber)
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-prepend">
+                        <div class="span2">
+                            @Html.LabelFor(a => a.UserDto.IsLocked, new { @class = "add-on", @style = "width:150px" })
+                        </div>
+                        <div class="span2">
+                            <span style="width :150px ; margin-right:5px;"></span>
+                            @Html.CheckBoxFor(a => a.UserDto.IsLocked, new { @class = "chkbxstyle;", @tabindex = "9" })
+                            @Html.ValidationMessageFor(a => a.UserDto.IsLocked)
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="span">
+                        <h4>Role Information</h4>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="span">
+                        <h5>User must have at least 1 role <span class="requiredField">*</span></h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="span3">
+                        @Html.LabelFor(model => model.UserDto.IsRecon)
+                    </div>
+                    <div class="span3">
+                        @Html.LabelFor(model => model.UserDto.IsTellerSupervisor)
+                    </div>
+                    <div class="span3">
+                        @Html.LabelFor(model => model.UserDto.IsTeller)
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="span3">
+                        @Html.CheckBoxFor(model => model.UserDto.IsRecon, new { id="IsRecon", @style = "margin-top: -14px", @tabindex = "15" })
+                        @Html.ValidationMessageFor(model => model.UserDto.IsRecon)
+                    </div>
+                    <div class="span3">
+                        @Html.CheckBoxFor(model => model.UserDto.IsTellerSupervisor, new { id = "IsTellerSupervisor", @style = "margin-top: -14px", @tabindex = "16" })
+                        @Html.ValidationMessageFor(model => model.UserDto.IsTellerSupervisor)
+                    </div>
+                    <div class="span3">
+                        @Html.CheckBoxFor(model => model.UserDto.IsTeller, new { id = "IsTeller", @style = "margin-top: -14px", @tabindex = "17" })
+                        @Html.ValidationMessageFor(model => model.UserDto.IsTeller)
+                    </div>
+                    <hr />
+
+                    <div class="row">
+                        <div style="margin-left: 33px">
+                            <div class="span2 offset8">
+                                <input type="submit" value="Save" class="btn btn-success" style="width: 100px" tabindex="18" />
+                            </div>
+                            <div class="span1">
+                                <a href='@Url.Action("Index")' id="confirm" class="btn btn-danger" style="width: 70px; margin-left: -45px" tabindex="19">Cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        }
+    </div>
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+  
+<script type="text/javascript">
+     
+    $(document).ready(function () {
+        $("#SAIdNumber").show();
+        $("#PassportNumber").hide();
+
+        var lastname = $('#lastname').val(@Model.UserDto.LastName);
+
+        if (lastname == "") {
+            $('#lastname').val(' ');
+        } else {
+            $('#lastname').val(@Model.UserDto.LastName);
+        }
+    });
+
+    $("#chkCitizenship").click(function () {
+        if ($("#chkCitizenship").is(':checked')) {
+            $("#SAIdNumber").show();
+            $("#PassportNumber").hide();
+            $("#passportnumber").val("");
+        } else {
+            $("#SAIdNumber").hide();
+            $("#PassportNumber").show();
+            $("#idnumber").val("");
+        }
+    });
+
+    $('#firstname').focusout(function () {
+        if ($('#firstname').val().length < 2) {
+            ShowAlert("error", "First name must be longer than 2 characters", "First name Error");
+            $('#firstname').addClass('input.input-validation-error');
+            //$('#firstname').focus();
+        }
+        else if ($('#lastname').val().length > 2) {
+            $('#firstname').removeClass('input.input-validation-error');
+
+            AjaxCall('@Url.Action("GetUsername")', setGeneratedUsernane, error,
+                    {
+                        'firstName': $('#firstname').val(),
+                        'lastName': $('#lastname').val()
+                    }, 'GET');
+            }
+            else {
+                $('#firstname').removeClass('input.input-validation-error');
+            }
+        });
+
+    $('#lastname').focusout(function () {
+        if ($('#lastname').val().length < 2) {
+            ShowAlert("error", "Last name must be longer than 2 characters", "Last name Error");
+            $('#lastname').addClass('input.input-validation-error');
+            //if ($('#firstname').val().length < 2) {
+            //    $('#firstname').focus();
+            //} else $('#lastname').focus();
+        } else {
+            $('#lastname').removeClass('input.input-validation-error');
+            AjaxCall('@Url.Action("GetUsername")', setGeneratedUsernane, error,
+                    {
+                        'firstName': $('#firstname').val(),
+                        'lastName': $('#lastname').val()
+                    }, 'GET');
+            }
+    });
+
+        $("#IsRecon").click(function () {
+            $("#IsTellerSupervisor").attr("checked", false);
+            $("#IsTeller").attr("checked", false);
+        });
+
+        $("#IsTellerSupervisor").click(function () {
+            $("#IsRecon").attr("checked", false);
+            $("#IsTeller").attr("checked", false);
+        });
+
+        $("#IsTeller").click(function () {
+            $("#IsRecon").attr("checked", false);
+            $("#IsTellerSupervisor").attr("checked", false);
+        });
+
+
+        function error() {
+
+        }
+
+        function setGeneratedUsernane(data) {
+            var generatedUserName = data;
+            $('#username').val(generatedUserName);
+        }
+
+        $(".bt_red").easyconfirm({ locale: { title: 'Confirm ', button: ['No', 'Yes'], text: 'Cash Centre user record is not yet Saved. Do you want to continue?' } });
+
+</script>
+

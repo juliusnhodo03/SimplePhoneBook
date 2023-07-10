@@ -1,0 +1,447 @@
+[2015-02-13 11:55:29,890] [DEBUG] Vault.Integration.WebService.VaultService - C:\TFS\MySBVMain\Dev\MySbv\src\Services\Vault.Integration.Host\bin -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 11:55:30,718] [DEBUG] Vault.Integration.WebService.VaultService - Number of discovered parts [8] -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 11:55:30,719] [DEBUG] Vault.Integration.WebService.VaultService - Application.Modules.Common.ILookup -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 11:55:30,719] [DEBUG] Vault.Integration.WebService.VaultService - Domain.Logging.ILogger -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 11:55:30,720] [DEBUG] Vault.Integration.WebService.VaultService - Domain.Repository.IRepository -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 11:55:30,720] [DEBUG] Vault.Integration.WebService.VaultService - Domain.Serializer.ISerializer -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 11:55:30,720] [DEBUG] Vault.Integration.WebService.VaultService - Vault.Integration.MessageController.IMessageController -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 11:55:30,721] [DEBUG] Vault.Integration.WebService.VaultService - Vault.Integration.MessageValidator.IMessageValidator -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 11:55:30,721] [DEBUG] Vault.Integration.WebService.VaultService - Vault.Integration.Msmq.Connector.IMsmqConnector -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 11:55:30,721] [DEBUG] Vault.Integration.WebService.VaultService - Vault.Integration.Request.Data.IRequest -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 11:55:30,721] [DEBUG] Vault.Integration.WebService.VaultService - Initializing MEF Catalog -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 11:55:30,727] [DEBUG] Vault.Integration.WebService.VaultService - Resolve all exported items. -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 11:55:30,745] [ INFO] Vault.Integration.WebService.VaultService - Pooling the failed Transactions Queue -      
+Infrastructure.Logging.Logger.Info
+[2015-02-13 11:55:30,972] [ INFO] Vault.Integration.WebService.MessageLoggerExtensionElement - http://localhost:22193/mysbvdeposit.svc -      
+Infrastructure.Logging.Logger.Info
+[2015-02-13 11:55:31,075] [ INFO] Vault.Integration.WebService.MessageLoggerExtensionElement - Requested Address []
+Reply Status Code 404
+?<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Service</title>
+    <style>BODY { color: #000000; background-color: white; font-family: Verdana; margin-left: 0px; margin-top: 0px; } #content { margin-left: 30px; font-size: .70em; padding-bottom: 2em; } A:link { color: #336699; font-weight: bold; text-decoration: underline; } A:visited { color: #6699cc; font-weight: bold; text-decoration: underline; } A:active { color: #336699; font-weight: bold; text-decoration: underline; } .heading1 { background-color: #003366; border-bottom: #336699 6px solid; color: #ffffff; font-family: Tahoma; font-size: 26px; font-weight: normal;margin: 0em 0em 10px -20px; padding-bottom: 8px; padding-left: 30px;padding-top: 16px;} pre { font-size:small; background-color: #e5e5cc; padding: 5px; font-family: Courier New; margin-top: 0px; border: 1px #f0f0e0 solid; white-space: pre-wrap; white-space: -pre-wrap; word-wrap: break-word; } table { border-collapse: collapse; border-spacing: 0px; font-family: Verdana;} table th { border-right: 2px white solid; border-bottom: 2px white solid; font-weight: bold; background-color: #cecf9c;} table td { border-right: 2px white solid; border-bottom: 2px white solid; background-color: #e5e5cc;}</style>
+  </head>
+  <body>
+    <div id="content">
+      <p class="heading1">Service</p>
+      <p xmlns="">Endpoint not found. Please see the <a rel="help-page" href="http://localhost:22193/mySbvDeposit.svc/help">service help page</a> for constructing valid requests to the service.</p>
+    </div>
+  </body>
+</html> -      
+Infrastructure.Logging.Logger.Info
+[2015-02-13 11:56:01,235] [ INFO] Vault.Integration.WebService.MessageLoggerExtensionElement - http://localhost:22193/mySbvDeposit.svc/help -      
+Infrastructure.Logging.Logger.Info
+[2015-02-13 11:56:01,260] [ INFO] Vault.Integration.WebService.MessageLoggerExtensionElement - Requested Address []
+Reply Status Code 200 -      
+Infrastructure.Logging.Logger.Info
+[2015-02-13 11:59:17,109] [ INFO] Vault.Integration.WebService.MessageLoggerExtensionElement - 
+Message Header [http://localhost:22193/mySbvDeposit.svc/api/SubmitRequest]
+Request [<RequestMessage>
+  <UserId>1627aea5-8e0a-4371-9022-9b504344e724</UserId>
+  <BeneficiaryCode>DOV51-</BeneficiaryCode>
+  <CitCode>10010</CitCode>
+  <DeviceSerial>UB0871</DeviceSerial>
+  <TransactionDate>2015-02-13T09:53:22</TransactionDate>
+  <ErrorCode>00</ErrorCode>
+  <ItramsReference>UB0871</ItramsReference>
+  <UserReferance>CashConnect</UserReferance>
+  <TransactionType Code="22">Cash Drop</TransactionType>
+  <Users>
+    <User Type="Teller">852963</User>
+  </Users>
+  <CollectionUnits>
+    <CollectionUnit Type="Note">00186005035770</CollectionUnit>
+  </CollectionUnits>
+  <Currencies>
+    <Denominations CurrencyCode="ZAR" TotalValue="10">
+      <Fit Value="10">
+        <Denomination Value="1000" Type="Note">1</Denomination>
+        <Denomination Value="2000" Type="Note">0</Denomination>
+        <Denomination Value="5000" Type="Note">0</Denomination>
+        <Denomination Value="10000" Type="Note">0</Denomination>
+        <Denomination Value="20000" Type="Note">0</Denomination>
+      </Fit>
+      <UnFit Value="0"/>
+    </Denominations>
+  </Currencies>
+</RequestMessage>] -      
+Infrastructure.Logging.Logger.Info
+[2015-02-13 11:59:29,451] [DEBUG] Vault.Integration.WebService.VaultService - Validating Site CIT Code -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 11:59:29,454] [DEBUG] Vault.Integration.WebService.VaultService - Validating Bag Number -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 11:59:29,470] [DEBUG] Vault.Integration.WebService.VaultService - Validating CurrencyCode -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 11:59:29,749] [DEBUG] Vault.Integration.WebService.VaultService - Validating GPT Partial Payments -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 11:59:29,882] [DEBUG] Vault.Integration.WebService.VaultService - Validating if CIT Message was sent on the BagNumber before -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 11:59:29,942] [DEBUG] Vault.Integration.WebService.VaultService - Validating Beneficiary -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 11:59:29,957] [DEBUG] Vault.Integration.WebService.VaultService - Validating Transaction type code -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 11:59:29,975] [DEBUG] Vault.Integration.WebService.VaultService - Validating Device Serial Numbers -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 11:59:30,147] [DEBUG] Vault.Integration.WebService.VaultService - Validating/Checking XML Totals -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 11:59:30,150] [DEBUG] Vault.Integration.WebService.VaultService - Validating Actual Totals -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 11:59:30,151] [DEBUG] Vault.Integration.WebService.VaultService - Running Validations -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 12:00:40,369] [DEBUG] Vault.Integration.WebService.VaultService - Dumping Failed XML Request to Database -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 12:00:44,155] [ INFO] Vault.Integration.WebService.MessageLoggerExtensionElement - Requested Address []
+Reply Status Code 422
+<?xml version="1.0" encoding="utf-8"?><ArrayOfValidationError xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><ValidationError><ErrorCode>NotFound</ErrorCode><ErrorMessage>Beneficiary Code with code [DOV51-] Not found Or Beneficiary's account could be deleted or inactive.</ErrorMessage></ValidationError></ArrayOfValidationError> -      
+Infrastructure.Logging.Logger.Info
+[2015-02-13 12:01:33,871] [ INFO] Vault.Integration.WebService.MessageLoggerExtensionElement - 
+Message Header [http://localhost:22193/mySbvDeposit.svc/api/SubmitRequest]
+Request [<RequestMessage>
+  <UserId>1627aea5-8e0a-4371-9022-9b504344e724</UserId>
+  <BeneficiaryCode/>
+  <CitCode>10010</CitCode>
+  <DeviceSerial>UB0871</DeviceSerial>
+  <TransactionDate>2015-02-13T09:54:13</TransactionDate>
+  <ErrorCode>00</ErrorCode>
+  <ItramsReference>UB0871</ItramsReference>
+  <UserReferance>CashConnect</UserReferance>
+  <TransactionType Code="2">CIT</TransactionType>
+  <Users>
+    <User Type="Teller">852963</User>
+  </Users>
+  <CollectionUnits>
+    <CollectionUnit Type="Note">00186005035770</CollectionUnit>
+  </CollectionUnits>
+  <Currencies>
+    <Denominations CurrencyCode="ZAR" TotalValue="20">
+      <Fit Value="20">
+        <Denomination Value="1000" Type="Note">2</Denomination>
+        <Denomination Value="2000" Type="Note">0</Denomination>
+        <Denomination Value="5000" Type="Note">0</Denomination>
+        <Denomination Value="10000" Type="Note">0</Denomination>
+        <Denomination Value="20000" Type="Note">0</Denomination>
+      </Fit>
+      <UnFit Value="0"/>
+    </Denominations>
+  </Currencies>
+</RequestMessage>] -      
+Infrastructure.Logging.Logger.Info
+[2015-02-13 12:01:38,955] [DEBUG] Vault.Integration.WebService.VaultService - Validating Site CIT Code -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 12:01:38,956] [DEBUG] Vault.Integration.WebService.VaultService - Validating Bag Number -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 12:01:38,967] [DEBUG] Vault.Integration.WebService.VaultService - Validating CurrencyCode -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 12:01:38,995] [DEBUG] Vault.Integration.WebService.VaultService - Validating GPT Partial Payments -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 12:01:39,009] [DEBUG] Vault.Integration.WebService.VaultService - Validating if CIT Message was sent on the BagNumber before -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 12:01:39,020] [DEBUG] Vault.Integration.WebService.VaultService - Validating Transaction type code -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 12:01:40,841] [DEBUG] Vault.Integration.WebService.VaultService - Validate Payment & CIT -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 12:01:40,861] [DEBUG] Vault.Integration.WebService.VaultService - Validating Device Serial Numbers -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 12:01:40,990] [DEBUG] Vault.Integration.WebService.VaultService - Validating/Checking XML Totals -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 12:01:40,991] [DEBUG] Vault.Integration.WebService.VaultService - Validating Actual Totals -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 12:01:41,035] [DEBUG] Vault.Integration.WebService.VaultService - Validate CIT For Rejected Deposits -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 12:01:41,052] [DEBUG] Vault.Integration.WebService.VaultService - Validate CIT For Rejected Deposits -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 12:01:41,052] [DEBUG] Vault.Integration.WebService.VaultService - Running Validations -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 12:02:45,545] [DEBUG] Vault.Integration.WebService.VaultService - Dumping Failed XML Request to Database -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 12:02:54,569] [ INFO] Vault.Integration.WebService.MessageLoggerExtensionElement - Requested Address []
+Reply Status Code 201 -      
+Infrastructure.Logging.Logger.Info
+[2015-02-13 20:45:38,876] [DEBUG] Vault.Integration.WebService.VaultService - C:\TFS\MySBVMain\Dev\MySbv\src\Services\Vault.Integration.Host\bin -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 20:45:42,829] [DEBUG] Vault.Integration.WebService.VaultService - Number of discovered parts [8] -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 20:45:42,833] [DEBUG] Vault.Integration.WebService.VaultService - Application.Modules.Common.ILookup -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 20:45:42,834] [DEBUG] Vault.Integration.WebService.VaultService - Domain.Logging.ILogger -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 20:45:42,835] [DEBUG] Vault.Integration.WebService.VaultService - Domain.Repository.IRepository -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 20:45:42,836] [DEBUG] Vault.Integration.WebService.VaultService - Domain.Serializer.ISerializer -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 20:45:42,837] [DEBUG] Vault.Integration.WebService.VaultService - Vault.Integration.MessageController.IMessageController -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 20:45:42,838] [DEBUG] Vault.Integration.WebService.VaultService - Vault.Integration.MessageValidator.IMessageValidator -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 20:45:42,839] [DEBUG] Vault.Integration.WebService.VaultService - Vault.Integration.Msmq.Connector.IMsmqConnector -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 20:45:42,840] [DEBUG] Vault.Integration.WebService.VaultService - Vault.Integration.Request.Data.IRequest -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 20:45:42,841] [DEBUG] Vault.Integration.WebService.VaultService - Initializing MEF Catalog -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 20:45:42,854] [DEBUG] Vault.Integration.WebService.VaultService - Resolve all exported items. -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 20:45:42,858] [ INFO] Vault.Integration.WebService.VaultService - Pooling the failed Transactions Queue -      
+Infrastructure.Logging.Logger.Info
+[2015-02-13 20:45:43,413] [ INFO] Vault.Integration.WebService.MessageLoggerExtensionElement - 
+Message Header [http://localhost:22193/mySbvDeposit.svc/api/SubmitRequest]
+Request [<RequestMessage>
+  <UserId>1627aea5-8e0a-4371-9022-9b504344e724</UserId>
+  <BeneficiaryCode/>
+  <CitCode>10010</CitCode>
+  <DeviceSerial>UB0871</DeviceSerial>
+  <TransactionDate>2015-02-13T09:54:13</TransactionDate>
+  <ErrorCode>00</ErrorCode>
+  <ItramsReference>UB0871</ItramsReference>
+  <UserReferance>CashConnect</UserReferance>
+  <TransactionType Code="22">CIT</TransactionType>
+  <Users>
+    <User Type="Teller">852963</User>
+  </Users>
+  <CollectionUnits>
+    <CollectionUnit Type="Note">00186005035714</CollectionUnit>
+  </CollectionUnits>
+  <Currencies>
+    <Denominations CurrencyCode="ZAR" TotalValue="20">
+      <Fit Value="20">
+        <Denomination Value="1000" Type="Note">2</Denomination>
+        <Denomination Value="2000" Type="Note">0</Denomination>
+        <Denomination Value="5000" Type="Note">0</Denomination>
+        <Denomination Value="10000" Type="Note">0</Denomination>
+        <Denomination Value="20000" Type="Note">0</Denomination>
+      </Fit>
+      <UnFit Value="0"/>
+    </Denominations>
+  </Currencies>
+</RequestMessage>] -      
+Infrastructure.Logging.Logger.Info
+[2015-02-13 20:45:55,784] [DEBUG] Vault.Integration.WebService.VaultService - Validating Site CIT Code -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 20:45:55,790] [DEBUG] Vault.Integration.WebService.VaultService - Validating Bag Number -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 20:45:55,810] [DEBUG] Vault.Integration.WebService.VaultService - Validating CurrencyCode -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 20:45:55,880] [DEBUG] Vault.Integration.WebService.VaultService - Validating GPT Partial Payments -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 20:45:56,096] [DEBUG] Vault.Integration.WebService.VaultService - Validating if CIT Message was sent on the BagNumber before -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 20:45:56,216] [DEBUG] Vault.Integration.WebService.VaultService - Validating Beneficiary -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 20:45:56,228] [DEBUG] Vault.Integration.WebService.VaultService - Validating Transaction type code -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 20:45:56,241] [DEBUG] Vault.Integration.WebService.VaultService - Validating Device Serial Numbers -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 20:45:56,428] [DEBUG] Vault.Integration.WebService.VaultService - Validating/Checking XML Totals -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 20:45:56,436] [DEBUG] Vault.Integration.WebService.VaultService - Validating Actual Totals -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 20:45:56,437] [DEBUG] Vault.Integration.WebService.VaultService - Running Validations -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 20:45:57,385] [DEBUG] Vault.Integration.WebService.VaultService - Dumping Failed XML Request to Database -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 20:45:57,394] [ INFO] Vault.Integration.WebService.MessageLoggerExtensionElement - Requested Address []
+Reply Status Code 422
+<?xml version="1.0" encoding="utf-8"?><ArrayOfValidationError xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><ValidationError><ErrorCode>NotFound</ErrorCode><ErrorMessage>Beneficiary Code with code [] Not found Or Beneficiary's account could be deleted or inactive.</ErrorMessage></ValidationError></ArrayOfValidationError> -      
+Infrastructure.Logging.Logger.Info
+[2015-02-13 21:06:56,160] [DEBUG] Vault.Integration.WebService.VaultService - C:\TFS\MySBVMain\Dev\MySbv\src\Services\Vault.Integration.Host\bin -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:06:58,511] [DEBUG] Vault.Integration.WebService.VaultService - Number of discovered parts [8] -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:06:58,516] [DEBUG] Vault.Integration.WebService.VaultService - Application.Modules.Common.ILookup -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:06:58,517] [DEBUG] Vault.Integration.WebService.VaultService - Domain.Logging.ILogger -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:06:58,518] [DEBUG] Vault.Integration.WebService.VaultService - Domain.Repository.IRepository -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:06:58,519] [DEBUG] Vault.Integration.WebService.VaultService - Domain.Serializer.ISerializer -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:06:58,520] [DEBUG] Vault.Integration.WebService.VaultService - Vault.Integration.MessageController.IMessageController -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:06:58,521] [DEBUG] Vault.Integration.WebService.VaultService - Vault.Integration.MessageValidator.IMessageValidator -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:06:58,522] [DEBUG] Vault.Integration.WebService.VaultService - Vault.Integration.Msmq.Connector.IMsmqConnector -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:06:58,523] [DEBUG] Vault.Integration.WebService.VaultService - Vault.Integration.Request.Data.IRequest -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:06:58,524] [DEBUG] Vault.Integration.WebService.VaultService - Initializing MEF Catalog -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:06:58,549] [DEBUG] Vault.Integration.WebService.VaultService - Resolve all exported items. -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:06:58,844] [ INFO] Vault.Integration.WebService.MessageLoggerExtensionElement - http://localhost:22193/mysbvdeposit.svc -      
+Infrastructure.Logging.Logger.Info
+[2015-02-13 21:06:58,962] [ INFO] Vault.Integration.WebService.MessageLoggerExtensionElement - Requested Address []
+Reply Status Code 404
+?<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Service</title>
+    <style>BODY { color: #000000; background-color: white; font-family: Verdana; margin-left: 0px; margin-top: 0px; } #content { margin-left: 30px; font-size: .70em; padding-bottom: 2em; } A:link { color: #336699; font-weight: bold; text-decoration: underline; } A:visited { color: #6699cc; font-weight: bold; text-decoration: underline; } A:active { color: #336699; font-weight: bold; text-decoration: underline; } .heading1 { background-color: #003366; border-bottom: #336699 6px solid; color: #ffffff; font-family: Tahoma; font-size: 26px; font-weight: normal;margin: 0em 0em 10px -20px; padding-bottom: 8px; padding-left: 30px;padding-top: 16px;} pre { font-size:small; background-color: #e5e5cc; padding: 5px; font-family: Courier New; margin-top: 0px; border: 1px #f0f0e0 solid; white-space: pre-wrap; white-space: -pre-wrap; word-wrap: break-word; } table { border-collapse: collapse; border-spacing: 0px; font-family: Verdana;} table th { border-right: 2px white solid; border-bottom: 2px white solid; font-weight: bold; background-color: #cecf9c;} table td { border-right: 2px white solid; border-bottom: 2px white solid; background-color: #e5e5cc;}</style>
+  </head>
+  <body>
+    <div id="content">
+      <p class="heading1">Service</p>
+      <p xmlns="">Endpoint not found. Please see the <a rel="help-page" href="http://localhost:22193/mySbvDeposit.svc/help">service help page</a> for constructing valid requests to the service.</p>
+    </div>
+  </body>
+</html> -      
+Infrastructure.Logging.Logger.Info
+[2015-02-13 21:07:02,419] [ INFO] Vault.Integration.WebService.MessageLoggerExtensionElement - http://localhost:22193/mySbvDeposit.svc/help -      
+Infrastructure.Logging.Logger.Info
+[2015-02-13 21:07:02,427] [ INFO] Vault.Integration.WebService.MessageLoggerExtensionElement - Requested Address []
+Reply Status Code 200 -      
+Infrastructure.Logging.Logger.Info
+[2015-02-13 21:07:25,944] [ INFO] Vault.Integration.WebService.MessageLoggerExtensionElement - 
+Message Header [http://localhost:22193/mySbvDeposit.svc/api/SubmitRequest]
+Request [<RequestMessage>
+  <UserId>1627aea5-8e0a-4371-9022-9b504344e724</UserId>
+  <BeneficiaryCode/>
+  <CitCode>10010</CitCode>
+  <DeviceSerial>UB0871</DeviceSerial>
+  <TransactionDate>2015-02-13T09:54:13</TransactionDate>
+  <ErrorCode>00</ErrorCode>
+  <ItramsReference>UB0871</ItramsReference>
+  <UserReferance>CashConnect</UserReferance>
+  <TransactionType Code="22">CIT</TransactionType>
+  <Users>
+    <User Type="Teller">852963</User>
+  </Users>
+  <CollectionUnits>
+    <CollectionUnit Type="Note">00186005035714</CollectionUnit>
+  </CollectionUnits>
+  <Currencies>
+    <Denominations CurrencyCode="ZAR" TotalValue="20">
+      <Fit Value="20">
+        <Denomination Value="1000" Type="Note">2</Denomination>
+        <Denomination Value="2000" Type="Note">0</Denomination>
+        <Denomination Value="5000" Type="Note">0</Denomination>
+        <Denomination Value="10000" Type="Note">0</Denomination>
+        <Denomination Value="20000" Type="Note">0</Denomination>
+      </Fit>
+      <UnFit Value="0"/>
+    </Denominations>
+  </Currencies>
+</RequestMessage>] -      
+Infrastructure.Logging.Logger.Info
+[2015-02-13 21:07:37,898] [DEBUG] Vault.Integration.WebService.VaultService - Validating Site CIT Code -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:07:37,904] [DEBUG] Vault.Integration.WebService.VaultService - Validating Bag Number -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:07:37,989] [DEBUG] Vault.Integration.WebService.VaultService - Validating CurrencyCode -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:07:38,201] [DEBUG] Vault.Integration.WebService.VaultService - Validating GPT Partial Payments -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:07:38,503] [DEBUG] Vault.Integration.WebService.VaultService - Validating if CIT Message was sent on the BagNumber before -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:07:38,731] [DEBUG] Vault.Integration.WebService.VaultService - Validating Beneficiary -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:07:38,796] [DEBUG] Vault.Integration.WebService.VaultService - Validating Transaction type code -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:07:38,855] [DEBUG] Vault.Integration.WebService.VaultService - Validating Device Serial Numbers -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:07:39,475] [DEBUG] Vault.Integration.WebService.VaultService - Validating/Checking XML Totals -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:07:39,487] [DEBUG] Vault.Integration.WebService.VaultService - Validating Actual Totals -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:07:39,489] [DEBUG] Vault.Integration.WebService.VaultService - Running Validations -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:08:23,714] [ INFO] Vault.Integration.Request.Data.Request - CIT Transaction Code doesn't exist in the database! -      
+Infrastructure.Logging.Logger.Info
+[2015-02-13 21:08:23,789] [ INFO] Vault.Integration.Request.Data.Request - successfully Serialized to JSON... -      
+Infrastructure.Logging.Logger.Info
+[2015-02-13 21:08:23,790] [DEBUG] Vault.Integration.Request.Data.Request - {"BeneficiaryCode":"","CitCode":"10010","CollectionUnits":{"CollectionUnit":[{"Type":"Note","Value":"00186005035714"}]},"Currencies":{"Denominations":{"CurrencyCode":"ZAR","Fit":{"Denomination":[{"Count":2,"Type":"Note","Value":1000},{"Count":0,"Type":"Note","Value":2000},{"Count":0,"Type":"Note","Value":5000},{"Count":0,"Type":"Note","Value":10000},{"Count":0,"Type":"Note","Value":20000}],"Value":20},"TotalValue":20,"UnFit":{"Denomination":[],"Value":0}}},"DeviceSerial":"UB0871","ErrorCode":"00","ItramsReference":"UB0871","TransactionDate":"\/Date(1423814053000+0200)\/","TransactionType":{"Code":"22","Value":"CIT"},"UserId":"1627aea5-8e0a-4371-9022-9b504344e724","UserReferance":"CashConnect","Users":{"User":{"Type":"Teller","Value":"852963"}}} -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:08:23,791] [ INFO] Vault.Integration.Request.Data.Request - FAILED_VALIDATION status is found in database... -      
+Infrastructure.Logging.Logger.Info
+[2015-02-13 21:08:24,385] [ INFO] Vault.Integration.Request.Data.Request - Queried failed transactions from VaultTransactionXml table... -      
+Infrastructure.Logging.Logger.Info
+[2015-02-13 21:08:24,390] [ INFO] Vault.Integration.Request.Data.Request - Trying to convert Errors to string... -      
+Infrastructure.Logging.Logger.Info
+[2015-02-13 21:08:24,616] [ INFO] Vault.Integration.Request.Data.Request - Successfully converted Errors to string... -      
+Infrastructure.Logging.Logger.Info
+[2015-02-13 21:08:25,234] [DEBUG] Vault.Integration.Request.Data.Request - Dumping Failed XML Request to Database -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:08:25,240] [ INFO] Vault.Integration.WebService.MessageLoggerExtensionElement - Requested Address []
+Reply Status Code 422
+<?xml version="1.0" encoding="utf-8"?><ArrayOfValidationError xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><ValidationError><ErrorCode>NotFound</ErrorCode><ErrorMessage>Beneficiary Code with code [] Not found Or Beneficiary's account could be deleted or inactive.</ErrorMessage></ValidationError></ArrayOfValidationError> -      
+Infrastructure.Logging.Logger.Info
+[2015-02-13 21:09:50,301] [ INFO] Vault.Integration.WebService.MessageLoggerExtensionElement - 
+Message Header [http://localhost:22193/mySbvDeposit.svc/api/SubmitRequest]
+Request [<RequestMessage>
+  <UserId>1627aea5-8e0a-4371-9022-9b504344e724</UserId>
+  <BeneficiaryCode>GSL612</BeneficiaryCode>
+  <CitCode>10010</CitCode>
+  <DeviceSerial>UB0871</DeviceSerial>
+  <TransactionDate>2015-02-13T09:54:13</TransactionDate>
+  <ErrorCode>00</ErrorCode>
+  <ItramsReference>UB0871</ItramsReference>
+  <UserReferance>CashConnect</UserReferance>
+  <TransactionType Code="22">CIT</TransactionType>
+  <Users>
+    <User Type="Teller">852963</User>
+  </Users>
+  <CollectionUnits>
+    <CollectionUnit Type="Note">00186005035714</CollectionUnit>
+  </CollectionUnits>
+  <Currencies>
+    <Denominations CurrencyCode="ZAR" TotalValue="20">
+      <Fit Value="20">
+        <Denomination Value="1000" Type="Note">2</Denomination>
+        <Denomination Value="2000" Type="Note">0</Denomination>
+        <Denomination Value="5000" Type="Note">0</Denomination>
+        <Denomination Value="10000" Type="Note">0</Denomination>
+        <Denomination Value="20000" Type="Note">0</Denomination>
+      </Fit>
+      <UnFit Value="0"/>
+    </Denominations>
+  </Currencies>
+</RequestMessage>] -      
+Infrastructure.Logging.Logger.Info
+[2015-02-13 21:09:50,368] [DEBUG] Vault.Integration.WebService.VaultService - Validating Site CIT Code -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:09:50,371] [DEBUG] Vault.Integration.WebService.VaultService - Validating Bag Number -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:09:50,420] [DEBUG] Vault.Integration.WebService.VaultService - Validating CurrencyCode -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:09:50,511] [DEBUG] Vault.Integration.WebService.VaultService - Validating GPT Partial Payments -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:09:50,596] [DEBUG] Vault.Integration.WebService.VaultService - Validating if CIT Message was sent on the BagNumber before -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:09:50,662] [DEBUG] Vault.Integration.WebService.VaultService - Validating Beneficiary -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:09:50,711] [DEBUG] Vault.Integration.WebService.VaultService - Validating Transaction type code -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:09:50,764] [DEBUG] Vault.Integration.WebService.VaultService - Validating Device Serial Numbers -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:09:51,259] [DEBUG] Vault.Integration.WebService.VaultService - Validating/Checking XML Totals -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:09:51,261] [DEBUG] Vault.Integration.WebService.VaultService - Validating Actual Totals -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:09:51,263] [DEBUG] Vault.Integration.WebService.VaultService - Running Validations -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:09:51,448] [DEBUG] Vault.Integration.Msmq.Connector.MsmqConnector - Adding a Request Message to queue -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:09:52,136] [DEBUG] Vault.Integration.Msmq.Connector.MsmqConnector - message Added to queue -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:09:52,137] [DEBUG] Vault.Integration.Msmq.Connector.MsmqConnector - Message Label 
+[22_00186005035714] -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:09:52,139] [DEBUG] Vault.Integration.Msmq.Connector.MsmqConnector - Relaying deposit message -      
+Infrastructure.Logging.Logger.Debug
+[2015-02-13 21:09:52,140] [ INFO] Vault.Integration.WebService.MessageLoggerExtensionElement - Requested Address []
+Reply Status Code 201 -      
+Infrastructure.Logging.Logger.Info

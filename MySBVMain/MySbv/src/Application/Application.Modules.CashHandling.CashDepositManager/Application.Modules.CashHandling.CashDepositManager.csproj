@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{71A2971C-8581-43EA-B4E6-9426CA34DB08}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Application.Modules.CashHandling.CashDepositManager</RootNamespace>
+    <AssemblyName>Application.Modules.CashHandling.CashDepositManager</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CashDepositValidation.cs" />
+    <Compile Include="ICashDepositValidation.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Application.Dto\Application.Dto.csproj">
+      <Project>{865035D3-E160-49DA-BAF8-C14E8B30F9BE}</Project>
+      <Name>Application.Dto</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Application.Mapper\Application.Mapper.csproj">
+      <Project>{915EA008-80BF-4447-8948-D3E9A2632D1F}</Project>
+      <Name>Application.Mapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Application.Modules.Common\Application.Modules.Common.csproj">
+      <Project>{C1BA0AFE-4D26-4654-B02B-7C8CB06731EB}</Project>
+      <Name>Application.Modules.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\Domain.Data.Core\Domain.Data.Core.csproj">
+      <Project>{10884691-742F-465E-A2C5-EEF041A29FA7}</Project>
+      <Name>Domain.Data.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\Domain.Data.Model\Domain.Data.Model.csproj">
+      <Project>{DE2BC459-2AAC-4D57-A7A0-E54719D010F2}</Project>
+      <Name>Domain.Data.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\Domain.Repository\Domain.Repository.csproj">
+      <Project>{DC10DE33-85D5-4228-9979-03287B391CC1}</Project>
+      <Name>Domain.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Utility\Utility.Core\Utility.Core.csproj">
+      <Project>{E4C993B5-45E5-4A20-8CF4-0A1C82F78DAE}</Project>
+      <Name>Utility.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

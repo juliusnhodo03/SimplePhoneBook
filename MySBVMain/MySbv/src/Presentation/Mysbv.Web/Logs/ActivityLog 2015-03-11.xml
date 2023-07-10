@@ -1,0 +1,17 @@
+[2015-03-11 16:13:59,761] [ERROR] Mysbv.Web.MvcApplication - MESSAGE
+You do not have the required role(s) 'SBVAdmin, RetailSupervisor'
+STACKTRACE
+   at Mysbv.Web.CustomAttributes.CustomAuthorizeAttribute.HandleUnauthorizedRequest(AuthorizationContext filterContext) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\CustomAttributes\CustomAuthorizeAttribute.cs:line 14
+   at System.Web.Mvc.AuthorizeAttribute.OnAuthorization(AuthorizationContext filterContext)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAuthorizationFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__19(AsyncCallback asyncCallback, Object asyncState)
+INNER EXCEPTION   at Mysbv.Web.CustomAttributes.CustomAuthorizeAttribute.HandleUnauthorizedRequest(AuthorizationContext filterContext) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\CustomAttributes\CustomAuthorizeAttribute.cs:line 14
+   at System.Web.Mvc.AuthorizeAttribute.OnAuthorization(AuthorizationContext filterContext)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAuthorizationFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__19(AsyncCallback asyncCallback, Object asyncState) - Mysbv.Web.CustomAttributes.NotauthorizedHttpException (0x80004005): You do not have the required role(s) 'SBVAdmin, RetailSupervisor'
+   at Mysbv.Web.CustomAttributes.CustomAuthorizeAttribute.HandleUnauthorizedRequest(AuthorizationContext filterContext) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\CustomAttributes\CustomAuthorizeAttribute.cs:line 14
+   at System.Web.Mvc.AuthorizeAttribute.OnAuthorization(AuthorizationContext filterContext)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAuthorizationFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__19(AsyncCallback asyncCallback, Object asyncState)
+
+Infrastructure.Logging.Logger.LogException

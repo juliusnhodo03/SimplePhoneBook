@@ -1,0 +1,196 @@
+﻿@using Kendo.Mvc.UI
+@model IEnumerable<Application.Dto.FinancialManagement.RejectedDepositDto>
+
+@{
+    ViewBag.Title = "Rejected Transactions List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="well">
+    <div class="ui-widget-header">
+    <h4 style="margin-left: 5px">Rejected Deposits</h4>
+    </div>
+    <div class="ui-widget-content" style="padding: 5px;">
+
+    @if (ViewBag.IsValidUser == true)
+    {
+        @(Html.Kendo().Grid(Model)
+          .Name("Grid")
+          .Columns(columns =>
+          {
+              columns.Bound(p => p.DepositDateTime).Width(60).Sortable(true);
+              columns.Bound(p => p.RejectionDateTime).Width(60).Sortable(true);
+              columns.Bound(p => p.SiteName).Width(60).Sortable(false);
+              columns.Bound(p => p.CitCode).Width(60).Sortable(false);
+              columns.Bound(p => p.DepositReference).Width(60).Sortable(false);
+              columns.Bound(p => p.Reason).Width(60).Sortable(false);
+              columns.Template(@<text></text>).ClientTemplate("<a title='View' href='javascript:getDetailUrl(#=IsPayment#, #=PaymentId#, #=IsCashDeposit#, #=CashDepositId#, #=ContainerDropId#)'><img src='" + @Url.Content("~/Content/Images/grid_images/view.png") + "'/></a>").Width(40).HtmlAttributes(new { @style = "text-align: center" });
+              columns.Template(@<text></text>).ClientTemplate("<a title='Submit' href='" + Url.Action("Submit", "RejectedDeposits") + "/?id=#=CashDepositId#&dropId=#=ContainerDropId#&paymentId=#=PaymentId#'><img style='width:20px' src='" + @Url.Content("~/Content/Images/grid_images/resubmit.png") + "'/></a>").Width(20).HtmlAttributes(new { @style = "text-align: center; width:20px" });
+        })
+            .Filterable(filterable => filterable
+                    .Extra(false)
+                    .Operators(operators => operators
+                    .ForString(str => str.Clear()
+                    .StartsWith("Starts with")
+                    .IsEqualTo("Is equal to")
+                    .IsNotEqualTo("Is not equal to")
+                    .Contains("Contains")
+                ))
+          )
+        .ToolBar(toolbar =>
+        {
+            toolbar.Template(@<text>
+                <table class="serach-toolbar">
+                    <tr>
+                        <td>Search</td>
+                        <td>
+                            @(Html.Kendo().AutoComplete()
+                            .Name("SearchInput")
+                            .Filter("startswith")
+                            .MinLength(1)
+                            .HtmlAttributes(new { style = "width:350px" })
+                                    .DataSource(source => source.Read(read => read.Action("AutoCompleteRejectedDepositByColumn", "RejectedDeposits").Data("onAdditionalData"))
+                                .ServerFiltering(true)))
+                        </td>
+
+                        <td><label class="category-label" for="category">Filter</label></td>
+                        <td>
+                            <div class="toolbar">
+                                @(Html.Kendo().DropDownList()
+                                .Name("ddlFilterBy")
+                                .OptionLabel("All")
+                                .DataTextField("Name")
+                                .DataValueField("Tag")
+                                .AutoBind(false)
+                                .HtmlAttributes(new { @style = "width:200px !important;" })
+                                                        .DataSource(ds => ds.Read("RejectedDepositColumnsListingToolbarTemplate", "RejectedDeposits")))
+                            </div>
+                        </td>
+                        <td>
+                            <span id="gap" class="gap">
+                                <a class="btn" id="RebindGrid"><strong>Search</strong></a>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+            </text>);
+        })
+        .TableHtmlAttributes(new { @style = "margin-bottom: 8px;" })
+        .Pageable(page => page.ButtonCount(5))
+        .Sortable(sort => sort.Enabled(true).AllowUnsort(false).SortMode(GridSortMode.MultipleColumn))
+        .DataSource(datasource => datasource
+        .Ajax()
+        .PageSize(5)
+        .ServerOperation(false)
+        .Model(a => a.Id(b => b.CashDepositId))))
+    }
+    else
+    {
+        <h4 style="color: red">
+            The current logged in user has no profile. Make sure you are not making use of SBVAdmin Account when working on MySBV.
+            This Account is only there for the development team. Thank you.
+        </h4>
+    }
+        </div>
+</div>
+
+
+<script id="delete-confirmation" type="text/x-kendo-template">
+    <div>
+        <img src="@Url.Content("~/Content/Images/question.png")" style="float:left" />
+        <p float:right" class="delete-message">Do you want resubmit the deposit?</p>
+    </div>
+
+    <div style="margin-left:155px; margin-top:5px;">
+        <button class="delete-confirm k-button" style="width:80px">Yes</button>
+        <button class="delete-cancel k-button" style="width:80px">No</button>
+    </div>
+</script>
+
+<script type="text/javascript">
+
+    function getDetailUrl(isPayment, paymentId, isCashDeposit, cashDepositId, dropId) {
+        if (isPayment) {
+            window.location.href = "@Url.Action("PaymentDetails", "RejectedDeposits")" + "/?id=" + paymentId;
+        }
+        else if (isCashDeposit) {
+            window.location.href = "@Url.Action("DepositDetails", "RejectedDeposits")" + "/?id=" + cashDepositId;
+        } else {
+            window.location.href = "@Url.Action("DropDetails", "RejectedDeposits")" + "/?id=" + dropId;
+        }
+    }
+
+
+    function ExecSubmit(param) {
+        var kendoWindow = $("<div />").kendoWindow({
+            title: "Confirm Resubmit",
+            resizable: false,
+            modal: true,
+            width: "430px",
+            height: "160px"
+        });
+
+        kendoWindow.data("kendoWindow")
+            .content($("#delete-confirmation").html())
+            .center().open();
+
+        kendoWindow
+            .find(".delete-confirm,.delete-cancel")
+            .click(function () {
+                if ($(this).hasClass("delete-confirm")) {
+                    var url = '@Url.Action("Submit")/?id=' + param;
+                    $.post(url, function (data) {
+                        window.location.href = data.url;
+                    });
+                }
+
+                kendoWindow.data("kendoWindow").close();
+            })
+            .end();
+    }
+
+    $("#RebindGrid").click(function () {
+        refreshGrid();
+    });
+
+    function refreshGrid() {
+        var columnName = $("#ddlFilterBy").val();
+        var searchValue = $.trim($("#SearchInput").val());
+
+        searchValue = (searchValue == "") ? "________" : searchValue;
+
+        var grid = $("#Grid").data("kendoGrid");
+
+        if (columnName) {
+            grid.dataSource.filter({ field: columnName, operator: "contains", value: searchValue });
+        } else {
+            grid.dataSource.filter({});
+        }
+    }
+
+    $("#ddlFilterBy").change(function () {
+
+        $("#SearchInput").kendoAutoComplete({
+            dataTextField: $(this).val()
+        });
+
+        $("#SearchInput").css("width", "350px");
+
+        $("#SearchInput").val("");
+
+        if ($(this).val() == "") {
+            refreshGrid();
+        }
+
+        $("#SearchInput").val("");
+    });
+
+    function onAdditionalData() {
+        return {
+            columName: $("#ddlFilterBy").val(),
+            searchData: $("#SearchInput").val(),
+            userType: 1
+        };
+    }
+
+</script>

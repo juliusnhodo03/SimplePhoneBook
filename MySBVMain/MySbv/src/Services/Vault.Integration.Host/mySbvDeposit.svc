@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Service="Vault.Integration.WebService.VaultService" Factory="System.ServiceModel.Activation.WebServiceHostFactory" %>

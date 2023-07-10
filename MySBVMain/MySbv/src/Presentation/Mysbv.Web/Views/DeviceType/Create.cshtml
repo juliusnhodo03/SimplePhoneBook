@@ -1,0 +1,108 @@
+﻿@using Kendo.Mvc.UI
+@model Application.Dto.DeviceType.DeviceTypeDto
+
+@{
+    ViewBag.Title = "Add New Device";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css">
+    .label {
+        width: 100px !important;
+    }
+
+    .required:after {
+        content: "*";
+        font-weight: bold;
+        color: red;
+    }
+</style>
+
+<div class="well">
+
+    <!--<h2> Add New Device Name </h2> -->
+    <p>Fields marked with an asterisk <span class="requiredField">*</span> are required</p>
+
+    <div class="ui-widget-header">
+        <h4 style="margin-left: 5px">Add New Device</h4>
+    </div>
+
+    <div id="content">
+
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary()
+            <div class="ui-widget-content" style="padding: 5px;">
+                
+                <div class="row">
+                    <div class="span2">
+                        @Html.LabelFor(model => model.SupplierId, new { @class = "label required", @style = "width:150px !important" })
+                    </div>
+                    <div class="span2">
+                        @(Html.Kendo().DropDownListFor(a => a.SupplierId).BindTo(ViewData["GetSuppliers"] as SelectList).HtmlAttributes(new { @style = "width:238px; margin-bottom: 8px", tabindex = "10" }))
+                    </div>
+                    
+                    <div class="span2 offset2">
+                        @Html.LabelFor(model => model.ManufacturerId, new { @class = "label required", @style = "width:150px !important" })
+                    </div>
+                    <div class="span2">
+                        @(Html.Kendo().DropDownListFor(a => a.ManufacturerId).BindTo(ViewData["GetManufactures"] as SelectList).HtmlAttributes(new { @style = "width:238px; margin-bottom: 8px", tabindex = "10" }))
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-prepend">
+                        <div class="span2">
+                            @Html.LabelFor(model => model.Name, new { @class = "label required", @style = "width:150px !important" })
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(model => model.Name,new{@maxlength ="20"})
+                            @Html.ValidationMessageFor(model => model.Name)
+                        </div>
+                        <div class="span2 offset2">
+                            @Html.LabelFor(model => model.Description, new { @class = "add-on", @style = "width:150px" })<span class="requiredField">*</span>
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(model => model.Description,new{@maxlength ="30"} )
+                            @Html.ValidationMessageFor(model => model.Description)
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="row">
+                    <div class="input-prepend">
+                        <div class="span2">
+                            @Html.LabelFor(model => model.Model, new { @class = "label required", @style = "width:150px !important" })
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(model => model.Model,new{@maxlength ="15"} )
+                            @Html.ValidationMessageFor(model => model.Model)
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="row">
+    <div style="margin-left: 33px">
+        <div class="span2 offset2">
+            <input type="submit" value="Save" class="btn btn-success" style="width: 100px" />
+        </div>
+        <div class="span1">
+            <a href='@Url.Action("Index")' id="confirm" class="btn btn-danger" style="width: 70px; margin-left: -45px">Cancel</a>
+        </div>
+    </div>
+</div>
+</div>
+
+
+        }
+    </div>
+
+</div>
+
+<script>
+
+    $(".bt_red").easyconfirm({ locale: { title: 'Confirm ', button: ['No', 'Yes'], text: 'Device record is not yet Saved. Do you want to continue?' } });
+
+</script>

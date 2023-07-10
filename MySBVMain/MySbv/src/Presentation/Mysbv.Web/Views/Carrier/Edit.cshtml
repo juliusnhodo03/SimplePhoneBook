@@ -1,0 +1,95 @@
+﻿@using Kendo.Mvc.UI
+@model Application.Dto.Carrier.CitCarrierDto
+
+@{
+    ViewBag.Title = "Edit Carrier";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css">
+    .label {
+        width: 100px !important;
+    }
+
+    .required:after {
+        content: "*";
+        font-weight: bold;
+        color: red;
+    }
+</style>
+<div class="well">
+
+    <!--<h2> Add New Cash Centre </h2> -->
+    <p>Fields marked with an asterisk <span class="requiredField">*</span> are required</p>
+
+    <div class="ui-widget-header">
+        <h4 style="margin-left: 5px">Edit Carrier</h4>
+    </div>
+
+    <div id="content">
+
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary()
+
+            <div class="ui-widget-content" style="padding: 5px;">
+                @Html.HiddenFor(model => model.CitCarrierId)
+
+              
+                <div class="row">
+                    <div class="input-prepend">
+                        <div class="span2">
+                            @Html.LabelFor(model => model.Name, new { @class = "label required", @style = "width:150px !important" })
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(model => model.Name, new{@maxlength ="20"})
+                            @Html.ValidationMessageFor(model => model.Name)
+                        </div>
+                        <div class="span2 offset2">
+                            @Html.LabelFor(model => model.Description, new { @class = "label", @style = "width:150px !important" })<span class="requiredField">*</span>
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(model => model.Description,new{@maxlength ="20"})
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="input-prepend">
+                        <div class="span2">
+                            @Html.LabelFor(model => model.SerialStartNumber, new { @class = "label required", @style = "width:150px !important" })
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(model => model.SerialStartNumber, new { @maxlength ="1" })
+                            @Html.ValidationMessageFor(model => model.SerialStartNumber)
+                        </div>
+                    </div>
+                </div>
+
+                <br/>
+
+                <div class="row">
+                    <div style="margin-left: 33px">
+                        <div class="span2 offset8">
+                            <input type="submit" value="Save" class="btn btn-primary" style="width: 100px" />
+                        </div>
+                        <div class="span1">
+                            <a href='@Url.Action("Index")' id="confirm" class="btn btn-danger" style="width: 70px; margin-left: -45px">Cancel</a>
+                        </div>
+                    </div>
+                </div>
+            </div> <!--- end of container-->
+        }
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    $("#confirm").easyconfirm({ locale: { title: 'Confirm', button: ['No', 'Yes'], text: 'CIT Carrier record is not yet Saved. Do you want to continue?' } });
+
+    function Error() {
+        $('#trloading').hide();
+    }
+</script>

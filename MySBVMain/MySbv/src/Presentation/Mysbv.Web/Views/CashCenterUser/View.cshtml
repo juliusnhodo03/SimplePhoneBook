@@ -1,0 +1,344 @@
+﻿@model Application.Dto.Users.CashCenterUserDto
+
+@using System.Web.Optimization
+@using Kendo.Mvc.UI
+
+
+@{
+    ViewBag.Title = "EditCashCenterUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style type="text/css">
+    .label {
+        width: 100px !important;
+    }
+
+    .required:after {
+        content: "*";
+        font-weight: bold;
+        color: red;
+    }
+</style>
+
+<div class="well">
+    
+
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+
+        <div class="ui-widget-header">
+            <h3 style="margin-left: 5px">View Cash Centre User Account</h3>
+        </div>
+
+        <div class="ui-widget-content" style="padding: 5px;">
+
+            <div class="row">
+                <div class="span">
+                    <h4>User information</h4>
+                </div>
+                <div class="span3 offset4">
+                    <h4>Loging Information</h4>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="span2">
+                    @Html.LabelFor(a => a.UserDto.TitleId, new { @class = "label", style = "width: 150px !Important" })
+                </div>
+                <div class="span2">
+                    @(Html.Kendo().DropDownListFor(a => a.UserDto.TitleId).BindTo(ViewData["Titles"] as SelectList).HtmlAttributes(new { @disabled = "disabled", @style = "width:243px; margin-bottom: 8px", @tabindex = "1" }))
+                </div>
+
+                <div class="span2 offset2">
+                    @Html.LabelFor(a => a.UserDto.UserName, new { @class = "label", style = "width: 150px !Important" })
+                </div>
+                <div class="span2">
+                    @Html.TextBoxFor(a => a.UserDto.UserName, new { @disabled = "disabled", @class = "tbstyle", @id = "username", @maxlength = "14", @tabindex = "10" })
+                    @Html.ValidationMessageFor(m => m.UserDto.UserName)
+                </div>
+            </div>
+            <div class="row">
+                <div class="span2">
+                    @Html.LabelFor(a => a.UserDto.FirstName, new { @class = "label ", style = "width: 150px !important" })
+                </div>
+                <div class="span2">
+                    @Html.TextBoxFor(a => a.UserDto.FirstName, new { @disabled = "disabled", @class = "tbstyle", @id = "firstname", @maxlength = "14", @tabindex = "2" })
+                    @Html.ValidationMessageFor(a => a.UserDto.FirstName)
+                </div>
+                <div class="span2 offset2">
+
+                    @Html.LabelFor(a => a.UserDto.EmailAddress, new { @class = "label", style = "width: 150px !important" })
+                </div>
+                <div class="span2">
+                    @Html.TextBoxFor(a => a.UserDto.EmailAddress, new { @disabled = "disabled", @maxlength = "50", @tabindex = "11" })
+                    @Html.ValidationMessageFor(m => m.UserDto.EmailAddress)
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="span2">
+                    @Html.LabelFor(a => a.UserDto.LastName, new { @class = "label", style = "width: 150px !important" })
+                </div>
+                <div class="span2">
+                    @Html.TextBoxFor(a => a.UserDto.LastName, new { @disabled = "disabled", @class = "tbstyle", @id = "lastname", @maxlength = "14", @tabindex = "3" })
+                    @Html.ValidationMessageFor(a => a.UserDto.LastName)
+                </div>
+                
+                
+            </div>
+            <div class="row">
+                <div class="span2">
+                    <span class="label" style="width: 150px !Important; margin-bottom:8px; "> SA Citizen ?</span>
+                </div>
+                <div class="span2">
+                    <span style="width :150px ; margin-right:5px;"></span>
+                    <input type="checkbox" checked="unchecked" disabled="disabled" tabindex="4" id="chkCitizenship" />
+                </div>
+            </div>
+            <div class="row" id="PassportNumber">
+                <div class="span2">
+                    @Html.LabelFor(a => a.UserDto.PassportNumber, new { @class = "label", style = "width: 150px !important; margin-bottom:5px;" })
+
+                </div>
+                <div class="input-prepend">
+                    <div class="span2">
+                        @Html.TextBoxFor(a => a.UserDto.PassportNumber, new { @disabled = "disabled", @class = "tbstyle", @id = "passportnumber", @maxlength = "20", @tabindex = "5" })
+                        @Html.ValidationMessageFor(a => a.UserDto.PassportNumber)
+                    </div>
+                </div>
+
+                <div class="span3 offset2">
+                    <h4>Cash Centre Information</h4>
+                </div>
+            </div>
+            <div class="row" id="SAIdNumber">
+                <div class="span2">
+                    @Html.LabelFor(a => a.UserDto.IdNumber, new { @class = "label", style = "width: 150px !important; margin-bottom:5px;" })
+
+                </div>
+                <div class="input-prepend">
+                    <div class="span2">
+                        @Html.TextBoxFor(a => a.UserDto.IdNumber, new {  @disabled = "disabled", @class = "tbstyle", @id = "passportnumber", @maxlength = "20", @tabindex = "5" })
+                        @Html.ValidationMessageFor(a => a.UserDto.IdNumber)
+                    </div>
+                </div>
+                <div class="span3 offset2">
+                    <h4>Cash Centre Information</h4>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="span2">
+                    @Html.LabelFor(a => a.UserDto.CellNumber, new { @class = "label", style = "width: 150px !Important" })
+                </div>
+                <div class="span2">
+                    @Html.TextBoxFor(a => a.UserDto.CellNumber, new { @disabled = "disabled", @class = "tbstyle", @maxlength = "10", @tabindex = "6" })
+                    @Html.ValidationMessageFor(a => a.UserDto.CellNumber)
+                </div>
+                <div class="span2 offset2">
+                    <span class="label" style="width: 150px !Important; margin-bottom:5px;"> Cash Centre<span class="requiredField"></span></span>
+                </div>
+                <div class="span2">
+                    @(Html.Kendo().DropDownListFor(a => a.CashCenterId).BindTo(ViewData["CashCenters"] as SelectList).HtmlAttributes(new { @disabled = "disabled", @style = "width:238px; margin-bottom: 8px", @tabindex = "14" }))
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="span2">
+                    @Html.LabelFor(a => a.UserDto.OfficeNumber, new { @class = "label", style = "width: 150px !Important" })
+                </div>
+                <div class="span2">
+                    @Html.TextBoxFor(a => a.UserDto.OfficeNumber, new { @disabled = "disabled", @class = "tbstyle", @maxlength = "10", @tabindex = "7" })
+                    @Html.ValidationMessageFor(a => a.UserDto.OfficeNumber)
+                </div>
+            </div>
+            <div class="row">
+                <div class="span2">
+                    @Html.LabelFor(a => a.UserDto.FaxNumber, new { @class = "label", style = "width: 150px !Important" })
+                </div>
+                <div class="span2">
+                    @Html.TextBoxFor(a => a.UserDto.FaxNumber, new { @disabled = "disabled", @class = "tbstyle", @maxlength = "10", @tabindex = "8" })
+                    @Html.ValidationMessageFor(a => a.UserDto.FaxNumber)
+                </div>
+            </div>
+            <div class="row">
+                <div class="span2">
+                    @Html.LabelFor(a => a.UserDto.IsLocked, new { @class = "label", style = "width: 150px !important" })
+                </div>
+                <div class="span2">
+                    <span style="width :150px ; margin-right:5px;"></span>
+                    @Html.CheckBoxFor(a => a.UserDto.IsLocked, new {  @disabled = "disabled", @class = "chkbxstyle", @tabindex = "9" })
+                    @Html.ValidationMessageFor(a => a.UserDto.IsLocked)
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="span">
+                    <h4>Role Information</h4>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="span">
+                    <h5>User must have at least 1 role <span class="requiredField"></span></h5>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="span1">
+                    @Html.LabelFor(model => model.UserDto.IsRecon)
+                </div>
+                <div class="span3 offset2">
+                    @Html.LabelFor(model => model.UserDto.IsTellerSupervisor)
+                </div>
+                <div class="span1">
+                    @Html.LabelFor(model => model.UserDto.IsTeller)
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="span1">
+                    @Html.CheckBoxFor(model => model.UserDto.IsRecon, new {  @disabled = "disabled", @style = "margin-top: -14px", @tabindex = "14" })
+                </div>
+                <div class="span3 offset2">
+                    @Html.CheckBoxFor(model => model.UserDto.IsTellerSupervisor, new {  @disabled = "disabled", @style = "margin-top: -14px", @tabindex = "15" })
+                </div>
+                <div class="span1">
+                    @Html.CheckBoxFor(model => model.UserDto.IsTeller, new {  @disabled = "disabled", @style = "margin-top: -14px", @tabindex = "16" })
+                </div>
+
+            </div>
+
+            <!--Buttons-->
+            <div class="row">
+                
+                    <div class="span2 offset10">
+                       <a href='@Url.Action("Index")' id="confirm" class="btn btn-danger" style="width: 70px; margin-left: -45px " tabindex="18">Cancel</a>
+                    </div>
+                    <div class="span1">
+                        
+                    </div>
+                
+            </div>
+        </div>
+
+        <div>
+            @Html.HiddenFor(a => a.UserDto.CreatedById)
+            @Html.HiddenFor(a => a.UserDto.CreateDate)
+            @Html.HiddenFor(a => a.UserDto.UserId)
+            @Html.HiddenFor(a => a.UserDto.UserTypeId)
+            @Html.HiddenFor(a => a.UserDto.IsNotDeleted)
+            @Html.HiddenFor(a => a.UserDto.UserName)
+            @Html.HiddenFor(a => a.UserDto.Password)
+            @Html.HiddenFor(a => a.UserDto.ConfirmPassword)
+            @Html.HiddenFor(a => a.UserDto.IdNumber, new { @id = "hiddenId" })
+        </div>
+
+    }
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+</div>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $("#resetpassword").css("width", "237px");
+
+        if ($.trim($('#IdNumber').val()) != "") {
+            $("#SAIdNumber").show();
+            $("#PassportNumber").hide();
+
+        } else {
+            $("#SAIdNumber").hide();
+            $("#PassportNumber").show();
+            $("#chkCitizenship").removeAttr('checked');
+        }
+    });
+
+    $("#chkCitizenship").click(function () {
+        if ($("#chkCitizenship").is(':checked')) {
+            $("#SAIdNumber").show();
+            $("#PassportNumber").hide();
+            $("#passportnumber").val("");
+            $("#idnumber").val(@Model.UserDto.IdNumber);
+        } else {
+            $("#SAIdNumber").hide();
+            $("#PassportNumber").show();
+            $("#idnumber").val("");
+            $("#passportnumber").val(@Model.UserDto.PassportNumber);
+        }
+    });
+
+    $("#resetpassword").click(function () {
+        return confirm("Are you sure you want to reset the user's password?");
+    });
+
+    $("#IsAdmin").click(function () {
+        $("#IsApprover").attr("checked", false);
+        $("#IsFinanceReviewer").attr("checked", false);
+        $("#IsRecon").attr("checked", false);
+        $("#IsTellerSupervisor").attr("checked", false);
+        $("#IsTeller").attr("checked", false);
+    });
+
+    $("#IsApprover").click(function () {
+        $("#IsAdmin").attr("checked", false);
+        $("#IsFinanceReviewer").attr("checked", false);
+        $("#IsRecon").attr("checked", false);
+        $("#IsTellerSupervisor").attr("checked", false);
+        $("#IsTeller").attr("checked", false);
+    });
+
+    $("#IsFinanceReviewer").click(function () {
+        $("#IsAdmin").attr("checked", false);
+        $("#IsApprover").attr("checked", false);
+        $("#IsRecon").attr("checked", false);
+        $("#IsTellerSupervisor").attr("checked", false);
+        $("#IsTeller").attr("checked", false);
+    });
+
+    $("#IsRecon").click(function () {
+        $("#IsAdmin").attr("checked", false);
+        $("#IsApprover").attr("checked", false);
+        $("#IsFinanceReviewer").attr("checked", false);
+        $("#IsTellerSupervisor").attr("checked", false);
+        $("#IsTeller").attr("checked", false);
+    });
+
+    $("#IsTellerSupervisor").click(function () {
+        $("#IsAdmin").attr("checked", false);
+        $("#IsApprover").attr("checked", false);
+        $("#IsFinanceReviewer").attr("checked", false);
+        $("#IsRecon").attr("checked", false);
+        $("#IsTeller").attr("checked", false);
+    });
+
+    $("#IsTeller").click(function () {
+        $("#IsAdmin").attr("checked", false);
+        $("#IsApprover").attr("checked", false);
+        $("#IsFinanceReviewer").attr("checked", false);
+        $("#IsRecon").attr("checked", false);
+        $("#IsTellerSupervisor").attr("checked", false);
+    });
+
+    $(function () {
+        if ($("#hiddenId").val() == '') {
+            $("#chkCitizenship").prop('checked', false);
+            $("#SAIdNumber").hide();
+            $("#PassportNumber").show();
+            $("#idnumber").val("");
+            $("#passportnumber").val(@Model.UserDto.PassportNumber);
+        } else {
+            $("#chkCitizenship").prop('checked', true);
+            $("#SAIdNumber").show();
+            $("#PassportNumber").hide();
+            $("#passportnumber").val("");
+            $("#idnumber").val(@Model.UserDto.IdNumber);
+        }
+    });
+
+    $(".bt_red").easyconfirm({ locale: { title: 'Confirm ', button: ['No', 'Yes'], text: 'Cash Centre user record is not yet Saved. Do you want to continue?' } });
+
+</script>

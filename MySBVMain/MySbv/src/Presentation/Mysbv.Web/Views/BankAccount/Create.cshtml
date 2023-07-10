@@ -1,0 +1,416 @@
+﻿@using System.Text
+@using Application.Dto.Account
+@using Kendo.Mvc.UI
+
+@model Application.Dto.Account.BankAccountHolderDto
+
+@{
+    ViewBag.Title = "Create Bank Account";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css">
+    .label {
+        width: 100px !important;
+    }
+
+    .required:after {
+        content: "*";
+        font-weight: bold;
+        color: red;
+    }
+</style>
+
+<script src="~/Scripts/bank.account.model.js"> </script>
+<script src="~/Scripts/bank.account.screen.layout.js"> </script>
+
+<div class="well">
+
+    <div class="ui-widget-header">
+        <h4 style="margin-left: 5px">New Bank Account</h4>
+    </div>
+
+    <div class="ui-widget-content" style="padding: 5px;">
+
+        <div class="row">
+            <div class="span2">
+                @Html.LabelFor(model => model.SiteId, new { @class = "label required", @style = "width:150px !important" })
+            </div>
+            @using (Html.BeginForm())
+            {
+                if (Model.SiteId > 0)
+                {
+                    <div class="span2">
+                        @(Html.Kendo().DropDownList()
+                              .Name("SiteId") //The name of the dropdownlist is mandatory. It specifies the "id" attribute of the widget.
+                              .DataTextField("Name") //Specifies which property of the Product to be used by the dropdownlist as a text.
+                              .DataValueField("Id") //Specifies which property of the Product to be used by the dropdownlist as a value.
+                              .DataSource(source =>
+                              {
+                                  source.Read(read =>
+                                  {
+                                      read.Action("GetSites", "BankAccount"); //Set the Action and Controller name
+                                  })
+                                      .ServerFiltering(true); //If true the DataSource will not filter the data on the client.
+                              }).HtmlAttributes(new { @style = "width: 239px; margin-left: 0px", @disabled = "disabled" })
+                              )
+                    </div>
+                    <div class="span2 offset2">
+                        @Html.LabelFor(model => model.CitCode, new { @class = "label", @style = "width:150px !important" })
+                    </div>
+                    <div class="span1">
+                        @Html.TextBoxFor(model => model.CitCode, new { @disabled = "disabled", @id = "txtCitCode" })
+                    </div>
+                }
+                else
+                {
+                    <div class="span2">
+                        @(Html.Kendo().DropDownList()
+                              .Name("SiteId") //The name of the dropdownlist is mandatory. It specifies the "id" attribute of the widget.
+                              .DataTextField("Name") //Specifies which property of the Product to be used by the dropdownlist as a text.
+                              .DataValueField("Id") //Specifies which property of the Product to be used by the dropdownlist as a value.
+                              .DataSource(source =>
+                              {
+                                  source.Read(read =>
+                                  {
+                                      read.Action("GetSites", "BankAccount"); //Set the Action and Controller name
+                                  })
+                                      .ServerFiltering(true); //If true the DataSource will not filter the data on the client.
+                              }).HtmlAttributes(new { @style = "width: 239px; margin-left: 0px" })
+                              )
+                    </div>
+
+                    <div class="span2 offset2">
+                        @Html.LabelFor(model => model.CitCode, new { @class = "label", @style = "width:150px !important" })
+                    </div>
+                    <div class="span1">
+                        @Html.TextBoxFor(model => model.CitCode, new { @disabled = "disabled", @id = "txtCitCode" })
+                    </div>
+                }
+            }
+
+        </div>
+        
+
+        <div class="parent">
+        <div class="child">
+            <div class="ui-widget-header">
+                <h5 style="margin-left: 5px">Bank Accounts</h5>
+            </div>
+
+            <div class="ui-widget-content" style="padding: 5px">
+
+                <span style="font-size: 11pt; font-weight: bold;">
+                    <span class="headerText">Bank Account&nbsp;1</span>
+                </span>
+
+                <div>
+                    @using (Html.BeginForm())
+                    {
+                        foreach (var account in Model.Accounts)
+                        {
+                            <div class="row">
+                                <div class="span2">
+                                    @Html.Label("Bank Account", new { @class = "label required", @style = "width:150px !important" })
+                                </div>
+                                <div class="span2">
+                                @Html.DropDownList("GetBanksKendo", ViewData["Banks"] as SelectList, new {id = "ddlBank", @class = "dropdown"})
+                                </div>
+
+                            <div class="span2 offset2">
+                                @Html.Label("Branch Code", new { @class = "label", @style = "width:150px !important;" })
+                            </div>
+                            <div class="span1">
+                                @Html.TextBox("txtBranchCode", "", new {@disabled = "disabled"})
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="span2">
+                                @Html.Label("Account Type", new { @class = "label required", @style = "width:150px !important" })
+                            </div>
+                            <div class="span2">
+                                @Html.DropDownList("GetAccountTypes", ViewData["GetAccountTypes"] as SelectList, new {id = "ddlAccountType", @class = "dropdown"})
+                            </div>
+
+                            <div class="span2 offset2">
+                                @Html.Label("Beneficiary Code", new { @class = "label required", @style = "width:150px !important" })
+                            </div>
+                            <div class="span1">
+                                @Html.TextBox(account.BeneficiaryCode, account.BeneficiaryCode, new { tabindex = "4", @id = "txtBeneficiaryCode", @disabled = "disabled" })
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="span2">
+                                @Html.Label("Account Number", new { @class = "label required", @style = "width:150px !important" })
+                            </div>
+                            <div class="span2">
+                                @Html.TextBox(account.AccountNumber, "", new { @maxlength = "20", tabindex = "5", @id = "txtAccountNumber", @style = "width:215px !important" })
+                            </div>
+
+                            <div class="span2 offset2">
+                                @Html.Label("Account Holder Name", new { @class = "label required", @style = "width:150px !important" })
+                            </div>
+                            <div class="span1">
+                                @Html.TextBox(account.AccountHolderName, "", new { tabindex = "4", @id = "txtAccountHolderName", @maxlength ="40" })
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="span2">
+                                @Html.Label("Default Account", new { @id = "lblDefaultAccount", @class = "label required", @style = "width:150px !important" })
+                            </div>
+                            <div class="span2">
+                                @Html.CheckBox("Default Account", account.DefaultAccount, new { @checked = true, @id = "chkDefaultAccount", @disabled = "disabled" })
+                            </div>
+
+                            <div class="span2 offset2">
+                            </div>
+                            <div class="span1">
+                            </div>
+                        </div>
+
+    <div class="row">
+        <div class="pull-right">
+            <button name="removeAccount" class="btn btn-mini btn-inverse" type="button">Delete Settlement</button>
+        </div>
+    </div>
+                    
+                        }
+                    }
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+        <div class="row">
+            <div class="span2">
+                <button name="addAccount" class="btn btn-mini btn btn-info" style="margin-top: 5px;" type="button">Add Account</button>
+            </div>
+
+            <div id="footerbuttons" class="row pull-right" style="margin-top: 5px; margin-right:-30px">
+
+                <div class="span2">
+                    <button name="captured" style="margin-left:25px; font-weight:bold" class="btn btn-mini btn btn-success" type="button">Save</button>
+                </div>
+                <div class="span2">
+                    <button name="Continue" style="margin-left:25px; font-weight:bold" class="btn btn-mini btn btn-success" type="button">Continue</button>
+                </div>
+                <div class="span2">
+                    <button onclick="cancelBankAccount('@Url.Action("Index")')" class="btn btn-mini btn-danger" style="width: 100px !important; margin-left: 5px; font-weight: bold" type="button">Cancel</button>
+                </div>
+
+            </div>
+        </div>
+        @*<input type="hidden" value="captured" id="hdProcessName" />*@
+        @Html.HiddenFor(model => model.SiteId, new { id = "hdSiteId" })
+
+    </div>
+</div>
+
+
+
+
+<script>
+
+    $(document).ready(function () {
+
+        $("input[type='checkbox']").attr('checked', 'checked');
+        var childClone = $(".child").clone(true);
+        $("button[name='removeAccount']").first().hide();
+
+        $("button[name='addAccount']").click(function () {
+            childClone.clone(true).appendTo(".parent");
+            $("button[name='removeAccount']").first().hide();
+
+            iterateAccounts();
+            assignTextBoxValues();
+        });
+
+
+        // Bank dropdown change
+        $('#ddlBank').on("change", function () {
+            var parent = $(this).parents(".row").find("#txtBranchCode");
+            var parameters = { BankId: $(this).val() };
+
+            var url = '@Url.Action("GetBankCode")/?bankId=' + parameters.BankId;
+            $.post(url, function (data) {
+                // Bank Branch Code
+                parent.val(data.BranchCode);
+            });
+        });
+
+
+        $("button[name='removeAccount']").on("click", function () {
+            var wrapper = $(this).parents(".child");
+            wrapper.remove();
+
+            iterateAccounts();
+        });
+
+
+        function iterateAccounts() {
+            var container = $(".child");
+            var containerCount = 1;
+
+            container.each(function () {
+                var containerHeaderText = $(this).find(".headerText");
+                containerHeaderText.html("Bank Settlement Account  " + containerCount);
+                containerCount++;
+            });
+        }
+
+        function assignTextBoxValues() {
+
+            var container = $(".child").last();
+            container.find('#txtBeneficiaryCode').val(getBeneficiaryCode).last();
+            container.find('#chkDefaultAccount').attr('checked', false);
+            container.find('#chkDefaultAccount').remove();
+            container.find('#lblDefaultAccount').remove();
+         }
+
+
+        function getBeneficiaryCode() {
+            var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            var numerics = '0123456789';
+
+            var strChars = '';
+            var strNumerics = '';
+
+            for (var i = 3; i > 0; --i) strChars += chars[Math.round(Math.random() * (chars.length - 1))];
+            for (var j = 3; j > 0; --j) strNumerics += numerics[Math.round(Math.random() * (numerics.length - 1))];
+
+            return strChars + strNumerics;
+        }
+
+    });
+
+</script>
+
+
+<script type="text/javascript">
+
+    // Site dropdown change
+    $("#SiteId").change(function () {
+        var parameters = { SiteId: $(this).val() };
+
+        //Populate Site Infomation
+        var url = '@Url.Action("GetCitCode")/?siteId=' + parameters.SiteId;
+        $.post(url, function (data) {
+            // Site Cit Code
+            $("#txtCitCode").attr('value', data.CitCode);
+        });
+
+        // Check if site has a default account
+        url = '@Url.Action("HasDefaultAccount")/?siteId=' + parameters.SiteId;
+        $.post(url, function (data) {
+            // Site default Account
+            if (data.doesNotExist === true)
+                $("#chkDefaultAccount").attr("checked", true);
+            else $("#chkDefaultAccount").attr("checked", false);
+        });
+
+    });
+
+
+
+    // On Save Bank Account (SAVE + CONTINUE)
+    $("button[name = 'captured'], button[name = 'Continue']").click(function () {
+
+        var processType = $(this).attr('name');
+        switch (processType) {
+
+            case "captured":
+            {
+                saveBankAccount('@Url.Action("Create")', processType, '@Url.Action("Index")', '@Url.Action("Create", "Product")');
+                    break;
+            }
+
+            case "Continue":
+            {
+                saveBankAccount('@Url.Action("Create")', processType, '@Url.Action("Index")', '@Url.Action("Create", "Product")');
+                break;
+            }
+
+            default:
+                break;
+        }
+    });
+
+</script>
+
+
+
+<script id="ValidationWindow" type="text/x-kendo-template">
+    <div style="margin-left:20px;">
+        <span class="headerTitle" />
+        <span style="margin-left:5px;" class="confirmation-message"></span>
+    </div>
+
+    <div style="margin-left:160px; margin-top:5px;">
+        <button id="btnConfirmCancel" class="no-cancel k-button" style="width:80px">Ok</button>
+    </div>
+</script>
+
+
+<script id="ConfirmWindow" type="text/x-kendo-template">
+    <div style="margin-left:20px;">
+        <img src="@Url.Content("~/Content/Images/question.png")" style="float:left" />
+        <br />
+        <p style="margin-left:5px;" class="confirmation-message"></p>
+    </div>
+
+    <div style="margin-left:160px; margin-top:5px;">
+        <button id="btnConfirmCancel" class="confirm-cancel k-button" style="width:80px">Yes</button>
+        <button id="btnNoCancel" class="no-cancel k-button" style="width:80px">No</button>
+    </div>
+</script>
+
+
+<script id="DeleteContainermWindow" type="text/x-kendo-template">
+    <div style="margin-left:20px;">
+        <img src="@Url.Content("~/Content/Images/question.png")" style="float:left" />
+        <br />
+        <p style="margin-left:5px;" class="confirmation-message"></p>
+    </div>
+
+    <div style="margin-left:160px; margin-top:5px;">
+        <button id="btnConfirmCancel" class="confirm-cancel k-button" style="width:80px">Yes</button>
+        <button id="btnNoCancel" class="no-cancel k-button" style="width:80px">No</button>
+    </div>
+</script>
+
+
+<script id="loadingWindow" type="text/x-kendo-template">
+    <div style="margin-left:20px; margin-top:30px;">
+        <table>
+            <tr>
+                <td><img src="@Url.Content("~/Content/Images/loading.gif")" /></td>
+                <td style="width:10px;"></td>
+                <td><span class="confirmation-message"></span></td>
+            </tr>
+        </table>
+    </div>
+
+    <div style="margin-left:160px; margin-top:5px;">
+        <button id="btnConfirmCancel" class="confirm-cancel" style="width:80px; visibility:hidden">Yes</button>
+    </div>
+</script>
+
+
+
+<script id="MessageWindow" type="text/x-kendo-template">
+    <div style="margin-left:20px;">
+        <img src="@Url.Content("~/Content/Images/infoimg.jpg")" class="imager" style="float:left" />
+        <br />
+        <p style="margin-left:5px;" class="confirmation-message"></p>
+    </div>
+
+    <div style="margin-left:160px; margin-top:15px;">
+        <button id="btnConfirmCancel" class="confirm-cancel k-button" style="width:80px">Ok</button>
+    </div>
+</script>

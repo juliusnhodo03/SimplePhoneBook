@@ -1,0 +1,70 @@
+﻿@model Application.Dto.Bank.BankDto
+
+@{
+    ViewBag.Title = "View Bank";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css">
+    .label {
+        width: 100px !important;
+    }
+
+    .required:after {
+        content: "*";
+        font-weight: bold;
+        color: red;
+    }
+</style>
+<div class="well">
+    
+    <div class="ui-widget-header">
+        <h4 style="margin-left: 5px">View Bank</h4>
+    </div>
+
+    <div id="content">
+
+
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary()
+
+            <div class="ui-widget-content" style="padding: 5px;">
+                @Html.HiddenFor(model => model.BankId)
+        
+                <div class="row">
+                    <div class="input-prepend">
+                        <div class="span2">
+                            @Html.LabelFor(model => model.Name, new { @class = "label required", @style = "width:150px !important" })<span class="requiredField">*</span>
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(model => model.Name, new { @disabled = "disabled" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-prepend">
+                        <div class="span2">
+                            @Html.LabelFor(model => model.BranchCode, new { @class = "label required", @style = "width:150px !important" })<span class="requiredField">*</span>
+                        </div>
+                        <div class="span2">
+                            @Html.TextBoxFor(model => model.BranchCode, new { @maxlength = "6", @disabled = "disabled" })
+
+                        </div>
+
+                    </div>
+                </div>
+                           
+                <div class="row">
+                    <div style="margin-left: 33px">
+                        <div class="span2 offset10">
+                            <a href='@Url.Action("Index")' id="confirm" class="btn btn-danger" style="width: 70px; margin-left: -45px">Cancel</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div> <!--- end of container-->
+        }
+    </div>
+</div>
+

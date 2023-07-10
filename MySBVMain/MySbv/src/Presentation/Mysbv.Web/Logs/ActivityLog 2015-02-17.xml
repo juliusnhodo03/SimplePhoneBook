@@ -1,0 +1,1028 @@
+[2015-02-17 09:45:40,735] [ERROR] Mysbv.Web.MvcApplication - MESSAGE
+Object reference not set to an instance of an object.
+STACKTRACE
+   at Application.Modules.VaultPayment.VaultPaymentValidation.GetSiteInfo(Int32 siteId) in c:\TFS\MySBVMain\Dev\MySbv\src\Application\Application.Modules.VaultPayment\VaultPaymentValidation.cs:line 383
+   at Mysbv.Web.Controllers.VaultPaymentController.GetSiteDevices(Int32 siteId) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\VaultPaymentController.cs:line 158
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INNER EXCEPTION   at Application.Modules.VaultPayment.VaultPaymentValidation.GetSiteInfo(Int32 siteId) in c:\TFS\MySBVMain\Dev\MySbv\src\Application\Application.Modules.VaultPayment\VaultPaymentValidation.cs:line 383
+   at Mysbv.Web.Controllers.VaultPaymentController.GetSiteDevices(Int32 siteId) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\VaultPaymentController.cs:line 158
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult) - System.NullReferenceException: Object reference not set to an instance of an object.
+   at Application.Modules.VaultPayment.VaultPaymentValidation.GetSiteInfo(Int32 siteId) in c:\TFS\MySBVMain\Dev\MySbv\src\Application\Application.Modules.VaultPayment\VaultPaymentValidation.cs:line 383
+   at Mysbv.Web.Controllers.VaultPaymentController.GetSiteDevices(Int32 siteId) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\VaultPaymentController.cs:line 158
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+
+Infrastructure.Logging.Logger.LogException
+[2015-02-17 09:51:55,387] [ERROR] Mysbv.Web.MvcApplication - MESSAGE
+Object reference not set to an instance of an object.
+STACKTRACE
+   at Application.Modules.VaultPayment.VaultPaymentValidation.GetSiteInfo(Int32 siteId) in c:\TFS\MySBVMain\Dev\MySbv\src\Application\Application.Modules.VaultPayment\VaultPaymentValidation.cs:line 383
+   at Mysbv.Web.Controllers.VaultPaymentController.GetSiteDevices(Int32 siteId) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\VaultPaymentController.cs:line 158
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INNER EXCEPTION   at Application.Modules.VaultPayment.VaultPaymentValidation.GetSiteInfo(Int32 siteId) in c:\TFS\MySBVMain\Dev\MySbv\src\Application\Application.Modules.VaultPayment\VaultPaymentValidation.cs:line 383
+   at Mysbv.Web.Controllers.VaultPaymentController.GetSiteDevices(Int32 siteId) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\VaultPaymentController.cs:line 158
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult) - System.NullReferenceException: Object reference not set to an instance of an object.
+   at Application.Modules.VaultPayment.VaultPaymentValidation.GetSiteInfo(Int32 siteId) in c:\TFS\MySBVMain\Dev\MySbv\src\Application\Application.Modules.VaultPayment\VaultPaymentValidation.cs:line 383
+   at Mysbv.Web.Controllers.VaultPaymentController.GetSiteDevices(Int32 siteId) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\VaultPaymentController.cs:line 158
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+
+Infrastructure.Logging.Logger.LogException
+[2015-02-17 09:52:00,202] [ERROR] Mysbv.Web.MvcApplication - MESSAGE
+The parameters dictionary contains a null entry for parameter 'deviceId' of non-nullable type 'System.Int32' for method 'System.Web.Mvc.JsonResult GetAmountInDevice(Int32)' in 'Mysbv.Web.Controllers.VaultPaymentController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
+Parameter name: parameters
+STACKTRACE
+   at System.Web.Mvc.ActionDescriptor.ExtractParameterFromDictionary(ParameterInfo parameterInfo, IDictionary`2 parameters, MethodInfo methodInfo)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INNER EXCEPTION   at System.Web.Mvc.ActionDescriptor.ExtractParameterFromDictionary(ParameterInfo parameterInfo, IDictionary`2 parameters, MethodInfo methodInfo)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult) - System.ArgumentException: The parameters dictionary contains a null entry for parameter 'deviceId' of non-nullable type 'System.Int32' for method 'System.Web.Mvc.JsonResult GetAmountInDevice(Int32)' in 'Mysbv.Web.Controllers.VaultPaymentController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
+Parameter name: parameters
+   at System.Web.Mvc.ActionDescriptor.ExtractParameterFromDictionary(ParameterInfo parameterInfo, IDictionary`2 parameters, MethodInfo methodInfo)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+
+Infrastructure.Logging.Logger.LogException
+[2015-02-17 09:52:21,700] [ERROR] Mysbv.Web.MvcApplication - MESSAGE
+Object reference not set to an instance of an object.
+STACKTRACE
+   at Application.Modules.VaultPayment.VaultPaymentValidation.GetSiteInfo(Int32 siteId) in c:\TFS\MySBVMain\Dev\MySbv\src\Application\Application.Modules.VaultPayment\VaultPaymentValidation.cs:line 383
+   at Mysbv.Web.Controllers.VaultPaymentController.GetSiteDevices(Int32 siteId) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\VaultPaymentController.cs:line 158
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INNER EXCEPTION   at Application.Modules.VaultPayment.VaultPaymentValidation.GetSiteInfo(Int32 siteId) in c:\TFS\MySBVMain\Dev\MySbv\src\Application\Application.Modules.VaultPayment\VaultPaymentValidation.cs:line 383
+   at Mysbv.Web.Controllers.VaultPaymentController.GetSiteDevices(Int32 siteId) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\VaultPaymentController.cs:line 158
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult) - System.NullReferenceException: Object reference not set to an instance of an object.
+   at Application.Modules.VaultPayment.VaultPaymentValidation.GetSiteInfo(Int32 siteId) in c:\TFS\MySBVMain\Dev\MySbv\src\Application\Application.Modules.VaultPayment\VaultPaymentValidation.cs:line 383
+   at Mysbv.Web.Controllers.VaultPaymentController.GetSiteDevices(Int32 siteId) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\VaultPaymentController.cs:line 158
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+
+Infrastructure.Logging.Logger.LogException
+[2015-02-17 09:52:24,049] [ERROR] Mysbv.Web.MvcApplication - MESSAGE
+The parameters dictionary contains a null entry for parameter 'deviceId' of non-nullable type 'System.Int32' for method 'System.Web.Mvc.JsonResult GetAmountInDevice(Int32)' in 'Mysbv.Web.Controllers.VaultPaymentController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
+Parameter name: parameters
+STACKTRACE
+   at System.Web.Mvc.ActionDescriptor.ExtractParameterFromDictionary(ParameterInfo parameterInfo, IDictionary`2 parameters, MethodInfo methodInfo)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INNER EXCEPTION   at System.Web.Mvc.ActionDescriptor.ExtractParameterFromDictionary(ParameterInfo parameterInfo, IDictionary`2 parameters, MethodInfo methodInfo)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult) - System.ArgumentException: The parameters dictionary contains a null entry for parameter 'deviceId' of non-nullable type 'System.Int32' for method 'System.Web.Mvc.JsonResult GetAmountInDevice(Int32)' in 'Mysbv.Web.Controllers.VaultPaymentController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
+Parameter name: parameters
+   at System.Web.Mvc.ActionDescriptor.ExtractParameterFromDictionary(ParameterInfo parameterInfo, IDictionary`2 parameters, MethodInfo methodInfo)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+
+Infrastructure.Logging.Logger.LogException
+[2015-02-17 10:00:21,477] [ERROR] Mysbv.Web.MvcApplication - MESSAGE
+Object reference not set to an instance of an object.
+STACKTRACE
+   at Application.Modules.VaultPayment.VaultPaymentValidation.GetSiteInfo(Int32 siteId) in c:\TFS\MySBVMain\Dev\MySbv\src\Application\Application.Modules.VaultPayment\VaultPaymentValidation.cs:line 383
+   at Mysbv.Web.Controllers.VaultPaymentController.GetSiteDevices(Int32 siteId) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\VaultPaymentController.cs:line 173
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INNER EXCEPTION   at Application.Modules.VaultPayment.VaultPaymentValidation.GetSiteInfo(Int32 siteId) in c:\TFS\MySBVMain\Dev\MySbv\src\Application\Application.Modules.VaultPayment\VaultPaymentValidation.cs:line 383
+   at Mysbv.Web.Controllers.VaultPaymentController.GetSiteDevices(Int32 siteId) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\VaultPaymentController.cs:line 173
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult) - System.NullReferenceException: Object reference not set to an instance of an object.
+   at Application.Modules.VaultPayment.VaultPaymentValidation.GetSiteInfo(Int32 siteId) in c:\TFS\MySBVMain\Dev\MySbv\src\Application\Application.Modules.VaultPayment\VaultPaymentValidation.cs:line 383
+   at Mysbv.Web.Controllers.VaultPaymentController.GetSiteDevices(Int32 siteId) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\VaultPaymentController.cs:line 173
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+
+Infrastructure.Logging.Logger.LogException
+[2015-02-17 10:00:25,845] [ERROR] Mysbv.Web.MvcApplication - MESSAGE
+The parameters dictionary contains a null entry for parameter 'deviceId' of non-nullable type 'System.Int32' for method 'System.Web.Mvc.JsonResult GetAmountInDevice(Int32)' in 'Mysbv.Web.Controllers.VaultPaymentController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
+Parameter name: parameters
+STACKTRACE
+   at System.Web.Mvc.ActionDescriptor.ExtractParameterFromDictionary(ParameterInfo parameterInfo, IDictionary`2 parameters, MethodInfo methodInfo)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INNER EXCEPTION   at System.Web.Mvc.ActionDescriptor.ExtractParameterFromDictionary(ParameterInfo parameterInfo, IDictionary`2 parameters, MethodInfo methodInfo)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult) - System.ArgumentException: The parameters dictionary contains a null entry for parameter 'deviceId' of non-nullable type 'System.Int32' for method 'System.Web.Mvc.JsonResult GetAmountInDevice(Int32)' in 'Mysbv.Web.Controllers.VaultPaymentController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
+Parameter name: parameters
+   at System.Web.Mvc.ActionDescriptor.ExtractParameterFromDictionary(ParameterInfo parameterInfo, IDictionary`2 parameters, MethodInfo methodInfo)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+
+Infrastructure.Logging.Logger.LogException
+[2015-02-17 12:01:44,619] [ERROR] Mysbv.Web.MvcApplication - MESSAGE
+To call this method, the "Membership.Provider" property must be an instance of "ExtendedMembershipProvider".
+STACKTRACE
+   at WebMatrix.WebData.WebSecurity.VerifyProvider()
+   at WebMatrix.WebData.WebSecurity.GetUserId(String userName)
+   at Infrastructure.Security.Security.GetUserId(String userName) in c:\TFS\MySBVMain\Dev\MySbv\src\Infrastructure\Infrastructure.Security\Security.cs:line 344
+   at Application.Modules.UserAccountValidation.UserAccountValidation.LoggedOnUser(String username) in c:\TFS\MySBVMain\Dev\MySbv\src\Application\Application.Modules.Account\UserAccountValidation.cs:line 327
+   at Mysbv.Web.Controllers.BaseController.OnActionExecuted(ActionExecutedContext filterContext) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 83
+   at System.Web.Mvc.Controller.System.Web.Mvc.IActionFilter.OnActionExecuted(ActionExecutedContext filterContext)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INNER EXCEPTION   at WebMatrix.WebData.WebSecurity.VerifyProvider()
+   at WebMatrix.WebData.WebSecurity.GetUserId(String userName)
+   at Infrastructure.Security.Security.GetUserId(String userName) in c:\TFS\MySBVMain\Dev\MySbv\src\Infrastructure\Infrastructure.Security\Security.cs:line 344
+   at Application.Modules.UserAccountValidation.UserAccountValidation.LoggedOnUser(String username) in c:\TFS\MySBVMain\Dev\MySbv\src\Application\Application.Modules.Account\UserAccountValidation.cs:line 327
+   at Mysbv.Web.Controllers.BaseController.OnActionExecuted(ActionExecutedContext filterContext) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 83
+   at System.Web.Mvc.Controller.System.Web.Mvc.IActionFilter.OnActionExecuted(ActionExecutedContext filterContext)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult) - System.InvalidOperationException: To call this method, the "Membership.Provider" property must be an instance of "ExtendedMembershipProvider".
+   at WebMatrix.WebData.WebSecurity.VerifyProvider()
+   at WebMatrix.WebData.WebSecurity.GetUserId(String userName)
+   at Infrastructure.Security.Security.GetUserId(String userName) in c:\TFS\MySBVMain\Dev\MySbv\src\Infrastructure\Infrastructure.Security\Security.cs:line 344
+   at Application.Modules.UserAccountValidation.UserAccountValidation.LoggedOnUser(String username) in c:\TFS\MySBVMain\Dev\MySbv\src\Application\Application.Modules.Account\UserAccountValidation.cs:line 327
+   at Mysbv.Web.Controllers.BaseController.OnActionExecuted(ActionExecutedContext filterContext) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 83
+   at System.Web.Mvc.Controller.System.Web.Mvc.IActionFilter.OnActionExecuted(ActionExecutedContext filterContext)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+
+Infrastructure.Logging.Logger.LogException
+[2015-02-17 12:02:16,059] [ERROR] Mysbv.Web.MvcApplication - MESSAGE
+To call this method, the "Membership.Provider" property must be an instance of "ExtendedMembershipProvider".
+STACKTRACE
+   at WebMatrix.WebData.WebSecurity.VerifyProvider()
+   at WebMatrix.WebData.WebSecurity.GetUserId(String userName)
+   at Infrastructure.Security.Security.GetUserId(String userName) in c:\TFS\MySBVMain\Dev\MySbv\src\Infrastructure\Infrastructure.Security\Security.cs:line 344
+   at Application.Modules.UserAccountValidation.UserAccountValidation.LoggedOnUser(String username) in c:\TFS\MySBVMain\Dev\MySbv\src\Application\Application.Modules.Account\UserAccountValidation.cs:line 327
+   at Mysbv.Web.Controllers.BaseController.OnActionExecuted(ActionExecutedContext filterContext) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 83
+   at System.Web.Mvc.Controller.System.Web.Mvc.IActionFilter.OnActionExecuted(ActionExecutedContext filterContext)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INNER EXCEPTION   at WebMatrix.WebData.WebSecurity.VerifyProvider()
+   at WebMatrix.WebData.WebSecurity.GetUserId(String userName)
+   at Infrastructure.Security.Security.GetUserId(String userName) in c:\TFS\MySBVMain\Dev\MySbv\src\Infrastructure\Infrastructure.Security\Security.cs:line 344
+   at Application.Modules.UserAccountValidation.UserAccountValidation.LoggedOnUser(String username) in c:\TFS\MySBVMain\Dev\MySbv\src\Application\Application.Modules.Account\UserAccountValidation.cs:line 327
+   at Mysbv.Web.Controllers.BaseController.OnActionExecuted(ActionExecutedContext filterContext) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 83
+   at System.Web.Mvc.Controller.System.Web.Mvc.IActionFilter.OnActionExecuted(ActionExecutedContext filterContext)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult) - System.InvalidOperationException: To call this method, the "Membership.Provider" property must be an instance of "ExtendedMembershipProvider".
+   at WebMatrix.WebData.WebSecurity.VerifyProvider()
+   at WebMatrix.WebData.WebSecurity.GetUserId(String userName)
+   at Infrastructure.Security.Security.GetUserId(String userName) in c:\TFS\MySBVMain\Dev\MySbv\src\Infrastructure\Infrastructure.Security\Security.cs:line 344
+   at Application.Modules.UserAccountValidation.UserAccountValidation.LoggedOnUser(String username) in c:\TFS\MySBVMain\Dev\MySbv\src\Application\Application.Modules.Account\UserAccountValidation.cs:line 327
+   at Mysbv.Web.Controllers.BaseController.OnActionExecuted(ActionExecutedContext filterContext) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 83
+   at System.Web.Mvc.Controller.System.Web.Mvc.IActionFilter.OnActionExecuted(ActionExecutedContext filterContext)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+
+Infrastructure.Logging.Logger.LogException
+[2015-02-17 13:53:03,882] [ERROR] Mysbv.Web.MvcApplication - MESSAGE
+To call this method, the "Membership.Provider" property must be an instance of "ExtendedMembershipProvider".
+STACKTRACE
+   at WebMatrix.WebData.WebSecurity.VerifyProvider()
+   at WebMatrix.WebData.WebSecurity.GetUserId(String userName)
+   at Infrastructure.Security.Security.GetUserId(String userName) in c:\TFS\MySBVMain\Dev\MySbv\src\Infrastructure\Infrastructure.Security\Security.cs:line 344
+   at Application.Modules.UserAccountValidation.UserAccountValidation.LoggedOnUser(String username) in c:\TFS\MySBVMain\Dev\MySbv\src\Application\Application.Modules.Account\UserAccountValidation.cs:line 327
+   at Mysbv.Web.Controllers.BaseController.OnActionExecuted(ActionExecutedContext filterContext) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 83
+   at System.Web.Mvc.Controller.System.Web.Mvc.IActionFilter.OnActionExecuted(ActionExecutedContext filterContext)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INNER EXCEPTION   at WebMatrix.WebData.WebSecurity.VerifyProvider()
+   at WebMatrix.WebData.WebSecurity.GetUserId(String userName)
+   at Infrastructure.Security.Security.GetUserId(String userName) in c:\TFS\MySBVMain\Dev\MySbv\src\Infrastructure\Infrastructure.Security\Security.cs:line 344
+   at Application.Modules.UserAccountValidation.UserAccountValidation.LoggedOnUser(String username) in c:\TFS\MySBVMain\Dev\MySbv\src\Application\Application.Modules.Account\UserAccountValidation.cs:line 327
+   at Mysbv.Web.Controllers.BaseController.OnActionExecuted(ActionExecutedContext filterContext) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 83
+   at System.Web.Mvc.Controller.System.Web.Mvc.IActionFilter.OnActionExecuted(ActionExecutedContext filterContext)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult) - System.InvalidOperationException: To call this method, the "Membership.Provider" property must be an instance of "ExtendedMembershipProvider".
+   at WebMatrix.WebData.WebSecurity.VerifyProvider()
+   at WebMatrix.WebData.WebSecurity.GetUserId(String userName)
+   at Infrastructure.Security.Security.GetUserId(String userName) in c:\TFS\MySBVMain\Dev\MySbv\src\Infrastructure\Infrastructure.Security\Security.cs:line 344
+   at Application.Modules.UserAccountValidation.UserAccountValidation.LoggedOnUser(String username) in c:\TFS\MySBVMain\Dev\MySbv\src\Application\Application.Modules.Account\UserAccountValidation.cs:line 327
+   at Mysbv.Web.Controllers.BaseController.OnActionExecuted(ActionExecutedContext filterContext) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 83
+   at System.Web.Mvc.Controller.System.Web.Mvc.IActionFilter.OnActionExecuted(ActionExecutedContext filterContext)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+
+Infrastructure.Logging.Logger.LogException
+[2015-02-17 13:55:27,479] [ERROR] Mysbv.Web.MvcApplication - MESSAGE
+To call this method, the "Membership.Provider" property must be an instance of "ExtendedMembershipProvider".
+STACKTRACE
+   at WebMatrix.WebData.WebSecurity.VerifyProvider()
+   at WebMatrix.WebData.WebSecurity.GetUserId(String userName)
+   at Infrastructure.Security.Security.GetUserId(String userName) in c:\TFS\MySBVMain\Dev\MySbv\src\Infrastructure\Infrastructure.Security\Security.cs:line 344
+   at Application.Modules.UserAccountValidation.UserAccountValidation.LoggedOnUser(String username) in c:\TFS\MySBVMain\Dev\MySbv\src\Application\Application.Modules.Account\UserAccountValidation.cs:line 327
+   at Mysbv.Web.Controllers.BaseController.OnActionExecuted(ActionExecutedContext filterContext) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 83
+   at System.Web.Mvc.Controller.System.Web.Mvc.IActionFilter.OnActionExecuted(ActionExecutedContext filterContext)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INNER EXCEPTION   at WebMatrix.WebData.WebSecurity.VerifyProvider()
+   at WebMatrix.WebData.WebSecurity.GetUserId(String userName)
+   at Infrastructure.Security.Security.GetUserId(String userName) in c:\TFS\MySBVMain\Dev\MySbv\src\Infrastructure\Infrastructure.Security\Security.cs:line 344
+   at Application.Modules.UserAccountValidation.UserAccountValidation.LoggedOnUser(String username) in c:\TFS\MySBVMain\Dev\MySbv\src\Application\Application.Modules.Account\UserAccountValidation.cs:line 327
+   at Mysbv.Web.Controllers.BaseController.OnActionExecuted(ActionExecutedContext filterContext) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 83
+   at System.Web.Mvc.Controller.System.Web.Mvc.IActionFilter.OnActionExecuted(ActionExecutedContext filterContext)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult) - System.InvalidOperationException: To call this method, the "Membership.Provider" property must be an instance of "ExtendedMembershipProvider".
+   at WebMatrix.WebData.WebSecurity.VerifyProvider()
+   at WebMatrix.WebData.WebSecurity.GetUserId(String userName)
+   at Infrastructure.Security.Security.GetUserId(String userName) in c:\TFS\MySBVMain\Dev\MySbv\src\Infrastructure\Infrastructure.Security\Security.cs:line 344
+   at Application.Modules.UserAccountValidation.UserAccountValidation.LoggedOnUser(String username) in c:\TFS\MySBVMain\Dev\MySbv\src\Application\Application.Modules.Account\UserAccountValidation.cs:line 327
+   at Mysbv.Web.Controllers.BaseController.OnActionExecuted(ActionExecutedContext filterContext) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 83
+   at System.Web.Mvc.Controller.System.Web.Mvc.IActionFilter.OnActionExecuted(ActionExecutedContext filterContext)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+
+Infrastructure.Logging.Logger.LogException
+[2015-02-17 14:20:38,278] [ERROR] Mysbv.Web.MvcApplication - MESSAGE
+To call this method, the "Membership.Provider" property must be an instance of "ExtendedMembershipProvider".
+STACKTRACE
+   at WebMatrix.WebData.WebSecurity.VerifyProvider()
+   at WebMatrix.WebData.WebSecurity.GetUserId(String userName)
+   at Infrastructure.Security.Security.GetUserId(String userName) in c:\TFS\MySBVMain\Dev\MySbv\src\Infrastructure\Infrastructure.Security\Security.cs:line 344
+   at Application.Modules.UserAccountValidation.UserAccountValidation.LoggedOnUser(String username) in c:\TFS\MySBVMain\Dev\MySbv\src\Application\Application.Modules.Account\UserAccountValidation.cs:line 327
+   at Mysbv.Web.Controllers.BaseController.OnActionExecuted(ActionExecutedContext filterContext) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 83
+   at System.Web.Mvc.Controller.System.Web.Mvc.IActionFilter.OnActionExecuted(ActionExecutedContext filterContext)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INNER EXCEPTION   at WebMatrix.WebData.WebSecurity.VerifyProvider()
+   at WebMatrix.WebData.WebSecurity.GetUserId(String userName)
+   at Infrastructure.Security.Security.GetUserId(String userName) in c:\TFS\MySBVMain\Dev\MySbv\src\Infrastructure\Infrastructure.Security\Security.cs:line 344
+   at Application.Modules.UserAccountValidation.UserAccountValidation.LoggedOnUser(String username) in c:\TFS\MySBVMain\Dev\MySbv\src\Application\Application.Modules.Account\UserAccountValidation.cs:line 327
+   at Mysbv.Web.Controllers.BaseController.OnActionExecuted(ActionExecutedContext filterContext) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 83
+   at System.Web.Mvc.Controller.System.Web.Mvc.IActionFilter.OnActionExecuted(ActionExecutedContext filterContext)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult) - System.InvalidOperationException: To call this method, the "Membership.Provider" property must be an instance of "ExtendedMembershipProvider".
+   at WebMatrix.WebData.WebSecurity.VerifyProvider()
+   at WebMatrix.WebData.WebSecurity.GetUserId(String userName)
+   at Infrastructure.Security.Security.GetUserId(String userName) in c:\TFS\MySBVMain\Dev\MySbv\src\Infrastructure\Infrastructure.Security\Security.cs:line 344
+   at Application.Modules.UserAccountValidation.UserAccountValidation.LoggedOnUser(String username) in c:\TFS\MySBVMain\Dev\MySbv\src\Application\Application.Modules.Account\UserAccountValidation.cs:line 327
+   at Mysbv.Web.Controllers.BaseController.OnActionExecuted(ActionExecutedContext filterContext) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 83
+   at System.Web.Mvc.Controller.System.Web.Mvc.IActionFilter.OnActionExecuted(ActionExecutedContext filterContext)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+
+Infrastructure.Logging.Logger.LogException
+[2015-02-17 14:50:09,082] [ERROR] Mysbv.Web.MvcApplication - MESSAGE
+To call this method, the "Membership.Provider" property must be an instance of "ExtendedMembershipProvider".
+STACKTRACE
+   at WebMatrix.WebData.WebSecurity.VerifyProvider()
+   at WebMatrix.WebData.WebSecurity.GetUserId(String userName)
+   at Infrastructure.Security.Security.GetUserId(String userName) in c:\TFS\MySBVMain\Dev\MySbv\src\Infrastructure\Infrastructure.Security\Security.cs:line 344
+   at Application.Modules.UserAccountValidation.UserAccountValidation.LoggedOnUser(String username) in c:\TFS\MySBVMain\Dev\MySbv\src\Application\Application.Modules.Account\UserAccountValidation.cs:line 327
+   at Mysbv.Web.Controllers.BaseController.OnActionExecuted(ActionExecutedContext filterContext) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 83
+   at System.Web.Mvc.Controller.System.Web.Mvc.IActionFilter.OnActionExecuted(ActionExecutedContext filterContext)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INNER EXCEPTION   at WebMatrix.WebData.WebSecurity.VerifyProvider()
+   at WebMatrix.WebData.WebSecurity.GetUserId(String userName)
+   at Infrastructure.Security.Security.GetUserId(String userName) in c:\TFS\MySBVMain\Dev\MySbv\src\Infrastructure\Infrastructure.Security\Security.cs:line 344
+   at Application.Modules.UserAccountValidation.UserAccountValidation.LoggedOnUser(String username) in c:\TFS\MySBVMain\Dev\MySbv\src\Application\Application.Modules.Account\UserAccountValidation.cs:line 327
+   at Mysbv.Web.Controllers.BaseController.OnActionExecuted(ActionExecutedContext filterContext) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 83
+   at System.Web.Mvc.Controller.System.Web.Mvc.IActionFilter.OnActionExecuted(ActionExecutedContext filterContext)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult) - System.InvalidOperationException: To call this method, the "Membership.Provider" property must be an instance of "ExtendedMembershipProvider".
+   at WebMatrix.WebData.WebSecurity.VerifyProvider()
+   at WebMatrix.WebData.WebSecurity.GetUserId(String userName)
+   at Infrastructure.Security.Security.GetUserId(String userName) in c:\TFS\MySBVMain\Dev\MySbv\src\Infrastructure\Infrastructure.Security\Security.cs:line 344
+   at Application.Modules.UserAccountValidation.UserAccountValidation.LoggedOnUser(String username) in c:\TFS\MySBVMain\Dev\MySbv\src\Application\Application.Modules.Account\UserAccountValidation.cs:line 327
+   at Mysbv.Web.Controllers.BaseController.OnActionExecuted(ActionExecutedContext filterContext) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 83
+   at System.Web.Mvc.Controller.System.Web.Mvc.IActionFilter.OnActionExecuted(ActionExecutedContext filterContext)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+
+Infrastructure.Logging.Logger.LogException
+[2015-02-17 15:34:09,834] [ERROR] Mysbv.Web.MvcApplication - MESSAGE
+To call this method, the "Membership.Provider" property must be an instance of "ExtendedMembershipProvider".
+STACKTRACE
+   at WebMatrix.WebData.WebSecurity.VerifyProvider()
+   at WebMatrix.WebData.WebSecurity.GetUserId(String userName)
+   at Infrastructure.Security.Security.GetUserId(String userName) in c:\TFS\MySBVMain\Dev\MySbv\src\Infrastructure\Infrastructure.Security\Security.cs:line 344
+   at Application.Modules.UserAccountValidation.UserAccountValidation.LoggedOnUser(String username) in c:\TFS\MySBVMain\Dev\MySbv\src\Application\Application.Modules.Account\UserAccountValidation.cs:line 327
+   at Mysbv.Web.Controllers.BaseController.OnActionExecuted(ActionExecutedContext filterContext) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 83
+   at System.Web.Mvc.Controller.System.Web.Mvc.IActionFilter.OnActionExecuted(ActionExecutedContext filterContext)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INNER EXCEPTION   at WebMatrix.WebData.WebSecurity.VerifyProvider()
+   at WebMatrix.WebData.WebSecurity.GetUserId(String userName)
+   at Infrastructure.Security.Security.GetUserId(String userName) in c:\TFS\MySBVMain\Dev\MySbv\src\Infrastructure\Infrastructure.Security\Security.cs:line 344
+   at Application.Modules.UserAccountValidation.UserAccountValidation.LoggedOnUser(String username) in c:\TFS\MySBVMain\Dev\MySbv\src\Application\Application.Modules.Account\UserAccountValidation.cs:line 327
+   at Mysbv.Web.Controllers.BaseController.OnActionExecuted(ActionExecutedContext filterContext) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 83
+   at System.Web.Mvc.Controller.System.Web.Mvc.IActionFilter.OnActionExecuted(ActionExecutedContext filterContext)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult) - System.InvalidOperationException: To call this method, the "Membership.Provider" property must be an instance of "ExtendedMembershipProvider".
+   at WebMatrix.WebData.WebSecurity.VerifyProvider()
+   at WebMatrix.WebData.WebSecurity.GetUserId(String userName)
+   at Infrastructure.Security.Security.GetUserId(String userName) in c:\TFS\MySBVMain\Dev\MySbv\src\Infrastructure\Infrastructure.Security\Security.cs:line 344
+   at Application.Modules.UserAccountValidation.UserAccountValidation.LoggedOnUser(String username) in c:\TFS\MySBVMain\Dev\MySbv\src\Application\Application.Modules.Account\UserAccountValidation.cs:line 327
+   at Mysbv.Web.Controllers.BaseController.OnActionExecuted(ActionExecutedContext filterContext) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 83
+   at System.Web.Mvc.Controller.System.Web.Mvc.IActionFilter.OnActionExecuted(ActionExecutedContext filterContext)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+
+Infrastructure.Logging.Logger.LogException
+[2015-02-17 15:36:53,149] [ERROR] Mysbv.Web.MvcApplication - MESSAGE
+To call this method, the "Membership.Provider" property must be an instance of "ExtendedMembershipProvider".
+STACKTRACE
+   at WebMatrix.WebData.WebSecurity.VerifyProvider()
+   at WebMatrix.WebData.WebSecurity.GetUserId(String userName)
+   at Infrastructure.Security.Security.GetUserId(String userName) in c:\TFS\MySBVMain\Dev\MySbv\src\Infrastructure\Infrastructure.Security\Security.cs:line 344
+   at Application.Modules.UserAccountValidation.UserAccountValidation.LoggedOnUser(String username) in c:\TFS\MySBVMain\Dev\MySbv\src\Application\Application.Modules.Account\UserAccountValidation.cs:line 327
+   at Mysbv.Web.Controllers.BaseController.OnActionExecuted(ActionExecutedContext filterContext) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 83
+   at System.Web.Mvc.Controller.System.Web.Mvc.IActionFilter.OnActionExecuted(ActionExecutedContext filterContext)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INNER EXCEPTION   at WebMatrix.WebData.WebSecurity.VerifyProvider()
+   at WebMatrix.WebData.WebSecurity.GetUserId(String userName)
+   at Infrastructure.Security.Security.GetUserId(String userName) in c:\TFS\MySBVMain\Dev\MySbv\src\Infrastructure\Infrastructure.Security\Security.cs:line 344
+   at Application.Modules.UserAccountValidation.UserAccountValidation.LoggedOnUser(String username) in c:\TFS\MySBVMain\Dev\MySbv\src\Application\Application.Modules.Account\UserAccountValidation.cs:line 327
+   at Mysbv.Web.Controllers.BaseController.OnActionExecuted(ActionExecutedContext filterContext) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 83
+   at System.Web.Mvc.Controller.System.Web.Mvc.IActionFilter.OnActionExecuted(ActionExecutedContext filterContext)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult) - System.InvalidOperationException: To call this method, the "Membership.Provider" property must be an instance of "ExtendedMembershipProvider".
+   at WebMatrix.WebData.WebSecurity.VerifyProvider()
+   at WebMatrix.WebData.WebSecurity.GetUserId(String userName)
+   at Infrastructure.Security.Security.GetUserId(String userName) in c:\TFS\MySBVMain\Dev\MySbv\src\Infrastructure\Infrastructure.Security\Security.cs:line 344
+   at Application.Modules.UserAccountValidation.UserAccountValidation.LoggedOnUser(String username) in c:\TFS\MySBVMain\Dev\MySbv\src\Application\Application.Modules.Account\UserAccountValidation.cs:line 327
+   at Mysbv.Web.Controllers.BaseController.OnActionExecuted(ActionExecutedContext filterContext) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 83
+   at System.Web.Mvc.Controller.System.Web.Mvc.IActionFilter.OnActionExecuted(ActionExecutedContext filterContext)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+
+Infrastructure.Logging.Logger.LogException
+[2015-02-17 15:46:39,260] [ERROR] Mysbv.Web.MvcApplication - MESSAGE
+To call this method, the "Membership.Provider" property must be an instance of "ExtendedMembershipProvider".
+STACKTRACE
+   at WebMatrix.WebData.WebSecurity.VerifyProvider()
+   at WebMatrix.WebData.WebSecurity.GetUserId(String userName)
+   at Infrastructure.Security.Security.GetUserId(String userName) in c:\TFS\MySBVMain\Dev\MySbv\src\Infrastructure\Infrastructure.Security\Security.cs:line 344
+   at Application.Modules.UserAccountValidation.UserAccountValidation.LoggedOnUser(String username) in c:\TFS\MySBVMain\Dev\MySbv\src\Application\Application.Modules.Account\UserAccountValidation.cs:line 327
+   at Mysbv.Web.Controllers.BaseController.OnActionExecuted(ActionExecutedContext filterContext) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 83
+   at System.Web.Mvc.Controller.System.Web.Mvc.IActionFilter.OnActionExecuted(ActionExecutedContext filterContext)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INNER EXCEPTION   at WebMatrix.WebData.WebSecurity.VerifyProvider()
+   at WebMatrix.WebData.WebSecurity.GetUserId(String userName)
+   at Infrastructure.Security.Security.GetUserId(String userName) in c:\TFS\MySBVMain\Dev\MySbv\src\Infrastructure\Infrastructure.Security\Security.cs:line 344
+   at Application.Modules.UserAccountValidation.UserAccountValidation.LoggedOnUser(String username) in c:\TFS\MySBVMain\Dev\MySbv\src\Application\Application.Modules.Account\UserAccountValidation.cs:line 327
+   at Mysbv.Web.Controllers.BaseController.OnActionExecuted(ActionExecutedContext filterContext) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 83
+   at System.Web.Mvc.Controller.System.Web.Mvc.IActionFilter.OnActionExecuted(ActionExecutedContext filterContext)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult) - System.InvalidOperationException: To call this method, the "Membership.Provider" property must be an instance of "ExtendedMembershipProvider".
+   at WebMatrix.WebData.WebSecurity.VerifyProvider()
+   at WebMatrix.WebData.WebSecurity.GetUserId(String userName)
+   at Infrastructure.Security.Security.GetUserId(String userName) in c:\TFS\MySBVMain\Dev\MySbv\src\Infrastructure\Infrastructure.Security\Security.cs:line 344
+   at Application.Modules.UserAccountValidation.UserAccountValidation.LoggedOnUser(String username) in c:\TFS\MySBVMain\Dev\MySbv\src\Application\Application.Modules.Account\UserAccountValidation.cs:line 327
+   at Mysbv.Web.Controllers.BaseController.OnActionExecuted(ActionExecutedContext filterContext) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 83
+   at System.Web.Mvc.Controller.System.Web.Mvc.IActionFilter.OnActionExecuted(ActionExecutedContext filterContext)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+
+Infrastructure.Logging.Logger.LogException
+[2015-02-17 15:56:31,748] [ERROR] Mysbv.Web.MvcApplication - MESSAGE
+You do not have the required role(s) 'RetailUser, SBVTeller, SBVAdmin'
+STACKTRACE
+   at Mysbv.Web.CustomAttributes.CustomAuthorizeAttribute.HandleUnauthorizedRequest(AuthorizationContext filterContext) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\CustomAttributes\CustomAuthorizeAttribute.cs:line 14
+   at System.Web.Mvc.AuthorizeAttribute.OnAuthorization(AuthorizationContext filterContext)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAuthorizationFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__19(AsyncCallback asyncCallback, Object asyncState)
+INNER EXCEPTION   at Mysbv.Web.CustomAttributes.CustomAuthorizeAttribute.HandleUnauthorizedRequest(AuthorizationContext filterContext) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\CustomAttributes\CustomAuthorizeAttribute.cs:line 14
+   at System.Web.Mvc.AuthorizeAttribute.OnAuthorization(AuthorizationContext filterContext)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAuthorizationFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__19(AsyncCallback asyncCallback, Object asyncState) - Mysbv.Web.CustomAttributes.NotauthorizedHttpException (0x80004005): You do not have the required role(s) 'RetailUser, SBVTeller, SBVAdmin'
+   at Mysbv.Web.CustomAttributes.CustomAuthorizeAttribute.HandleUnauthorizedRequest(AuthorizationContext filterContext) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\CustomAttributes\CustomAuthorizeAttribute.cs:line 14
+   at System.Web.Mvc.AuthorizeAttribute.OnAuthorization(AuthorizationContext filterContext)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAuthorizationFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__19(AsyncCallback asyncCallback, Object asyncState)
+
+Infrastructure.Logging.Logger.LogException
+[2015-02-17 15:59:17,658] [ERROR] Mysbv.Web.MvcApplication - MESSAGE
+The SMTP server requires a secure connection or the client was not authenticated. The server response was: 5.7.1 Client was not authenticated
+STACKTRACE
+   at System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.MailCommand.Send(SmtpConnection conn, Byte[] command, MailAddress from, Boolean allowUnicode)
+   at System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at Mysbv.Web.Controllers.BaseController.SendEmail(String recipients, MailMessage attachments, String subject, String body) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 198
+INNER EXCEPTION   at System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.MailCommand.Send(SmtpConnection conn, Byte[] command, MailAddress from, Boolean allowUnicode)
+   at System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at Mysbv.Web.Controllers.BaseController.SendEmail(String recipients, MailMessage attachments, String subject, String body) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 198 - System.Net.Mail.SmtpException: The SMTP server requires a secure connection or the client was not authenticated. The server response was: 5.7.1 Client was not authenticated
+   at System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.MailCommand.Send(SmtpConnection conn, Byte[] command, MailAddress from, Boolean allowUnicode)
+   at System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at Mysbv.Web.Controllers.BaseController.SendEmail(String recipients, MailMessage attachments, String subject, String body) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 198
+
+Infrastructure.Logging.Logger.LogException
+[2015-02-17 16:05:44,574] [ERROR] Mysbv.Web.MvcApplication - MESSAGE
+The SMTP server requires a secure connection or the client was not authenticated. The server response was: 5.7.1 Client was not authenticated
+STACKTRACE
+   at System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.MailCommand.Send(SmtpConnection conn, Byte[] command, MailAddress from, Boolean allowUnicode)
+   at System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at Mysbv.Web.Controllers.BaseController.SendMoreEmails(List`1 recipients, MailMessage attachments, String subject, String body) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 244
+INNER EXCEPTION   at System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.MailCommand.Send(SmtpConnection conn, Byte[] command, MailAddress from, Boolean allowUnicode)
+   at System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at Mysbv.Web.Controllers.BaseController.SendMoreEmails(List`1 recipients, MailMessage attachments, String subject, String body) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 244 - System.Net.Mail.SmtpException: The SMTP server requires a secure connection or the client was not authenticated. The server response was: 5.7.1 Client was not authenticated
+   at System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.MailCommand.Send(SmtpConnection conn, Byte[] command, MailAddress from, Boolean allowUnicode)
+   at System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at Mysbv.Web.Controllers.BaseController.SendMoreEmails(List`1 recipients, MailMessage attachments, String subject, String body) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 244
+
+Infrastructure.Logging.Logger.LogException
+[2015-02-17 16:37:04,054] [ERROR] Mysbv.Web.MvcApplication - MESSAGE
+The SMTP server requires a secure connection or the client was not authenticated. The server response was: 5.7.1 Client was not authenticated
+STACKTRACE
+   at System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.MailCommand.Send(SmtpConnection conn, Byte[] command, MailAddress from, Boolean allowUnicode)
+   at System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at Mysbv.Web.Controllers.BaseController.SendMoreEmails(List`1 recipients, MailMessage attachments, String subject, String body) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 244
+INNER EXCEPTION   at System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.MailCommand.Send(SmtpConnection conn, Byte[] command, MailAddress from, Boolean allowUnicode)
+   at System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at Mysbv.Web.Controllers.BaseController.SendMoreEmails(List`1 recipients, MailMessage attachments, String subject, String body) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 244 - System.Net.Mail.SmtpException: The SMTP server requires a secure connection or the client was not authenticated. The server response was: 5.7.1 Client was not authenticated
+   at System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.MailCommand.Send(SmtpConnection conn, Byte[] command, MailAddress from, Boolean allowUnicode)
+   at System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at Mysbv.Web.Controllers.BaseController.SendMoreEmails(List`1 recipients, MailMessage attachments, String subject, String body) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 244
+
+Infrastructure.Logging.Logger.LogException
+[2015-02-17 16:40:11,373] [ERROR] Mysbv.Web.MvcApplication - MESSAGE
+An error has occurred during report processing. (rsProcessingAborted)
+STACKTRACE
+   at Microsoft.Reporting.WebForms.SoapReportExecutionService.ServerReportSoapProxy.OnSoapException(SoapException e)
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.ProxyMethodInvocation.Execute[TReturn](RSExecutionConnection connection, ProxyMethod`1 initialMethod, ProxyMethod`1 retryMethod)
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.Render(String Format, String DeviceInfo, PageCountMode PaginationMode, String& Extension, String& MimeType, String& Encoding, Warning[]& Warnings, String[]& StreamIds)
+   at Microsoft.Reporting.WebForms.SoapReportExecutionService.Render(String format, String deviceInfo, PageCountMode paginationMode, String& extension, String& mimeType, String& encoding, Warning[]& warnings, String[]& streamIds)
+   at Microsoft.Reporting.WebForms.ServerReport.Render(String format, String deviceInfo, PageCountMode pageCountMode, String& mimeType, String& encoding, String& fileNameExtension, String[]& streams, Warning[]& warnings)
+   at Microsoft.Reporting.WebForms.Report.Render(String format, String deviceInfo, String& mimeType, String& encoding, String& fileNameExtension, String[]& streams, Warning[]& warnings)
+   at Microsoft.Reporting.WebForms.Report.Render(String format, String deviceInfo)
+   at Microsoft.Reporting.WebForms.Report.Render(String format)
+   at Mysbv.Web.Controllers.BaseController.GenerateReport(String reportPath, Dictionary`2 parameters, String format) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 140
+   at Mysbv.Web.Controllers.CashProcessingController.PdfGeneration(Int32 cashDepositid, String reportPath) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\CashProcessingController.cs:line 334
+   at Mysbv.Web.Controllers.CashProcessingController.CreateMailMessage(CashProcessingDto cashDeposit, User user) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\CashProcessingController.cs:line 285
+   at Mysbv.Web.Controllers.CashProcessingController.MailProcessingResults(List`1 emailAddresses, CashProcessingDto processingDto, User user) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\CashProcessingController.cs:line 345
+   at Mysbv.Web.Controllers.CashProcessingController.Process(CashProcessingDto cashDepositDto) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\CashProcessingController.cs:line 155
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+INNER EXCEPTIONMicrosoft.Reporting.WebForms.ReportServerException: Query execution failed for dataset 'VarianceDropDetails'. (rsErrorExecutingCommand) ---> Microsoft.Reporting.WebForms.ReportServerException: For more information about this error navigate to the report server on the local server machine, or enable remote errors
+   --- End of inner exception stack trace --- - Microsoft.Reporting.WebForms.ReportServerException: An error has occurred during report processing. (rsProcessingAborted) ---> Microsoft.Reporting.WebForms.ReportServerException: Query execution failed for dataset 'VarianceDropDetails'. (rsErrorExecutingCommand) ---> Microsoft.Reporting.WebForms.ReportServerException: For more information about this error navigate to the report server on the local server machine, or enable remote errors
+   --- End of inner exception stack trace ---
+   --- End of inner exception stack trace ---
+   at Microsoft.Reporting.WebForms.SoapReportExecutionService.ServerReportSoapProxy.OnSoapException(SoapException e)
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.ProxyMethodInvocation.Execute[TReturn](RSExecutionConnection connection, ProxyMethod`1 initialMethod, ProxyMethod`1 retryMethod)
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.Render(String Format, String DeviceInfo, PageCountMode PaginationMode, String& Extension, String& MimeType, String& Encoding, Warning[]& Warnings, String[]& StreamIds)
+   at Microsoft.Reporting.WebForms.SoapReportExecutionService.Render(String format, String deviceInfo, PageCountMode paginationMode, String& extension, String& mimeType, String& encoding, Warning[]& warnings, String[]& streamIds)
+   at Microsoft.Reporting.WebForms.ServerReport.Render(String format, String deviceInfo, PageCountMode pageCountMode, String& mimeType, String& encoding, String& fileNameExtension, String[]& streams, Warning[]& warnings)
+   at Microsoft.Reporting.WebForms.Report.Render(String format, String deviceInfo, String& mimeType, String& encoding, String& fileNameExtension, String[]& streams, Warning[]& warnings)
+   at Microsoft.Reporting.WebForms.Report.Render(String format, String deviceInfo)
+   at Microsoft.Reporting.WebForms.Report.Render(String format)
+   at Mysbv.Web.Controllers.BaseController.GenerateReport(String reportPath, Dictionary`2 parameters, String format) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\BaseController.cs:line 140
+   at Mysbv.Web.Controllers.CashProcessingController.PdfGeneration(Int32 cashDepositid, String reportPath) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\CashProcessingController.cs:line 334
+   at Mysbv.Web.Controllers.CashProcessingController.CreateMailMessage(CashProcessingDto cashDeposit, User user) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\CashProcessingController.cs:line 285
+   at Mysbv.Web.Controllers.CashProcessingController.MailProcessingResults(List`1 emailAddresses, CashProcessingDto processingDto, User user) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\CashProcessingController.cs:line 345
+   at Mysbv.Web.Controllers.CashProcessingController.Process(CashProcessingDto cashDepositDto) in c:\TFS\MySBVMain\Dev\MySbv\src\Presentation\Mysbv.Web\Controllers\CashProcessingController.cs:line 155
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+
+Infrastructure.Logging.Logger.LogException
